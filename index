@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<link href="style.css" rel="stylesheet" />
+		<link href="style2.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/jquery-1.2.6.min.js"></script>
+		<script type="text/javascript" src="js/a.js"></script>
+	</head>
+	<div class="forbg">
+	<div class="nav">
+		<ul class="menu">
+			<li class="logo"><a href="/"> SYFC</a></li>
+			<li><a href="/"> Home</a></li>
+			<li><a href="/"> Picture</a></li>
+		</ul>
+	</div>
+	<div class="mysearch">
+	<form id="navsch" action="/search/">
+	<input name="kw" type="text" placeholder="搜索" autocomplete="off" />
+	<button type="submit"></button>
+	</form>
+	</div>
+	</div>
+	<div class="forld"></div>
+	<div class="slide">
+		<div class="image-left">
+		<div class="display-image opClass" style="background-image: url(images/cat.png)" ></div>
+		<div class="display-image opClass" style="background-image: url(images/cat2.png)" ></div>
+		<div class="display-image opClass" style="background-image: url(images/cat3.png)" ></div>
+		</div>
+		<div class="image-right">
+			<div class="small-image" style="background-image: url(images/cat.png)" ></div>
+			<div class="small-image" style="background-image: url(images/cat2.png)" ></div>
+			<div class="small-image" style="background-image: url(images/cat3.png)" ></div>
+		</div>
+	</div>
+	<div class="login">
+		<form method="POST" action="/login/?next=/home/" >
+			<div class="username">
+			<label id = "labelusername"></label>
+			<input type="text" id="pgusrnme" name="login_name" placeholder="用户名/邮箱" />
+			</div>
+			<div class="password">
+			<label id = "labelpassword"></label>
+			<input type="password" id="pgpswd" name="pswd" placeholder="密码" />
+			</div>
+			<div class="submit">
+				<button id="loginbtn" type="submit">
+					<u>登录</u>
+				</button>
+			</div>
+		</form>
+	</div>
+</html>
