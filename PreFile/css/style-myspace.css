@@ -106,14 +106,64 @@
 
 #contentLeft{
 	position: relative;
-	width: 140px;
-	margin: 10px 0 0 0;
+	width: 190px;
+	height: 800px;
+	margin: 10px 10px 0 0;
 	padding: 0;
-	border: none;
+	border: 1px black solid;
 	float: left;
 }
 
-.browserlv1 .browsertop{
+#myInfo{
+	position: relative;
+	width: 160px;
+	height: 200px;
+	margin: 0;
+	padding: 0 10px;
+	border: none;
+}
+
+#filter{
+	position: relative;
+	width: 160px;
+	margin: 0;
+	padding: 10px;
+	border: none;
+}
+
+
+
+
+#contentCenter{
+	position: relative;
+	width: 600px;
+	height: 800px;
+	margin: 10px 0 0 0;
+	padding: 0;
+	border: 1px green solid;
+	float: left;
+}
+
+#poster{
+	position: relative;
+	width: 580px;
+	height: 200px;
+	margin: 0;
+	padding: 0 10px;
+	border: none;
+}
+
+#posts{
+	position: relative;
+	width: 580px;
+	margin: 0;
+	padding: 10px;
+	border: none;
+}
+
+
+
+/*.browserlv1 .browsertop{
 	position: relative;
 	background-color: #f5f5f1;
 	-webkit-border-radius: 5px;
@@ -140,16 +190,17 @@
 	padding-top: 8px;
 	padding-left: 18px;
 }
-
+*/
 #contentRight{
 	position: relative;
-	width: 840px;
+	width: 190px;
+	height: 800px;
 	margin: 10px 0 0 0;
 	padding: 0;
 	border: 1px red solid;
 	float: right;
 }
-
+/*
 #contentRight .item{
 	background-color: #fff;
 	position: relative;
@@ -160,7 +211,7 @@
 	padding: 0;
 	border: 1px solid #ececec;
 }
-
+*/
 #footer{
 	text-align: center;
 	position: relative;
