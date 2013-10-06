@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html>
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -13,7 +13,6 @@
 
    	    <link rel="stylesheet" type="text/css" href="css/style-mainpage.css">
 	</head>
-
 	<body>
 		<div id="container">
 			<!-- header块是顶部条块，放置登陆按钮等-->
@@ -21,7 +20,9 @@
 				<!-- 修改内容：这里添加了登陆按钮的预置位-->
 				<div id="logo1" class="leaderelements">OurSite</div>
 				<div id="logo2" class="leaderelements">Tencent</div>
-				<div id="logo3" class="leaderelements">Sign In</div>
+				<div id="logo3" class="leaderelements">
+					<a href="login.php">Sign In</a>
+				</div>
 				<div id="logo4" class="leaderelements">Register</div>
 				<br/>
 				<hr/>
@@ -182,3 +183,9 @@
 		</div>
 	</body>
 </html>
+<?php  
+	session_start();
+	if(isset($_SESSION['LOGIN'])){
+		echo "<h1>Successfully Login</h1>";
+	}
+?>

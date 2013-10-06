@@ -1,0 +1,22 @@
+<html>
+	<body>
+		<div class="login-box">
+			<form method="POST" action="index.html">
+			<input name="username">Username</input>
+			</br>
+			<input type="password" name="password">Password</input>
+			</br>
+			<input type="submit">
+			</form>
+		</div>
+	</body>
+</html>
+
+<?php
+	require_once('check_login.php');
+	if(isset($_POST['username']) && isset($_POST['password']))
+	{
+		$login = new LOGIN();
+		$login->check_login($_POST['username'],$_POST['password']);
+	}
+?>
