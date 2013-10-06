@@ -10,7 +10,7 @@
 			if($result = $this->mysql->query($query)){
 				if($row = $result->fetch_assoc()){
 					$_SESSION['LOGIN'] = TRUE;
-					header("Location: index.php");			
+					header("Location: index.html");			
 				}
 			}
 		}

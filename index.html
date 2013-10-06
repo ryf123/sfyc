@@ -11,7 +11,7 @@
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-   	    <link rel="stylesheet" type="text/css" href="css/style-mainpage.css">
+   	    <link rel="stylesheet" type="text/css" href="css/style-mainpage.css"/>
 	</head>
 	<body>
 		<div id="container">
@@ -61,7 +61,7 @@
 					<div id="divoption5" class="divoptions">
 						<a href="myspace.html">个人主页</a>
 					</div>
-					<input class="search-input2" placeholder="Search">
+					<input class="search-input2" placeholder="Search"/>
 				</div>
 
 			</div>
@@ -182,12 +182,12 @@
 				<br/>
 				<br/>
 			</div>
-		</div>
-	</body>
-</html>
 <?php  
 	session_start();
 	if(isset($_SESSION['LOGIN'])){
-		echo "<h1>Successfully Login</h1>";
+		echo("<h1>Successfully Login</h1>");
 	}
 ?>
+		</div>		
+	</body>
+</html>
