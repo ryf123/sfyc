@@ -23,7 +23,9 @@
 				<div id="logo3" class="leaderelements">
 					<a href="login.php">Sign In</a>
 				</div>
-				<div id="logo4" class="leaderelements">Register</div>
+				<div id="logo4" class="leaderelements">
+					<a href="Register.php">Register</a>
+				</div>
 				<br/>
 				<hr/>
 				<br/>

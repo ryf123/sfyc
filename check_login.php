@@ -10,12 +10,22 @@
 			if($result = $this->mysql->query($query)){
 				if($row = $result->fetch_assoc()){
 					$_SESSION['LOGIN'] = TRUE;
-					header("Location: login.php");			
+					header("Location: index.php");			
 				}
 			}
 		}
-		public function mysql_connection(){
-			
-		}	
+		public function register_new_account($username,$password,$email){
+			$query = "select * from ".USER_TABLE." where username='".$username."'";
+			if($result = $this->mysql->query($query)){
+				if(!($row = $result->fetch_assoc())){
+					$query = "insert into users values(DEFAULT,'".$username."','".$password."','".$email."')";
+					$this->mysql->query($query);
+					echo "Registered!";
+				}
+				else{
+					echo "Account Exists!";
+				}
+			}
+		}
 	}
 ?>
