@@ -1,5 +1,6 @@
 <?php
-	require_once("constants.php");
+	ob_start();
+	require_once("constants_local.php");
 	class LOGIN{
 		private $mysql;
 		function __construct(){
@@ -10,7 +11,11 @@
 			if($result = $this->mysql->query($query)){
 				if($row = $result->fetch_assoc()){
 					$_SESSION['LOGIN'] = TRUE;
-					header("Location: index.html");			
+					header("Location: index.html");
+					exit();			
+				}
+				else{
+					echo "Incorrect Password";
 				}
 			}
 		}
