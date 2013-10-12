@@ -1,9 +1,18 @@
+<?php  
+	session_start();
+	if(isset($_SESSION['LOGIN'])){
+		$sign_in=TRUE;	
+	}
+	else{
+		$sign_in=FALSE;
+	}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-		<title>i宠网-我的最i</title>
+		<title>新鲜事-i宠</title>
 		<meta name="description" content="" />
 		<meta name="author" content="Shi" />
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
@@ -11,8 +20,9 @@
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-   	    <link rel="stylesheet" type="text/css" href="css/style-mainpage.css"/>
+   	    <link rel="stylesheet" type="text/css" href="css/style-news.css">
 	</head>
+
 	<body>
 		<div id="container">
 			<!-- header块是顶部条块，放置登陆按钮等-->
@@ -21,11 +31,14 @@
 				<div id="logo1" class="leaderelements">OurSite</div>
 				<div id="logo2" class="leaderelements">Tencent</div>
 				<div id="logo3" class="leaderelements">
-					<a href="login.php">Sign In</a>
+				<?php
+					if($sign_in)
+						echo "<a href='logout.php'>Sign Out</a>";
+					else 
+						echo "<a href='login.php'>Sign In</a>";
+				?>
 				</div>
-				<div id="logo4" class="leaderelements">
-					<a href="Register.php">Register</a>
-				</div>
+				<div id="logo4" class="leaderelements">Register</div>
 				<br/>
 				<hr/>
 				<br/>
@@ -44,24 +57,24 @@
 				</div>
 				<div id="menuinterface">
 					<div id="divoption0" class="divoptions">
-						<a href="index.html">首页</a>
+						<a href="index.php">首页</a>
 					</div>
 					<div id="divoption1" class="divoptions">
-						<a href="adoption.html">宝贝领养</a>
+						<a href="adoption.php">宝贝领养</a>
 					</div>
 					<div id="divoption2" class="divoptions">
-						<a href="news.html">新鲜事</a>
+						<a href="news.php">新鲜事</a>
 					</div>
 					<div id="divoption3" class="divoptions">
-						<a href="article.html">长文干货</a>
+						<a href="article.php">长文干货</a>
 					</div>
 					<div id="divoption4" class="divoptions">
-						<a href="apps.html">站内应用</a>
+						<a href="apps.php">站内应用</a>
 					</div>
 					<div id="divoption5" class="divoptions">
-						<a href="myspace.html">个人主页</a>
+						<a href="myspace.php">个人主页</a>
 					</div>
-					<input class="search-input2" placeholder="Search"/>
+					<input class="search-input2" placeholder="Search">
 				</div>
 
 			</div>
@@ -150,15 +163,15 @@
 
 				<!-- contentRight块现在放一些图片-->
 				<div id="contentRight">
-					<img class="item" src="images/1.jpg" width="170" height="135">
-					<img class="item" src="images/2.jpg" width="170" height="135">
-					<img class="item" src="images/3.jpg" width="170" height="135">
-					<img class="item" src="images/4.jpg" width="170" height="135">
-					<img class="item" src="images/5.jpg" width="170" height="135">
-					<img class="item" src="images/6.jpg" width="170" height="135">
-					<img class="item" src="images/7.jpg" width="170" height="135">
-					<img class="item" src="images/8.jpg" width="170" height="135">
-					<img class="item" src="images/9.jpg" width="170" height="135">
+					<img class="item" src="images/11.jpg" width="170" height="135">
+					<img class="item" src="images/12.jpg" width="170" height="135">
+					<img class="item" src="images/13.jpg" width="170" height="135">
+					<img class="item" src="images/14.jpg" width="170" height="135">
+					<img class="item" src="images/15.jpg" width="170" height="135">
+					<img class="item" src="images/16.jpg" width="170" height="135">
+					<img class="item" src="images/17.jpg" width="170" height="135">
+					<img class="item" src="images/18.jpg" width="170" height="135">
+					<img class="item" src="images/19.jpg" width="170" height="135">
 					<!--
 					<p>This is contentRight. contentRight块是放置主要阅读内容的</p>
 					<p>This is contentRight. contentRight块是放置主要阅读内容的</p>
@@ -182,12 +195,6 @@
 				<br/>
 				<br/>
 			</div>
-<?php  
-	session_start();
-	if(isset($_SESSION['LOGIN'])){
-		echo("<h1>Successfully Login</h1>");
-	}
-?>
-		</div>		
+		</div>
 	</body>
 </html>
