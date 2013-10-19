@@ -14,7 +14,7 @@
 				if($row = $result->fetch_assoc()){
 					$_SESSION['username'] = $username;
 					$_SESSION['LOGIN'] = TRUE;
-					header("Location: index.php");
+					header("Location: myspace.php");
 					exit();			
 				}
 				else{
@@ -29,7 +29,10 @@
 				if(!($row = $result->fetch_assoc())){
 					$query = "insert into users values(DEFAULT,'".$username."','".$password."','".$email."','null"."')";
 					if($this->mysql->query($query)==1)
-						echo "Registered!";	
+						$_SESSION['username'] = $username;
+						$_SESSION['LOGIN'] = TRUE;
+						header("Location: myspace.php");
+						exit();	
 				}
 				else{
 					echo "Account Exists!";
