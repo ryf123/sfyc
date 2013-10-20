@@ -107,7 +107,7 @@
 #contentLeft{
 	position: relative;
 	width: 264px;
-	height: 1200px;
+	height: 2000px;
 	margin: 10px 10px 0 0;
 	padding: 0;
 	border: 1px black solid;
@@ -188,7 +188,7 @@
 #contentCenter{
 	position: relative;
 	width: 720px;
-	height: 1200px;
+	height: 2000px;
 	margin: 10px 0 0 0;
 	padding: 0;
 	border: 1px green solid;
@@ -235,7 +235,7 @@
 #controlpanel{
 	position: relative;
 	width: 540px;
-	height: 300px;
+	height: 560px;
 	margin-left: 80px;
 	margin-top: 10px;
 	border: 1px green solid;
@@ -292,14 +292,21 @@
 	border: 1px blue solid;
 	float: left;
 }
-#controlpanel #c_panel2 #cpanel2_input1{
+#controlpanel #c_panel2{
+	height: 520px;
+}
+#controlpanel #c_panel2 .picuploads{
 	position: relative;
 	width: 496px;
-	height: 20px;
+	height: 40px auto;
 	border: 1px blue solid;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	float: left;
+}
+#controlpanel #c_panel2 .cpanel2_files{
+	position: relative;
+	border: 1px blue solid;
 }
 #controlpanel #c_panel2 #cpanel2_input2{
 	position: relative;
@@ -320,6 +327,44 @@
 }
 #controlpanel #c_panel2 #cpanel2_btn1 a:hover{
 	background-color: #ff9900;
+}
+#controlpanel #c_panel2 #publisher_leader{
+	position: relative;
+	width: 496px;
+	height: 64px;
+	margin-top: 16px;
+	margin-left: 6px;
+	border: 1px black solid;
+}
+#controlpanel #c_panel2 #publisher_leader .publishers{
+	position: relative;
+	width: 140px;
+	height: 48px;
+	margin-top: 6px;
+	margin-left: 6px;
+	border: 1px black solid;
+	background-color: none;
+	color: 0;
+	float: left;
+}
+#controlpanel #c_panel2 #receiver_leader{
+	position: relative;
+	width: 496px;
+	height: 64px;
+	margin-top: 16px;
+	margin-left: 6px;
+	border: 1px black solid;
+}
+#controlpanel #c_panel2 #receiver_leader .receivers{
+	position: relative;
+	width: 140px;
+	height: 48px;
+	margin-top: 6px;
+	margin-left: 6px;
+	border: 1px black solid;
+	background-color: none;
+	color: 0;
+	float: left;
 }
 #controlpanel #c_panel3 #cpanel3_input1{
 	position: relative;

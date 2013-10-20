@@ -126,7 +126,7 @@
 							发布新鲜事
 						</div>
 						<br/>
-						<a onclick="filterbtn_onclick(1)">
+						<a href="article.html">
 							<div id="newsaction1" class="newsactions">
 								<p>文字</p>
 							</div>
@@ -174,23 +174,87 @@
 						</div>
 						<!-- 2.图片发布界面 -->
 						<div id="c_panel2" class="c_panels">
-							请输入图片链接：(或点击<a href="#">这里</a>上传)<br/>
-							<input type="text" id="cpanel2_input1">
+							<div id="picupload1" class="picuploads">
+								图片上传1：
+								<input type="file" id="cpanel2_file1" value="selectFile" class="cpanel2_files" onclick="expand_filepanels(2)">
 							
-							</input>
+								</input>
+							</div>
+							<div id="picupload2" class="picuploads">
+								图片上传2：
+								<input type="file" id="cpanel2_file2" value="selectFile" class="cpanel2_files" onclick="expand_filepanels(3)">
+							
+								</input>
+							</div>
+							<div id="picupload3" class="picuploads">
+								图片上传3：
+								<input type="file" id="cpanel2_file3" value="selectFile" class="cpanel2_files" onclick="expand_filepanels(4)">
+							
+								</input>
+							</div>
+							<div id="picupload4" class="picuploads">
+								图片上传4：
+								<input type="file" id="cpanel2_file4" value="selectFile" class="cpanel2_files" onclick="expand_filepanels(5)">
+							
+								</input>
+							</div>
+							<div id="picupload5" class="picuploads">
+								图片上传5：
+								<input type="file" id="cpanel2_file5" value="selectFile" class="cpanel2_files" onclick="expand_filepanels(6)">
+							
+								</input>
+							</div>
+							<br/>
+							<hr/>
+							<div id="picupload6" class="picuploads">
+								图片上传6：
+								<input type="file" id="cpanel2_file6" value="selectFile" class="cpanel2_files">
+							
+								</input>
+							</div>
+							<hr/>
 							请输入简短说明：<br/>
-							<textarea id="cpanel2_input2">
+							<textarea id="cpanel2_input2" onclick="textcomplete()">
 							
 							</textarea>
 							<br/>
-							<div id="cpanel2_btn1">
+							<hr/>
+							<!-- 以谁的名义发布？ -->
+							<div id="publisher_leader">
+								<div id="publisher1" class="publishers">
+									以主人名义发布(默认)
+								</div>
+								<div id="publisher2" class="publishers">
+									以宠物1名义发布
+								</div>
+								<div id="publisher3" class="publishers">
+									以宠物2名义发布
+								</div>
+							</div>
+							<br/>
+							<hr/>
+							<!-- 发布给谁看？ -->
+							<div id="receiver_leader">
+								<div id="receiver1" class="receivers">
+									所有人可见(默认)
+								</div>
+								<div id="receiver2" class="receivers">
+									仅收听者可见
+								</div>
+								<div id="receiver3" class="receivers">
+									仅自己可见
+								</div>
+							</div>
+							<br/>
+							<hr/>
+							<div id="cpanel2_btn1" onclick="distribute_pics()">
 								<a>发布</a>
 							</div>
 						</div>
 						<!-- 3.声音发布界面 -->
 						<div id="c_panel3" class="c_panels">
 							请输入声音链接：(或点击<a href="#">这里</a>上传)<br/>
-							<input type="text" id="cpanel3_input1">
+							<input type="file" id="cpanel3_input1" value="selectFile">
 							
 							</input>
 							请输入简短说明：<br/>
@@ -198,6 +262,9 @@
 							
 							</textarea>
 							<br/>
+							<hr/>
+							
+							
 							<div id="cpanel3_btn1">
 								<a>发布</a>
 							</div>

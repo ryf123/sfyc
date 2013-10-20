@@ -1,7 +1,14 @@
+var stepcompleted1 = false;
+var stepcompleted2 = false;
+
 $(document).ready(function () {
 	$("#posts .postscontents").hide();
 	$("#postscontent_pic").show();
 	$("#controlpanel").hide();
+	$("#controlpanel #c_panel2 .picuploads").hide();
+	$("#controlpanel #c_panel2 #cpanel2_btn1").hide();
+	stepcompleted1 = false;
+	stepcompleted2 = false;
 });
 
 function filterbtn_onclick(para){
@@ -12,6 +19,7 @@ function filterbtn_onclick(para){
 			$("#controlpanel #c_panel1").show();
 			break;
 		case 2:
+			init_filepanels();
 			$("#controlpanel #c_panel2").show();
 			break;
 		case 3:
@@ -44,4 +52,54 @@ function posterbtn_onclick(para){
 			break;
 		default:
 	}
+}
+
+function checkload(){
+	alert("!");
+	document.execCommand('SaveAs');
+}
+
+function init_filepanels(){
+	$("#controlpanel #c_panel2 .picuploads").hide();
+	$("#controlpanel #c_panel2 #picupload1").show();
+	$("#controlpanel #c_panel2 #cpanel2_btn1").hide();
+	stepcompleted1 = false;
+	stepcompleted2 = false;
+}
+
+function expand_filepanels(exp){
+	switch(exp){
+		case 2:
+			$("#controlpanel #c_panel2 #picupload2").show();
+			stepcompleted1 = true;
+			if(stepcompleted2){
+				$("#controlpanel #c_panel2 #cpanel2_btn1").show();
+			}
+			break;
+		case 3:
+			$("#controlpanel #c_panel2 #picupload3").show();
+			break;
+		case 4:
+			$("#controlpanel #c_panel2 #picupload4").show();
+			break;
+		case 5:
+			$("#controlpanel #c_panel2 #picupload5").show();
+			break;
+		case 6:
+			$("#controlpanel #c_panel2 #picupload6").show();
+			break;
+		default:
+	}
+}
+
+function textcomplete(){
+	stepcompleted2 = true;
+	if(stepcompleted1){
+		$("#controlpanel #c_panel2 #cpanel2_btn1").show();
+	}
+}
+
+function distribute_pics(){
+	$("#controlpanel").hide();
+	alert("发布成功！");
 }
