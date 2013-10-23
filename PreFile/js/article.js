@@ -14,6 +14,13 @@ function publisherbtn_onclick(para){
 	}
 }
 
-function publichcomplete(){
-	alert("发布成功！");
+function publishcomplete(){
+	var string1 = document.getElementById("topic_inputer").value;
+	var string2 = document.getElementById("article_inputer").value;
+	if(string1 == "" || string2 == ""){
+		alert("发布失败——标题和正文均不能为空！");
+	}else{
+		alert("发布成功！");
+		window.location.href="myspace.html";
+	}
 }

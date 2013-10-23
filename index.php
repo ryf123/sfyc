@@ -1,13 +1,3 @@
-<?php  
-	session_start();
-	if(isset($_SESSION['LOGIN'])){
-		$sign_in=TRUE;	
-	}
-	else{
-		$sign_in=FALSE;
-	}
-?>
-	
 <!DOCTYPE html>
 <html>
 	<head>
@@ -21,7 +11,7 @@
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-   	    <link rel="stylesheet" type="text/css" href="css/style-mainpage.css"/>
+   	    <link rel="stylesheet" type="text/css" href="css/style-mainpage.css">
 	</head>
 	<body>
 		<div id="container">
@@ -31,20 +21,11 @@
 				<div id="logo1" class="leaderelements">OurSite</div>
 				<div id="logo2" class="leaderelements">Tencent</div>
 				<div id="logo3" class="leaderelements">
-				<?php
-					if($sign_in)
-						echo "<a href='logout.php'>Sign Out</a>";
-					else 
-						echo "<a href='login.php'>Sign In</a>";
-				?>
+					<a href="login.php">Sign In</a>
 				</div>
-				<?php
-					if(!$sign_in){
-					echo "<div id='logo4' class='leaderelements'>";
-					echo "<a href='Register.php'>Register</a>";
-					echo "</div>";
-					}
-				?>
+				<div id="logo4" class="leaderelements">
+					<a href="Register.php">Register</a>
+				</div>
 				<br/>
 				<hr/>
 				<br/>
@@ -63,24 +44,24 @@
 				</div>
 				<div id="menuinterface">
 					<div id="divoption0" class="divoptions">
-						<a href="index.php">首页</a>
+						<a href="index.html">首页</a>
 					</div>
 					<div id="divoption1" class="divoptions">
-						<a href="adoption.php">宝贝领养</a>
+						<a href="adoption.html">宝贝领养</a>
 					</div>
 					<div id="divoption2" class="divoptions">
-						<a href="news.php">新鲜事</a>
+						<a href="news.html">新鲜事</a>
 					</div>
 					<div id="divoption3" class="divoptions">
-						<a href="article.php">长文干货</a>
+						<a href="article.html">长文干货</a>
 					</div>
 					<div id="divoption4" class="divoptions">
-						<a href="apps.php">站内应用</a>
+						<a href="apps.html">站内应用</a>
 					</div>
 					<div id="divoption5" class="divoptions">
-						<a href="myspace.php">个人主页</a>
+						<a href="myspace.html">个人主页</a>
 					</div>
-					<input class="search-input2" placeholder="Search"/>
+					<input class="search-input2" placeholder="Search">
 				</div>
 
 			</div>
@@ -201,6 +182,12 @@
 				<br/>
 				<br/>
 			</div>
-	</div>		
+		</div>
 	</body>
 </html>
+<?php  
+	session_start();
+	if(isset($_SESSION['LOGIN'])){
+		echo "<h1>Successfully Login</h1>";
+	}
+?>

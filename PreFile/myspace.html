@@ -174,49 +174,75 @@
 						</div>
 						<!-- 2.图片发布界面 -->
 						<div id="c_panel2" class="c_panels">
+							<div id="picuploadcount">
+								还可以上传&nbsp;<span id="picremaining"></span>&nbsp;张图片
+							</div>
+							<br/>
 							<div id="picupload1" class="picuploads">
 								图片上传1：
-								<input type="file" id="cpanel2_file1" value="selectFile" class="cpanel2_files" onclick="expand_filepanels(2)">
+								<input type="file" accept="image/*" id="cpanel2_file1" value="selectFile" class="cpanel2_files" onchange="expand_filepanels(2)">
 							
 								</input>
+								<br/>
+								<img src="images/1.jpg" id="previewimage1" class="previewimages">
+								
+								</img>
 							</div>
 							<div id="picupload2" class="picuploads">
 								图片上传2：
-								<input type="file" id="cpanel2_file2" value="selectFile" class="cpanel2_files" onclick="expand_filepanels(3)">
+								<input type="file" accept="image/*" id="cpanel2_file2" value="selectFile" class="cpanel2_files" onchange="expand_filepanels(3)">
 							
 								</input>
+								<br/>
+								<img src="images/2.jpg" id="previewimage2" class="previewimages">
+								
+								</img>
 							</div>
 							<div id="picupload3" class="picuploads">
 								图片上传3：
-								<input type="file" id="cpanel2_file3" value="selectFile" class="cpanel2_files" onclick="expand_filepanels(4)">
+								<input type="file" accept="image/*" id="cpanel2_file3" value="selectFile" class="cpanel2_files" onchange="expand_filepanels(4)">
 							
 								</input>
+								<br/>
+								<img src="images/3.jpg" id="previewimage3" class="previewimages">
+								
+								</img>
 							</div>
 							<div id="picupload4" class="picuploads">
 								图片上传4：
-								<input type="file" id="cpanel2_file4" value="selectFile" class="cpanel2_files" onclick="expand_filepanels(5)">
+								<input type="file" accept="image/*" id="cpanel2_file4" value="selectFile" class="cpanel2_files" onchange="expand_filepanels(5)">
 							
 								</input>
+								<br/>
+								<img src="images/4.jpg" id="previewimage4" class="previewimages">
+								
+								</img>
 							</div>
 							<div id="picupload5" class="picuploads">
 								图片上传5：
-								<input type="file" id="cpanel2_file5" value="selectFile" class="cpanel2_files" onclick="expand_filepanels(6)">
+								<input type="file" accept="image/*" id="cpanel2_file5" value="selectFile" class="cpanel2_files" onchange="expand_filepanels(6)">
 							
 								</input>
+								<br/>
+								<img src="images/5.jpg" id="previewimage5" class="previewimages">
+								
+								</img>
 							</div>
 							<br/>
 							<hr/>
 							<div id="picupload6" class="picuploads">
 								图片上传6：
-								<input type="file" id="cpanel2_file6" value="selectFile" class="cpanel2_files">
+								<input type="file" accept="image/*" id="cpanel2_file6" value="selectFile" class="cpanel2_files" onchange="expand_filepanels(7)">
 							
 								</input>
+								<br/>
+								<img src="images/6.jpg" id="previewimage6" class="previewimages">
+								
+								</img>
 							</div>
 							<hr/>
 							请输入简短说明：<br/>
-							<textarea id="cpanel2_input2" onclick="textcomplete()">
-							
-							</textarea>
+							<textarea id="cpanel2_input2" onclick="textcomplete()"></textarea>
 							<br/>
 							<hr/>
 							<!-- 以谁的名义发布？ -->

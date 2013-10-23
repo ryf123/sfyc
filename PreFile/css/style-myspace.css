@@ -107,7 +107,7 @@
 #contentLeft{
 	position: relative;
 	width: 264px;
-	height: 2000px;
+	height: 2800px;
 	margin: 10px 10px 0 0;
 	padding: 0;
 	border: 1px black solid;
@@ -188,7 +188,7 @@
 #contentCenter{
 	position: relative;
 	width: 720px;
-	height: 2000px;
+	height: 2800px;
 	margin: 10px 0 0 0;
 	padding: 0;
 	border: 1px green solid;
@@ -235,7 +235,7 @@
 #controlpanel{
 	position: relative;
 	width: 540px;
-	height: 560px;
+	height: 1600px;
 	margin-left: 80px;
 	margin-top: 10px;
 	border: 1px green solid;
@@ -293,7 +293,11 @@
 	float: left;
 }
 #controlpanel #c_panel2{
-	height: 520px;
+	height: 1500px;
+}
+#controlpanel #c_panel2 #picuploadcount{
+	margin-top: 6px;
+	margin-bottom: 10px;
 }
 #controlpanel #c_panel2 .picuploads{
 	position: relative;
@@ -307,6 +311,12 @@
 #controlpanel #c_panel2 .cpanel2_files{
 	position: relative;
 	border: 1px blue solid;
+}
+#controlpanel #c_panel2 .previewimages{
+	position: relative;
+	border: 1px blue solid;
+	width: 100px;
+	height: 100px;
 }
 #controlpanel #c_panel2 #cpanel2_input2{
 	position: relative;
@@ -343,8 +353,6 @@
 	margin-top: 6px;
 	margin-left: 6px;
 	border: 1px black solid;
-	background-color: none;
-	color: 0;
 	float: left;
 }
 #controlpanel #c_panel2 #receiver_leader{
@@ -362,8 +370,6 @@
 	margin-top: 6px;
 	margin-left: 6px;
 	border: 1px black solid;
-	background-color: none;
-	color: 0;
 	float: left;
 }
 #controlpanel #c_panel3 #cpanel3_input1{
