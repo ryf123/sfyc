@@ -107,7 +107,7 @@
 #contentLeft{
 	position: relative;
 	width: 264px;
-	height: 2800px;
+	height: 800px;
 	margin: 10px 10px 0 0;
 	padding: 0;
 	border: 1px black solid;
@@ -182,15 +182,12 @@
 	border: none;
 }
 
-
-
-
 #contentCenter{
 	position: relative;
 	width: 720px;
-	height: 2800px;
+	height: 1200px auto;
 	margin: 10px 0 0 0;
-	padding: 0;
+	padding-bottom: 20px;
 	border: 1px green solid;
 	float: left;
 }
@@ -199,7 +196,9 @@
 	position: relative;
 	width: 600px;
 	height: 100px;
-	margin: 50px;
+	margin-top: 10px;
+	margin-left: 50px;
+	margin-bottom: 30px;
 	padding-left: 10px;
 	border: none;
 }
@@ -224,6 +223,7 @@
 	border: 1px green solid;
 	text-align: center;
 	float: left;
+	cursor: pointer;
 }
 #poster #newsaction1{
 	margin-left: 20px;
@@ -235,10 +235,11 @@
 #controlpanel{
 	position: relative;
 	width: 540px;
-	height: 1600px;
+	height: 680px auto;
 	margin-left: 80px;
 	margin-top: 10px;
 	border: 1px green solid;
+	padding-bottom: 10px;
 }
 #controlpanel .c_panels{
 	position: relative;
@@ -293,30 +294,37 @@
 	float: left;
 }
 #controlpanel #c_panel2{
-	height: 1500px;
+	height: 640px;
 }
 #controlpanel #c_panel2 #picuploadcount{
 	margin-top: 6px;
-	margin-bottom: 10px;
 }
-#controlpanel #c_panel2 .picuploads{
+#controlpanel #c_panel2 #picsarea{
 	position: relative;
 	width: 496px;
-	height: 40px auto;
-	border: 1px blue solid;
+	height: 128px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	border: 1px blue solid;
+}
+#controlpanel #c_panel2 #picsarea .previewimages{
+	position: relative;
+	border: 1px blue solid;
+	width: 70px;
+	height: 70px;
+	margin-top: 10px;
+	margin-left: 8px;
 	float: left;
 }
-#controlpanel #c_panel2 .cpanel2_files{
+#controlpanel #c_panel2 #picsarea #uploadbtn{
 	position: relative;
 	border: 1px blue solid;
-}
-#controlpanel #c_panel2 .previewimages{
-	position: relative;
-	border: 1px blue solid;
-	width: 100px;
-	height: 100px;
+	width: 96px;
+	height: 24px;
+	margin-top: 8px;
+	margin-right: 8px;
+	float: right;
+	cursor: pointer;
 }
 #controlpanel #c_panel2 #cpanel2_input2{
 	position: relative;
@@ -334,6 +342,7 @@
 	border: 1px blue solid;
 	text-align: center;
 	float: right;
+	cursor: pointer;
 }
 #controlpanel #c_panel2 #cpanel2_btn1 a:hover{
 	background-color: #ff9900;
@@ -354,6 +363,7 @@
 	margin-left: 6px;
 	border: 1px black solid;
 	float: left;
+	cursor: pointer;
 }
 #controlpanel #c_panel2 #receiver_leader{
 	position: relative;
@@ -371,6 +381,7 @@
 	margin-left: 6px;
 	border: 1px black solid;
 	float: left;
+	cursor: pointer;
 }
 #controlpanel #c_panel3 #cpanel3_input1{
 	position: relative;
@@ -458,16 +469,7 @@
 #posts p:hover{
 	background-color: #ff9900;
 }
-/*
-#posts #poststopic{
-	position: relative;
-	width: 240px;
-	height: 20px;
-	margin-top: 6px;
-	padding: 0 10px;
-	border: none;
-}
-*/
+
 #posts .postsfilters{
 	position: relative;
 	width: 122px;
@@ -478,6 +480,7 @@
 	border: 1px green solid;
 	text-align: center;
 	float: left;
+	cursor: pointer;
 }
 #posts #postsfilter1{
 	margin-left: 80px;
@@ -586,46 +589,6 @@
 	border: 1px green solid;
 }
 
-/*.browserlv1 .browsertop{
-	position: relative;
-	background-color: #f5f5f1;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-o-border-radius: 5px;
-	color: #0192b5;
-	font-size:14px;
-	width: 132px;
-	height: 24px;
-	padding-top: 8px;
-	padding-left: 8px;
-}
-
-.browserlv1 .browserlv2{
-	position: relative;
-	background-color: #f5f5f1;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-o-border-radius: 5px;
-	color: #0192b5;
-	font-size:14px;
-	width: 122px;
-	height: 24px;
-	padding-top: 8px;
-	padding-left: 18px;
-}
-*/
-/*
-#contentRight .item{
-	background-color: #fff;
-	position: relative;
-	margin-left: 60px;
-	margin-right: 20px;
-	margin-top: 30px;
-	margin-bottom: 30px;
-	padding: 0;
-	border: 1px solid #ececec;
-}
-*/
 #footer{
 	text-align: center;
 	position: relative;

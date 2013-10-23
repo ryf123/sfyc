@@ -1,16 +1,14 @@
 var stepcompleted1 = false;
 var stepcompleted2 = false;
-var uiRemaining;
+var picuploaded = [];
 
 $(document).ready(function () {
 	$("#posts .postscontents").hide();
 	$("#postscontent_pic").show();
 	$("#controlpanel").hide();
 	$("#controlpanel #c_panel2 .picuploads").hide();
-	$("#controlpanel #c_panel2 #picuploadcount").hide();
 	$("#controlpanel #c_panel2 #cpanel2_btn1").hide();
-	$("#controlpanel #c_panel2 .previewimages").hide();
-	uiRemaining = $("#controlpanel #c_panel2 #picremaining");
+	$("#cpanel2_fileuploader").hide();
 	stepcompleted1 = false;
 	stepcompleted2 = false;
 });
@@ -67,49 +65,38 @@ function init_filepanels(){
 	$("#controlpanel #c_panel2 .picuploads").hide();
 	$("#controlpanel #c_panel2 #picupload1").show();
 	$("#controlpanel #c_panel2 #cpanel2_btn1").show();
-	$("#controlpanel #c_panel2 #picuploadcount").hide();
-	$("#controlpanel #c_panel2 .previewimages").hide();
 	stepcompleted1 = false;
 	stepcompleted2 = false;
 }
 
-function expand_filepanels(exp){
-	switch(exp){
-		case 2:
-			//alert(getPath(document.getElementById("cpanel2_file1")));
-			//document.getElementById("previewimage1").src = document.getElementById("cpanel2_file1").value;
-			$("#controlpanel #c_panel2 #picupload2").show();
-			$("#controlpanel #c_panel2 #picuploadcount").show();
-			$("#controlpanel #c_panel2 #previewimage1").show();
-			uiRemaining.html(5);
-			stepcompleted1 = true;
-			//alert(document.container.content.contentCenter.controlpanel.c_panel2.picupload1.cpanel2_file1.value);
-			//alert(document.getElementById("cpanel2_file1").valueOf());
-			//alert(document.getElementById("cpanel2_file1").value);
-			break;
-		case 3:
-			$("#controlpanel #c_panel2 #picupload3").show();
-			$("#controlpanel #c_panel2 #previewimage2").show();
-			uiRemaining.html(4);
-			break;
-		case 4:
-			$("#controlpanel #c_panel2 #picupload4").show();
-			$("#controlpanel #c_panel2 #previewimage3").show();
-			uiRemaining.html(3);
-			break;
-		case 5:
-			$("#controlpanel #c_panel2 #picupload5").show();
-			$("#controlpanel #c_panel2 #previewimage4").show();
-			uiRemaining.html(2);
-			break;
-		case 6:
-			$("#controlpanel #c_panel2 #picupload6").show();
-			$("#controlpanel #c_panel2 #previewimage5").show();
-			uiRemaining.html(1);
-			break;
-		default:
-			$("#controlpanel #c_panel2 #previewimage6").show();
-			uiRemaining.html(0);
+function trigger_filebox(){
+	$("#cpanel2_fileuploader").trigger("click");
+}
+function begin_upload_image(){ //上传一张图片
+	if(picuploaded.length >= 6){
+		alert("无法上传更多的图片");
+		return;
+	}
+	//alert("Upload your own image");
+	//show.document.execCommand('SaveAs');
+	picuploaded.push(picuploaded.length + 1);
+	document.getElementById("cpanel2_fileuploader").value = "";
+	redraw_images();
+}
+function cancel_an_image(pos){ //取消一张图片
+	if(pos >= picuploaded.length){
+		return;
+	}
+	picuploaded = arraydeleteelement(picuploaded, pos);
+	redraw_images();
+}
+function redraw_images(){ //重画预览图片
+	for(var s = 0; s < 6; s++){
+		if(s < picuploaded.length){
+			document.getElementById("previewimage" + String(s + 1)).src = "images/" + String(picuploaded[s]) + ".jpg";
+		}else{
+			document.getElementById("previewimage" + String(s + 1)).src = "images/blank.png";
+		}
 	}
 }
 
@@ -119,18 +106,13 @@ function textcomplete(){
 
 function distribute_pics(){
 	var string1 = document.getElementById("cpanel2_input2").value;
-	var string2 = document.getElementById("cpanel2_file1").value;
-	if(string1 == "" || string2 == ""){
+	if(string1 == "" || picuploaded.length <= 0){
 		alert("发布失败——图片栏和文字栏均不能为空！");
 	}else{
 		$("#controlpanel").hide();
 		alert("发布成功！");
-		document.getElementById("cpanel2_file1").value = "";
-		document.getElementById("cpanel2_file2").value = "";
-		document.getElementById("cpanel2_file3").value = "";
-		document.getElementById("cpanel2_file4").value = "";
-		document.getElementById("cpanel2_file5").value = "";
-		document.getElementById("cpanel2_file6").value = "";
+		picuploaded = [];
+		redraw_images();
 		document.getElementById("cpanel2_input2").value = "";
 	}
 }
@@ -148,4 +130,20 @@ function getPath(obj){
 		}
 		return obj.value;
 	}
+}
+
+function arraydeleteelement(parray, pos){ //删除数组中的指定元素
+	if(pos < 0){
+		return parray;
+	}
+	if(pos >= parray.length){
+		return parray;
+	}
+	neoarray = [];
+	for(var r = 0; r < parray.length; r++){
+		if(r != pos){
+			neoarray.push(parray[r]);
+		}
+	}
+	return neoarray;
 }

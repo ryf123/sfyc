@@ -175,9 +175,10 @@
 						<!-- 2.图片发布界面 -->
 						<div id="c_panel2" class="c_panels">
 							<div id="picuploadcount">
-								还可以上传&nbsp;<span id="picremaining"></span>&nbsp;张图片
+								最多可上传 6 张图片
 							</div>
 							<br/>
+							<!--
 							<div id="picupload1" class="picuploads">
 								图片上传1：
 								<input type="file" accept="image/*" id="cpanel2_file1" value="selectFile" class="cpanel2_files" onchange="expand_filepanels(2)">
@@ -240,8 +241,38 @@
 								
 								</img>
 							</div>
+							-->
 							<hr/>
-							请输入简短说明：<br/>
+							<!-- 新的图片放置区 -->
+							<div id="picsarea">
+								<!-- 放置六张图片 -->
+								<img src="images/blank.png" id="previewimage1" class="previewimages" onclick="cancel_an_image(0)">
+								
+								</img>
+								<img src="images/blank.png" id="previewimage2" class="previewimages" onclick="cancel_an_image(1)">
+								
+								</img>
+								<img src="images/blank.png" id="previewimage3" class="previewimages" onclick="cancel_an_image(2)">
+								
+								</img>
+								<img src="images/blank.png" id="previewimage4" class="previewimages" onclick="cancel_an_image(3)">
+								
+								</img>
+								<img src="images/blank.png" id="previewimage5" class="previewimages" onclick="cancel_an_image(4)">
+								
+								</img>
+								<img src="images/blank.png" id="previewimage6" class="previewimages" onclick="cancel_an_image(5)">
+								
+								</img>
+								<br/>
+								<!-- 放置上传按钮 -->
+								<div id="uploadbtn" onclick="trigger_filebox()">
+									+添加图片
+								</div>
+								<!-- 骗人用的隐藏对话框 -->
+								<input type="file" accept="image/*" id="cpanel2_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
+							</div>
+							说点儿什么吧......<br/>
 							<textarea id="cpanel2_input2" onclick="textcomplete()"></textarea>
 							<br/>
 							<hr/>
