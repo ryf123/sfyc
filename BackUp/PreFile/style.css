@@ -1,0 +1,68 @@
+#container{
+	position: relative;
+	width: 1000px;
+	padding: 0;
+	margin: 0 auto;
+}
+
+#header{
+	position: relative;
+	width: 1000px;
+	height: 40px;
+	margin: 0;
+	padding: 0;
+	border: 1px black solid;
+}
+
+#ads{
+	position: relative;
+	width: 1000px;
+	height: 80px;
+	margin: 0;
+	padding: 0;
+	border: 1px black solid;
+}
+
+#menu{
+	position: relative;
+	width: 1000px;
+	height: 40px;
+	margin: 0;
+	padding: 0;
+	border: 1px black solid;
+}
+
+#content{
+	position: relative;
+	width: 1000px;
+	margin: 10px 0 0 0;
+	padding: 0;
+}
+
+#contentLeft{
+	position: relative;
+	width: 140px;
+	margin: 10px 0 0 0;
+	padding: 0;
+	border: 1px red solid;
+	float: left;
+}
+
+#contentRight{
+	position: relative;
+	width: 840px;
+	margin: 10px 0 0 0;
+	padding: 0;
+	border: 1px red solid;
+	float: right;
+}
+
+#footer{
+	position: relative;
+	width: 1000px;
+	height: 50px;
+	margin: 0;
+	padding: 0;
+	border: 1px black solid;
+	clear: both;
+}
