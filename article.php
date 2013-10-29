@@ -44,12 +44,14 @@
 				<div id="logo1" class="leaderelements"></div>
 				<!-- div id="logo2" class="leaderelements">Tencent</div -->
 				<div id="logo3" class="leaderelements">
+				<FONT FACE=微软雅黑 color="black"><strong>
 				<?php
 					if($sign_in)
 						echo "<a href='logout.php'>退出登录</a>";
 					else
 						echo "<a href='login.php'>登录</a> | <a href='Register.php'>注册</a>";
 				?>
+				</strong></FONT>
 				</div>
 			</div>
 
