@@ -1,13 +1,13 @@
-<?php  
+<?php
 	session_start();
 	if(isset($_SESSION['LOGIN'])){
-		$sign_in=TRUE;	
+		$sign_in=TRUE;
 	}
 	else{
 		$sign_in=FALSE;
 	}
 ?>
-	
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -27,15 +27,15 @@
 		<div id="container">
 			<!-- 标题图 -->
 			<div id="titleboard">
-				<img src="images/titleboard8.png">
-					
+				<img src="images/TitleBoard8.png">
+
 				</img>
 			</div>
-			
+
 			<!-- header块是顶部条块，放置登陆按钮等-->
 			<div id="header">
 				<div id="t_blank">
-				
+
 				</div>
 				<!-- 修改内容：这里添加了登陆按钮的预置位-->
 				<div id="logo1" class="leaderelements"></div>
@@ -63,7 +63,7 @@
 			<div id="menu">
 				<!-- 修改：这里放置选项按钮及搜索栏 -->
 				<div id="menulogo">
-					
+
 				</div>
 				<div id="menuinterface">
 					<div id="divoption0" class="divoptions">
@@ -98,7 +98,7 @@
 					</div>
 					<input class="search-input2" placeholder="Search...">
 					<img src="images/paw.png" id="searchpaw">
-						
+
 					</img>
 				</div>
 
@@ -220,6 +220,6 @@
 				<br/>
 				<br/>
 			</div>
-	</div>		
+	</div>
 	</body>
 </html>
