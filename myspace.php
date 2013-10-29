@@ -29,62 +29,79 @@
 
 	<body>
 		<div id="container">
+			<!-- 标题图 -->
+			<div id="titleboard">
+				<img src="images/titleboard8.png">
+					
+				</img>
+			</div>
+			
 			<!-- header块是顶部条块，放置登陆按钮等-->
 			<div id="header">
+				<div id="t_blank">
+				
+				</div>
 				<!-- 修改内容：这里添加了登陆按钮的预置位-->
-				<div id="logo1" class="leaderelements">OurSite</div>
-				<div id="logo2" class="leaderelements">Tencent</div>
+				<div id="logo1" class="leaderelements"></div>
+				<!-- div id="logo2" class="leaderelements">Tencent</div -->
 				<div id="logo3" class="leaderelements">
 				<?php
 					if($sign_in)
-						echo "<a href='logout.php'>Sign Out</a>";
+						echo "<a href='logout.php'>退出登录</a>";
 					else
-						echo "<a href='login.php'>Sign In</a>";
+						echo "<a href='login.php'>登录</a> | <a href='Register.php'>注册</a>";
 				?>
 				</div>
-				<?php
-					if(!$sign_in){
-					echo "<div id='logo4' class='leaderelements'>";
-					echo "<a href='Register.php'>Register</a>";
-					echo "</div>";
-					}
-				?>
-				<br/>
-				<hr/>
-				<br/>
 			</div>
 
 			<!-- ads块是放置动态广告宣传图，推广内容等的区域-->
+			<!--
 			<div id="ads">
 			This is ads div. ads块是放置动态广告宣传图，推广内容等的区域
 			</div>
+			-->
 
 			<!-- menu块是放置选项标签的-->
 			<div id="menu">
 				<!-- 修改：这里放置选项按钮及搜索栏 -->
 				<div id="menulogo">
-					Logo here
+					
 				</div>
 				<div id="menuinterface">
 					<div id="divoption0" class="divoptions">
-						<a href="index.php">首页</a>
+						<a href="index.php">
+							<img src="images/TLogo1A.png"></img>
+						</a>
 					</div>
 					<div id="divoption1" class="divoptions">
-						<a href="adoption.php">宝贝领养</a>
+						<a href="adoption.php">
+							<img src="images/TLogo2A.png"></img>
+						</a>
 					</div>
 					<div id="divoption2" class="divoptions">
-						<a href="news.php">新鲜事</a>
+						<a href="news.php">
+							<img src="images/TLogo3A.png"></img>
+						</a>
 					</div>
 					<div id="divoption3" class="divoptions">
-						<a href="article.php">长文干货</a>
+						<a href="article.php">
+							<img src="images/TLogo4A.png"></img>
+						</a>
 					</div>
 					<div id="divoption4" class="divoptions">
-						<a href="apps.php">站内应用</a>
+						<a href="apps.php">
+							<img src="images/TLogo5A.png"></img>
+						</a>
 					</div>
 					<div id="divoption5" class="divoptions">
-						<a href="myspace.php">个人主页</a>
+						<a href="myspace.php">
+							<img src="images/TLogo6B.png"></img>
+						</a>
 					</div>
-					<input class="search-input2" placeholder="Search">
+					<input class="search-input2" placeholder="Search...">
+					<img src="images/paw.png" id="searchpaw">
+						
+					</img>
 				</div>
 
 			</div>
@@ -149,7 +166,7 @@
 							发布新鲜事
 						</div>
 						<br/>
-						<a href="article.php">
+						<a href="article.html">
 							<div id="newsaction1" class="newsactions">
 								<p>文字</p>
 							</div>
@@ -201,70 +218,6 @@
 								最多可上传 6 张图片
 							</div>
 							<br/>
-							<!--
-							<div id="picupload1" class="picuploads">
-								图片上传1：
-								<input type="file" accept="image/*" id="cpanel2_file1" value="selectFile" class="cpanel2_files" onchange="expand_filepanels(2)">
-
-								</input>
-								<br/>
-								<img src="images/1.jpg" id="previewimage1" class="previewimages">
-
-								</img>
-							</div>
-							<div id="picupload2" class="picuploads">
-								图片上传2：
-								<input type="file" accept="image/*" id="cpanel2_file2" value="selectFile" class="cpanel2_files" onchange="expand_filepanels(3)">
-
-								</input>
-								<br/>
-								<img src="images/2.jpg" id="previewimage2" class="previewimages">
-
-								</img>
-							</div>
-							<div id="picupload3" class="picuploads">
-								图片上传3：
-								<input type="file" accept="image/*" id="cpanel2_file3" value="selectFile" class="cpanel2_files" onchange="expand_filepanels(4)">
-
-								</input>
-								<br/>
-								<img src="images/3.jpg" id="previewimage3" class="previewimages">
-
-								</img>
-							</div>
-							<div id="picupload4" class="picuploads">
-								图片上传4：
-								<input type="file" accept="image/*" id="cpanel2_file4" value="selectFile" class="cpanel2_files" onchange="expand_filepanels(5)">
-
-								</input>
-								<br/>
-								<img src="images/4.jpg" id="previewimage4" class="previewimages">
-
-								</img>
-							</div>
-							<div id="picupload5" class="picuploads">
-								图片上传5：
-								<input type="file" accept="image/*" id="cpanel2_file5" value="selectFile" class="cpanel2_files" onchange="expand_filepanels(6)">
-
-								</input>
-								<br/>
-								<img src="images/5.jpg" id="previewimage5" class="previewimages">
-
-								</img>
-							</div>
-							<br/>
-							<hr/>
-							<div id="picupload6" class="picuploads">
-								图片上传6：
-								<input type="file" accept="image/*" id="cpanel2_file6" value="selectFile" class="cpanel2_files" onchange="expand_filepanels(7)">
-
-								</input>
-								<br/>
-								<img src="images/6.jpg" id="previewimage6" class="previewimages">
-
-								</img>
-							</div>
-							-->
 							<hr/>
 							<!-- 新的图片放置区 -->
 							<div id="picsarea">
