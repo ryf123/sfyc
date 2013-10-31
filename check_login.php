@@ -1,7 +1,9 @@
 <?php
 	ob_start();
 	require_once("constants_local.php");
+	if (session_status() == PHP_SESSION_NONE) { 
 	session_start();
+	}
 	class LOGIN{
 		private $mysql;
 		function __construct(){
@@ -22,12 +24,17 @@
 				}
 			}
 		}
-		public function register_new_account($username,$password,$email){
+		public function register_new_account($username,$password,$email,$photo){
 			$query = "select * from ".USER_TABLE." where username='".$username."'";
 			$password= md5("sfyc".$password);
 			if($result = $this->mysql->query($query)){
 				if(!($row = $result->fetch_assoc())){
-					$query = "insert into users values(DEFAULT,'".$username."','".$password."','".$email."','null"."')";
+					$this->check_upload_photo($photo,$username);
+					if($photo=="null")
+						$photo_name="null";
+					else
+						$photo_name = "images/users/".$username."photo";
+					$query = "insert into users values(DEFAULT,'".$username."','".$password."','".$email."','".$photo_name."')"; 
 					if($this->mysql->query($query)==1)
 						$_SESSION['username'] = $username;
 						$_SESSION['LOGIN'] = TRUE;
@@ -37,6 +44,20 @@
 				else{
 					echo "Account Exists!";
 				}
+			}
+		}
+		private function check_upload_photo($photo,$username){
+			move_uploaded_file($photo["tmp_name"],"images/users/" . $username."photo");
+	
+		}
+		public function fetch_photo($username){
+			$query = "select photo_url from ".USER_TABLE." where username='".$username."'";
+			if($result = $this->mysql->query($query)){
+				$row =  $result->fetch_row();
+				return $row[0];
+			}
+			else {
+				return "null";
 			}
 		}
 	}

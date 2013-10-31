@@ -1,7 +1,12 @@
 <?php
+	if (session_status() == PHP_SESSION_NONE) { 
 	session_start();
+	}
+	require_once('check_login.php'); 
 	if(isset($_SESSION['LOGIN'])){
 		$sign_in=TRUE;
+		$login = new LOGIN();
+		$photo_url = $login->fetch_photo($_SESSION['username']);	
 	}
 	else{
 		$sign_in=FALSE;
@@ -10,6 +15,7 @@
 	}
 ?>
 <!DOCTYPE html>
+<html>
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -120,7 +126,11 @@
 						</div>
 						<!-- 主人头像及姓名 -->
 						<div id="ownerhead">
-							主人头像
+							<?php
+								if($sign_in){
+									echo "<img class='item' src=$photo_url width=170 height=135>";
+								}
+							?>
 						</div>
 					</div>
 
