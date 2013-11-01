@@ -2,6 +2,10 @@ img{
 	border: 0;
 }
 
+body{
+	font-family: "微软雅黑", "宋体", "黑体", Arial;
+}
+
 #container{
 	position: relative;
 	width: 1000px;
@@ -45,6 +49,7 @@ img{
 }
 
 #header #logo3{
+	font-weight: bold;
 	position: relative;
 	margin-right: 30px;
 	float: right;
@@ -85,6 +90,7 @@ img{
 	position: relative;
 	width: 128px;
 	height: 64px;
+	margin-top: -12px;
 	margin-right: 10px;
 	padding: 0;
 	float: left;
@@ -231,7 +237,6 @@ img{
 	margin-top: 6px;
 	margin-left: 6px;
 	border: 1px black solid;
-	background-color: none;
 	float: left;
 	cursor: pointer;
 }
@@ -251,7 +256,6 @@ img{
 	margin-top: 6px;
 	margin-left: 6px;
 	border: 1px black solid;
-	background-color: none;
 	float: left;
 	cursor: pointer;
 }
