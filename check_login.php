@@ -1,7 +1,7 @@
 <?php
 	ob_start();
 	require_once("constants_local.php");
-	if (session_status() == PHP_SESSION_NONE) { 
+	if (session_id() == '') { 
 	session_start();
 	}
 	class LOGIN{
