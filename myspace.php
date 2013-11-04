@@ -6,7 +6,7 @@
 	if(isset($_SESSION['LOGIN'])){
 		$sign_in=TRUE;
 		$login = new LOGIN();
-		$photo_url = $login->fetch_photo($_SESSION['username']);	
+		$photo_url = $login->fetch_photo($_SESSION['username']);
 	}
 	else{
 		$sign_in=FALSE;
@@ -121,50 +121,111 @@
 				<!--这里放置设计图左侧个人资料，以及过滤按钮-->
 					<!-- 个人资料 -->
 					<div id="myInfo">
-						<div id="ownername">
-							主人姓名及等级
-						</div>
+						<!-- 用户文字资料 -->
+						<form id="userdata">
+							<div id="ownername">
+								<div id="ownernameinside">
+									蔡文静
+								</div>
+								<br/>
+								<div id="ownerotherinside">
+									粉丝 999
+									<br/>
+									关注 249
+									<br/>
+									爱宠 8
+								</div>
+							</div>
+						</form>
 						<!-- 主人头像及姓名 -->
 						<div id="ownerhead">
 							<?php
 								if($sign_in){
-									echo "<img class='item' src=$photo_url width=170 height=135>";
+									//echo "<img id='userheaditem' src=$photo_url width=140 height=140>";
+									echo "<img id='userheaditem' src='images/userhead.png' width=140 height=140></img>";
+								}else{
+									//echo "<img id='userheaditem' src=$photo_url width=140 height=140>";
+									echo "<img id='userheaditem' src='images/userhead.png' width=140 height=140></img>";
 								}
 							?>
+							<img id="userheadmerger" src="images/headmerger.png"></img>
 						</div>
 					</div>
-
-					<!-- 宠物1 -->
-					<div id="pethead1" class="petheads">
-						宠物头像1
-					</div>
-					<div id="petname1" class="petnames">
-						宠物名称1
-					</div>
-					<!-- 宠物2 -->
-					<div id="pethead2" class="petheads">
-						宠物头像2
-					</div>
-					<div id="petname2" class="petnames">
-						宠物名称2
+					
+					<!-- 这里放置宠物头像 -->
+					<div id="petheadcontainer">
+						<!-- 宠物1 -->
+						<div id="pethead1" class="petheads">
+							<form id="petheadform1" class="petheadforms">
+								<img src="images/pet1.png" id="petheadpic1" class="petheadpics"></img>
+								<img src="images/smallround.png" class="petheadmerger"></img>
+							</form>
+						</div>
+						<!-- 宠物2 -->
+						<div id="pethead2" class="petheads">
+							<form id="petheadform1" class="petheadforms">
+								<img src="images/pet2.png" id="petheadpic2" class="petheadpics"></img>
+								<img src="images/smallround.png" class="petheadmerger"></img>
+							</form>
+						</div>
+						<!-- 宠物3 -->
+						<div id="pethead3" class="petheads">
+							<form id="petheadform1" class="petheadforms">
+								<img src="images/pet3.png" id="petheadpic3" class="petheadpics"></img>
+								<img src="images/smallround.png" class="petheadmerger"></img>
+							</form>
+						</div>
+						<!-- 宠物4 -->
+						<div id="pethead4" class="petheads">
+							<form id="petheadform1" class="petheadforms">
+								<img src="images/pet4.png" id="petheadpic4" class="petheadpics"></img>
+								<img src="images/smallround.png" class="petheadmerger"></img>
+							</form>
+						</div>
+						<!-- 宠物5 -->
+						<div id="pethead5" class="petheads">
+							<form id="petheadform1" class="petheadforms">
+								<img src="images/pet5.png" id="petheadpic5" class="petheadpics"></img>
+								<img src="images/smallround.png" class="petheadmerger"></img>
+							</form>
+						</div>
+						<!-- 箭头 -->
+						<div id="arrowright" class="petheads">
+							<img src="images/arrow.png" id="arrow_right" class="petheadpics"></img>
+						</div>
 					</div>
 
 					<!-- 新鲜事 -->
 					<div id="filter">
 						<div id="newsbtn1" class="newsbtns">
-							我关注的
+							<img src="images/lbtn1.png" id="newsbtnpic1" class="newsbtnpics"></img>
+							<div id="newstext1" class="newstexts">
+								我关注的
+							</div>
 						</div>
 						<div id="newsbtn2" class="newsbtns">
-							我发布的
+							<img src="images/lbtn2.png" id="newsbtnpic2" class="newsbtnpics"></img>
+							<div id="newstext2" class="newstexts">
+								我发布的
+							</div>
 						</div>
 						<div id="newsbtn3" class="newsbtns">
-							提到我的
+							<img src="images/lbtn3.png" id="newsbtnpic3" class="newsbtnpics"></img>
+							<div id="newstext3" class="newstexts">
+								提到我的
+							</div>
 						</div>
 						<div id="newsbtn4" class="newsbtns">
-							我的收藏
+							<img src="images/lbtn4.png" id="newsbtnpic4" class="newsbtnpics"></img>
+							<div id="newstext4" class="newstexts">
+								我的收藏
+							</div>
 						</div>
 						<div id="newsbtn5" class="newsbtns">
-							我的私信
+							<img src="images/lbtn5.png" id="newsbtnpic5" class="newsbtnpics"></img>
+							<div id="newstext5" class="newstexts">
+								我的私信
+							</div>
 						</div>
 					</div>
 
