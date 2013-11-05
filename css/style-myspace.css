@@ -67,7 +67,6 @@ body{
 	height: 80px;
 	margin: 0;
 	padding: 0;
-	border: 1px black solid;
 }
 
 #titleboard{
@@ -144,7 +143,6 @@ body{
 	height: 1200px auto;
 	margin: 10px 10px 0 0;
 	padding: 0;
-	border: 1px black solid;
 	float: left;
 }
 
@@ -157,7 +155,7 @@ body{
 	border: none;
 }
 #content #contentLeft #myInfo #ownername{
-	width: 112px;
+	width: 92px;
 	position: relative;
 	float: left;
 	margin-left: 8px;
@@ -171,33 +169,39 @@ body{
 }
 #content #contentLeft #myInfo #ownerotherinside{
 	position: relative;
-	margin-left: 16px;
+	margin-left: 8px;
+	font-size: 12px;
+	color: #4568b2;
+	font-weight: bold;
+}
+#content #contentLeft #myInfo #ownerotherinside span{
+	color: #ff6000;
+	font-size: 18px;
 }
 #content #contentLeft #myInfo #usernamedata{
 	position: relative;
 	width: 100px;
 	height: 100px;
 	margin-top: 10px;
-	margin-left: 10px;
 	float: left;
 }
 #content #contentLeft #myInfo #ownerhead{
 	position: relative;
-	width: 100px;
-	height: 100px;
+	width: 120px;
+	height: 120px;
 	margin-top: 10px;
 	margin-left: 10px;
 	float: left;
 }
 #content #contentLeft #myInfo #userheaditem{
 	position: absolute;
-	width: 100px;
-	height: 100px;
+	width: 120px;
+	height: 120px;
 }
 #content #contentLeft #myInfo #userheadmerger{
 	position: absolute;
-	width: 100px;
-	height: 100px;
+	width: 120px;
+	height: 120px;
 }
 
 #content #contentLeft #petheadcontainer{
@@ -234,13 +238,31 @@ body{
 	width: 70px;
 	height: 70px;
 }
+
+#content #contentLeft #filter{
+	position: relative;
+	width: 160px;
+	margin: 0;
+	padding: 10px;
+	border: none;
+}
 #content #contentLeft #filter .newsbtns{
 	position: relative;
 	width: 195px;
 	height: 46px;
 	margin-left: 10px;
 	margin-bottom: 10px;
+	background-color: #e0e1e9;
+	cursor: pointer;
 }
+/*
+#content #contentLeft #filter a{
+	background-color: #e0e1e9;
+}
+#content #contentLeft #filter a:hover{
+	background-color: #ff9900;
+}
+*/
 #content #contentLeft #filter .newsbtns .newsbtnpics{
 	position: absolute;
 	width: 195px;
@@ -257,22 +279,24 @@ body{
 	font-weight: bold;
 }
 
-#filter{
-	position: relative;
-	width: 160px;
-	margin: 0;
-	padding: 10px;
-	border: none;
-}
-
 #contentCenter{
 	position: relative;
-	width: 720px;
-	height: 1200px auto;
-	margin: 10px 0 0 0;
+	width: 726px;
+	height: 1224px auto;
+	margin-top: -12px;
 	padding-bottom: 20px;
-	border: 1px green solid;
+	background-color: #e1e2ea;
 	float: left;
+}
+#contentCenter #triangle{
+	left: -16px;
+	top: 100px;
+	position: absolute;
+}
+#contentCenter #bkgtrunk{
+	left: 12px;
+	top: 220px;
+	position: absolute;
 }
 
 #poster{
@@ -289,41 +313,65 @@ body{
 	background-color: #ff9900;
 }
 #poster #newstopic{
+	font-weight: bold;
+	font-size: 20px;
+	color: #20274f;
 	position: relative;
-	width: 100px;
+	width: 200px;
 	height: 20px;
-	margin-top: 10px;
+	margin-top: 24px;
+	margin-left: -30px;
+	margin-bottom: 10px;
 	padding: 0 10px;
 	border: none;
 }
+#poster #posterblank{
+	position: relative;
+	width: 32px;
+	height: 128px;
+	float: left;
+}
 #poster .newsactions{
 	position: relative;
-	width: 100px;
-	height: 80px;
-	margin-left: 4px;
+	width: 128px;
+	height: 128px;
+	margin-left: 48px;
 	margin-right: 4px;
-	padding-top: 5px;
-	text-align: center;
+	margin-bottom: 40px;
 	float: left;
 	cursor: pointer;
 	color: #e1e2ea;
 }
+#poster .newsactions .funcbtninside{
+	position: absolute;
+}
+#poster .newsactions p{
+	font-weight: bold;
+	position: absolute;
+	margin-left: 32px;
+	margin-top: 72px;
+}
+#poster #newsaction2 p{
+	margin-left: 48px;
+}
+#poster #newsaction1 p{
+	margin-left: 48px;
+}
 #poster #newsaction1{
-	margin-left: 20px;
-	background-color: #4568b1;
+	margin-right: 0;
 }
 #poster #newsaction2{
-	background-color: #3bb5e8;
 }
+/*
 #poster #newsaction3{
 	background-color: #eb5c4c;
 }
 #poster #newsaction4{
 	background-color: #00a89e;
 }
+*/
 #poster #newsaction5{
-	background-color: #f7941d;
-	margin-right: 0;
+	margin-left: 20px;
 }
 
 #controlpanel{
@@ -555,10 +603,9 @@ body{
 
 #posts{
 	position: relative;
-	width: 600px;
-	margin: 0;
+	width: 680px;
+	margin-top: 20px;
 	padding: 0;
-	border: none;
 }
 #posts p:hover{
 	background-color: #ff9900;
@@ -566,21 +613,19 @@ body{
 
 #posts .postsfilters{
 	position: relative;
-	width: 122px;
+	width: 80px;
 	height: 40px;
-	margin-left: 4px;
+	margin-left: 90px;
 	margin-right: 4px;
-	padding-top: 5px;
-	border: 1px green solid;
+	margin-top: -18px;
 	text-align: center;
 	float: left;
+	font-size: 17px;
 	cursor: pointer;
+	color: #20274f;
 }
 #posts #postsfilter1{
-	margin-left: 80px;
-}
-#posts #postsfilter4{
-	margin-right: 0;
+	margin-left: 56px;
 }
 #posts .postscontents{
 	position: relative;

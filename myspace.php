@@ -129,11 +129,11 @@
 								</div>
 								<br/>
 								<div id="ownerotherinside">
-									粉丝 999
+									粉丝&nbsp;&nbsp;<span id="ownerspan1" class="ownerspans">999</span>
 									<br/>
-									关注 249
+									关注&nbsp;&nbsp;<span id="ownerspan2" class="ownerspans">249</span>
 									<br/>
-									爱宠 8
+									爱宠&nbsp;&nbsp;<span id="ownerspan3" class="ownerspans">8 ❤</span>
 								</div>
 							</div>
 						</form>
@@ -197,71 +197,80 @@
 
 					<!-- 新鲜事 -->
 					<div id="filter">
-						<div id="newsbtn1" class="newsbtns">
-							<img src="images/lbtn1.png" id="newsbtnpic1" class="newsbtnpics"></img>
-							<div id="newstext1" class="newstexts">
-								我关注的
+						<a class="filterbtns">
+							<div id="newsbtn1" class="newsbtns">
+								<img src="images/lbtn1.png" id="newsbtnpic1" class="newsbtnpics"></img>
+								<div id="newstext1" class="newstexts">
+									我关注的
+								</div>
 							</div>
-						</div>
-						<div id="newsbtn2" class="newsbtns">
-							<img src="images/lbtn2.png" id="newsbtnpic2" class="newsbtnpics"></img>
-							<div id="newstext2" class="newstexts">
-								我发布的
+						</a>
+						<a class="filterbtns">
+							<div id="newsbtn2" class="newsbtns">
+								<img src="images/lbtn2.png" id="newsbtnpic2" class="newsbtnpics"></img>
+								<div id="newstext2" class="newstexts">
+									我发布的
+								</div>
 							</div>
-						</div>
-						<div id="newsbtn3" class="newsbtns">
-							<img src="images/lbtn3.png" id="newsbtnpic3" class="newsbtnpics"></img>
-							<div id="newstext3" class="newstexts">
-								提到我的
+						</a>
+						<a class="filterbtns">
+							<div id="newsbtn3" class="newsbtns">
+								<img src="images/lbtn3.png" id="newsbtnpic3" class="newsbtnpics"></img>
+								<div id="newstext3" class="newstexts">
+									提到我的
+								</div>
 							</div>
-						</div>
-						<div id="newsbtn4" class="newsbtns">
-							<img src="images/lbtn4.png" id="newsbtnpic4" class="newsbtnpics"></img>
-							<div id="newstext4" class="newstexts">
-								我的收藏
+						</a>
+						<a class="filterbtns">
+							<div id="newsbtn4" class="newsbtns">
+								<img src="images/lbtn4.png" id="newsbtnpic4" class="newsbtnpics"></img>
+								<div id="newstext4" class="newstexts">
+									我的收藏
+								</div>
 							</div>
-						</div>
-						<div id="newsbtn5" class="newsbtns">
-							<img src="images/lbtn5.png" id="newsbtnpic5" class="newsbtnpics"></img>
-							<div id="newstext5" class="newstexts">
-								我的私信
+						</a>
+						<a class="filterbtns">
+							<div id="newsbtn5" class="newsbtns">
+								<img src="images/lbtn5.png" id="newsbtnpic5" class="newsbtnpics"></img>
+								<div id="newstext5" class="newstexts">
+									我的私信
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 
 				</div>
 
 				<div id="contentCenter">
 				<!--这里放置设计图中间发布按钮，内容过滤标签以及内容-->
+					<!-- 对话框的小三角 -->
+					<img id="triangle" src="images/triangle.png"></img>
+					<!-- 背景的枝杈图形 -->
+					<img id="bkgtrunk" src="images/textgrid.png"></img>
 					<div id="poster">
 						<!-- 发布新鲜事 -->
 						<div id="newstopic">
 							发布新鲜事
 						</div>
 						<br/>
-						<a href="article.html">
-							<div id="newsaction1" class="newsactions">
-								<p>文字</p>
+						<div id="posterblank">
+						</div>
+						<a onclick="filterbtn_onclick(5)">
+							<div id="newsaction5" class="newsactions">
+								<img src="images/funcbtn3.png" class="funcbtninside"></img>
+								<p>领养信息</p>
 							</div>
 						</a>
 						<a onclick="filterbtn_onclick(2)">
 							<div id="newsaction2" class="newsactions">
+								<img src="images/funcbtn2.png" class="funcbtninside"></img>
 								<p>图片</p>
 							</div>
 						</a>
-						<a onclick="filterbtn_onclick(3)">
-							<div id="newsaction3" class="newsactions">
-								<p>声音</p>
-							</div>
-						</a>
-						<a onclick="filterbtn_onclick(4)">
-							<div id="newsaction4" class="newsactions">
-								<p>影像</p>
-							</div>
-						</a>
-						<a onclick="filterbtn_onclick(5)">
-							<div id="newsaction5" class="newsactions">
-								<p>求领养</p>
+						<a href="article.html">
+							<div id="newsaction1" class="newsactions">
+								<img src="images/funcbtn1.png" class="funcbtninside"></img>
+								<p>文章</p>
 							</div>
 						</a>
 					</div>
@@ -412,9 +421,9 @@
 						<!-- 帖子内容及过滤按钮 -->
 
 						<br/>
-						<a onclick="posterbtn_onclick(1)">
+						<a onclick="posterbtn_onclick(4)">
 							<div id="postsfilter1" class="postsfilters">
-								<p>文字</p>
+								<p>领养信息</p>
 							</div>
 						</a>
 						<a onclick="posterbtn_onclick(2)">
@@ -422,14 +431,14 @@
 								<p>图片</p>
 							</div>
 						</a>
-						<a onclick="posterbtn_onclick(3)">
+						<a onclick="posterbtn_onclick(1)">
 							<div id="postsfilter3" class="postsfilters">
-								<p>评论</p>
+								<p>文章</p>
 							</div>
 						</a>
-						<a onclick="posterbtn_onclick(4)">
+						<a onclick="posterbtn_onclick(3)">
 							<div id="postsfilter4" class="postsfilters">
-								<p>领养信息</p>
+								<p>评论</p>
 							</div>
 						</a>
 
