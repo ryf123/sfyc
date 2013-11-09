@@ -4,4 +4,5 @@
 	define("DB_PWD","Firewall12!");
 	define("DB_NAME","SFYC");
 	define("USER_TABLE","users");
+	define("RELATION_TABLE","relation");
 ?>

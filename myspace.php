@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	if (session_id() == '') { 
 	session_start();
 	}
@@ -7,6 +7,11 @@
 		$sign_in=TRUE;
 		$login = new LOGIN();
 		$photo_url = $login->fetch_photo($_SESSION['username']);
+		if (!file_exists($photo_url)) {
+			$photo_url = "images/userhead.png";
+		}
+		$count_follow = $login->count_follow($_SESSION['username']);
+		$count_followed = $login->count_followed($_SESSION['username']);
 	}
 	else{
 		$sign_in=FALSE;
@@ -129,9 +134,9 @@
 								</div>
 								<br/>
 								<div id="ownerotherinside">
-									粉丝&nbsp;&nbsp;<span id="ownerspan1" class="ownerspans">999</span>
+									粉丝&nbsp;&nbsp;<span id="ownerspan1" class="ownerspans"><?php echo $count_followed?></span>
 									<br/>
-									关注&nbsp;&nbsp;<span id="ownerspan2" class="ownerspans">249</span>
+									关注&nbsp;&nbsp;<span id="ownerspan2" class="ownerspans"><?php echo $count_follow?></span>
 									<br/>
 									爱宠&nbsp;&nbsp;<span id="ownerspan3" class="ownerspans">8 ❤</span>
 								</div>
@@ -141,11 +146,7 @@
 						<div id="ownerhead">
 							<?php
 								if($sign_in){
-									//echo "<img id='userheaditem' src=$photo_url width=140 height=140>";
-									echo "<img id='userheaditem' src='images/userhead.png' width=140 height=140></img>";
-								}else{
-									//echo "<img id='userheaditem' src=$photo_url width=140 height=140>";
-									echo "<img id='userheaditem' src='images/userhead.png' width=140 height=140></img>";
+									echo "<img id='userheaditem' src=$photo_url width=140 height=140>";
 								}
 							?>
 							<img id="userheadmerger" src="images/headmerger.png"></img>
@@ -267,7 +268,7 @@
 								<p>图片</p>
 							</div>
 						</a>
-						<a href="article.html">
+						<a href="article.php">
 							<div id="newsaction1" class="newsactions">
 								<img src="images/funcbtn1.png" class="funcbtninside"></img>
 								<p>文章</p>
