@@ -5,4 +5,5 @@
 	define("DB_NAME","SFYC");
 	define("USER_TABLE","users");
 	define("RELATION_TABLE","relation");
+	define("PET_TABLE","pet");
 ?>

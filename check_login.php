@@ -70,6 +70,16 @@
 				return "null";
 			}
 		}
+		public function count_pet($username){
+			$query = "SELECT COUNT(*) from ".PET_TABLE." where master='".$username."'";
+			if($result = $this->mysql->query($query)){
+				$row =  $result->fetch_row();
+				return $row[0];
+			}
+			else {
+				return "null";
+			}
+		}
 		public function count_followed($username){
 			$query = "SELECT COUNT(*) from ".RELATION_TABLE." where followed='".$username."'";
 			if($result = $this->mysql->query($query)){

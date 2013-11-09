@@ -12,6 +12,7 @@
 		}
 		$count_follow = $login->count_follow($_SESSION['username']);
 		$count_followed = $login->count_followed($_SESSION['username']);
+		$count_pet = $login->count_pet($_SESSION['username']);
 	}
 	else{
 		$sign_in=FALSE;
@@ -130,7 +131,7 @@
 						<form id="userdata">
 							<div id="ownername">
 								<div id="ownernameinside">
-									蔡文静
+									<?php echo $_SESSION['username']?>
 								</div>
 								<br/>
 								<div id="ownerotherinside">
@@ -138,7 +139,7 @@
 									<br/>
 									关注&nbsp;&nbsp;<span id="ownerspan2" class="ownerspans"><?php echo $count_follow?></span>
 									<br/>
-									爱宠&nbsp;&nbsp;<span id="ownerspan3" class="ownerspans">8 ❤</span>
+									爱宠&nbsp;&nbsp;<span id="ownerspan3" class="ownerspans"><?php echo $count_pet?> ❤</span>
 								</div>
 							</div>
 						</form>
