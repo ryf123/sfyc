@@ -297,7 +297,7 @@ body{
 	position: absolute;
 }
 #contentCenter #bkgtrunk{
-	left: 12px;
+	left: 40px;
 	top: 220px;
 	position: absolute;
 }
@@ -385,7 +385,6 @@ body{
 	height: 680px auto;
 	margin-left: 80px;
 	margin-top: 10px;
-	border: 1px green solid;
 	padding-bottom: 10px;
 }
 #controlpanel .c_panels{
@@ -440,6 +439,222 @@ body{
 	border: 1px blue solid;
 	float: left;
 }
+
+#controlpanel #c_panelpic{
+	position: absolute;
+	z-index: 100;
+	width: 640px;
+	height: 200px auto;
+	left: -40px;
+	top: 64px;
+}
+#controlpanel #c_panelpic #pictopic{
+	position: relative;
+	color: #ffffff;
+	font-size: 24px;
+	margin-left: 32px;
+	margin-top: 24px;
+	margin-bottom: 24px;
+}
+#controlpanel #c_panelpic #splitline{
+	position: relative;
+	width: 640px;
+	height: 2px;
+	background-color: #20284f;
+	text-align: center;
+	vertical-align: middle;
+}
+#controlpanel #c_panelpic #uploadbtn{
+	position: relative;
+	width: 144px;
+	height: 64px;
+	top: 24px;
+	left: 32px;
+	vertical-align: middle;
+	background-color: #3bb5e8;
+	float: left;
+	cursor: pointer;
+}
+#controlpanel #c_panelpic #uploadbtn #uploadbtntext{
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	top: 20px;
+	font-size: 20px;
+	color: #20284f;
+}
+#controlpanel #c_panelpic #uploadbtntext_right{
+	position: relative;
+	font-size: 16px;
+	color: #20284f;
+	float: left;
+	top: 48px;
+	left: 96px;
+}
+#controlpanel #c_panelpic #uploadpics{
+	position: relative;
+	background-color: #a7a9ac;
+	margin-top: 112px;
+	left: 32px;
+	width: 576px;
+	height: 240px;
+}
+#controlpanel #c_panelpic #uploadpics .uploadpictures{
+	position: relative;
+	margin-top: 16px;
+	margin-left: 16px;
+	float: left;
+	width: 96px;
+	height: 96px;
+	cursor: pointer;
+}
+#controlpanel #c_panelpic #announcerheads{
+	position: relative;
+	margin-top: 8px;
+	margin-left: 32px;
+	width: 576px;
+	height: 80px;
+}
+#controlpanel #c_panelpic #announcerheads .announcers{
+	position: relative;
+	margin-top: 16px;
+	margin-left: 8px;
+	width: 64px;
+	height: 64px;
+	border-radius: 32px;
+	cursor: pointer;
+}
+#controlpanel #c_panelpic #triangle{
+	position: relative;
+	width: 576px;
+	height: 16px;
+	left: 32px;
+	top: 0px;
+}
+#controlpanel #c_panelpic #triangle .triangles{
+	position: absolute;
+	width: 32px;
+	height: 16px;
+}
+#controlpanel #c_panelpic #triangle #triangle0{
+	left: 24px;
+}
+#controlpanel #c_panelpic #triangle #triangle1{
+	left: 101px;
+}
+#controlpanel #c_panelpic #triangle #triangle2{
+	left: 178px;
+}
+#controlpanel #c_panelpic #triangle #triangle3{
+	left: 255px;
+}
+#controlpanel #c_panelpic #triangle #triangle4{
+	left: 332px;
+}
+#controlpanel #c_panelpic #triangle #triangle5{
+	left: 409px;
+}
+
+#controlpanel #c_panelpic #announcertexts{
+	position: relative;
+	margin-left: 32px;
+	width: 576px;
+	height: 144px;
+	background-color: #d1d2d4;
+}
+#controlpanel #c_panelpic #announcertexts #announcertext_inner{
+	position: relative;
+	margin-top: 16px;
+	margin-left: 16px;
+	border-color: #d1d2d4;
+	width: 540px;
+	height: 108px;
+	background-color: #d1d2d4;
+}
+#controlpanel #c_panelpic #announce_functions{
+	position: relative;
+	margin-top: 16px;
+	margin-left: 32px;
+	width: 576px;
+	height: 64px;
+	margin-bottom: 24px;
+	cursor: pointer;
+}
+#controlpanel #c_panelpic #announce_functions .a_functions{
+	position: relative;
+	width: 112px;
+	height: 64px;
+	float: left;
+	background-color: #58595b;
+}
+#controlpanel #c_panelpic #announce_functions #a_function2{
+	position: relative;
+	left: 224px;
+	float: left;
+	background-color: #58595b;
+}
+#controlpanel #c_panelpic #announce_functions #a_function3{
+	position: relative;
+	left: 240px;
+	width: 112px;
+	height: 64px;
+	float: left;
+	background-color: #eb5c4c;
+	text-align: center;
+}
+#controlpanel #c_panelpic #announce_functions .a_functions .a_functions_inner{
+	position: relative;
+	font-size: 20px;
+	top: 20px;
+	color: #20284f;
+	text-align: center;
+	vertical-align: middle;
+}
+#controlpanel #c_panelpic #announce_functions .a_functions #a_function3_inner{
+	color: #ffffff;
+}
+#controlpanel #c_panelpic #announce_visiblility{
+	position: relative;
+	margin-top: 16px;
+	margin-left: 32px;
+	width: 576px;
+	height: 64px;
+	margin-bottom: 24px;
+}
+#controlpanel #c_panelpic #announce_visiblility .visiblility_functions{
+	position: relative;
+	width: 128px;
+	height: 64px;
+	float: right;
+	margin-right: 16px;
+	background-color: #58595b;
+	cursor: pointer;
+}
+#controlpanel #c_panelpic #announce_visiblility #visiblility_function1{
+	margin-right: 0px;
+}
+#controlpanel #c_panelpic #announce_visiblility .visiblility_functions .visiblility_inners{
+	position: relative;
+	font-size: 20px;
+	top: 20px;
+	color: #20284f;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#controlpanel #c_panelpic #c_panelpic_bkg{
+	position: absolute;
+	z-index: -1;
+	filter: Alpha(80);
+	opacity: 0.8;
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+	top: 0px;
+	left: 0px;
+}
+
+/*
 #controlpanel #c_panel2{
 	height: 640px;
 }
@@ -530,6 +745,8 @@ body{
 	float: left;
 	cursor: pointer;
 }
+*/
+
 #controlpanel #c_panel3 #cpanel3_input1{
 	position: relative;
 	width: 496px;
@@ -612,15 +829,12 @@ body{
 	margin-top: 20px;
 	padding: 0;
 }
-#posts p:hover{
-	background-color: #ff9900;
-}
 
 #posts .postsfilters{
 	position: relative;
 	width: 80px;
 	height: 40px;
-	margin-left: 90px;
+	margin-left: 76px;
 	margin-right: 4px;
 	margin-top: -18px;
 	text-align: center;
@@ -630,7 +844,7 @@ body{
 	color: #20274f;
 }
 #posts #postsfilter1{
-	margin-left: 56px;
+	margin-left: 76px;
 }
 #posts .postscontents{
 	position: relative;

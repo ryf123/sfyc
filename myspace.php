@@ -295,16 +295,93 @@
 
 							</textarea>
 						</div>
-						<!-- 2.图片发布界面 -->
+						<!-- 2.图片发布界面 （新） -->
+						
+						<div id="c_panelpic">
+							<!-- 前导功能 -->
+							<div id="pictopic">发布图片</div>
+							<div id="splitline"></div>
+							<div id="uploadbtn">
+								<div id="uploadbtntext">添加图片</div>
+							</div>
+							<div id="uploadbtntext_right">JPG,GIF,PNG或BMP，单张最大20M，最多9张</div>
+							
+							<!-- 上传了什么图 -->
+							<div id="uploadpics">
+								<img src="images/11.jpg" id="uploadpicture1" class="uploadpictures"></img>
+								<img src="images/12.jpg" id="uploadpicture2" class="uploadpictures"></img>
+								<img src="images/13.jpg" id="uploadpicture3" class="uploadpictures"></img>
+								<img src="images/14.jpg" id="uploadpicture4" class="uploadpictures"></img>
+								<img src="images/15.jpg" id="uploadpicture5" class="uploadpictures"></img>
+								<img src="images/16.jpg" id="uploadpicture6" class="uploadpictures"></img>
+								<img src="images/17.jpg" id="uploadpicture7" class="uploadpictures"></img>
+								<img src="images/18.jpg" id="uploadpicture8" class="uploadpictures"></img>
+								<img src="images/19.jpg" id="uploadpicture9" class="uploadpictures"></img>
+							</div>
+							
+							<!-- 以谁的名义发布 -->
+							<div id="announcerheads">
+								<img src="images/userhead.png" id="announcer0" class="announcers" onclick="distributer_select(0)"></img>
+								<img src="images/pet1.png" id="announcer1" class="announcers" onclick="distributer_select(1)"></img>
+								<img src="images/pet2.png" id="announcer2" class="announcers" onclick="distributer_select(2)"></img>
+								<img src="images/pet3.png" id="announcer3" class="announcers" onclick="distributer_select(3)"></img>
+								<img src="images/pet4.png" id="announcer4" class="announcers" onclick="distributer_select(4)"></img>
+								<img src="images/pet5.png" id="announcer5" class="announcers" onclick="distributer_select(5)"></img>
+							</div>
+							
+							<!-- 小三角排列 -->
+							<div id="triangle">
+								<img src="images/triangle_upper.png" id="triangle0" class="triangles"></img>
+								<img src="images/triangle_upper.png" id="triangle1" class="triangles"></img>
+								<img src="images/triangle_upper.png" id="triangle2" class="triangles"></img>
+								<img src="images/triangle_upper.png" id="triangle3" class="triangles"></img>
+								<img src="images/triangle_upper.png" id="triangle4" class="triangles"></img>
+								<img src="images/triangle_upper.png" id="triangle5" class="triangles"></img>
+							</div>
+							
+							<!-- 文字区 -->
+							<div id="announcertexts">
+								<textarea id="announcertext_inner">说点什么...</textarea>
+							</div>
+							
+							<!-- 发布还是取消 -->
+							<div id="announce_functions">
+								<div id="a_function1" class="a_functions" onclick="cancel_distribute()">
+									<div id="a_function1_inner" class="a_functions_inner">取消</div>
+								</div>
+								<div id="a_function2" class="a_functions" onclick="turn_on_visibility()">
+									<div id="a_function2_inner" class="a_functions_inner">公开</div>
+								</div>
+								<div id="a_function3" class="a_functions" onclick="distribute_pics()">
+									<div id="a_function3_inner" class="a_functions_inner">发布</div>
+								</div>
+							</div>
+							
+							<!-- 何种权限可见 -->
+							<div id="announce_visiblility">
+								<div id="visiblility_function1" class="visiblility_functions" onclick="turn_off_visibility()">
+									<div id="visiblility_inner1" class="visiblility_inners">仅自己可见</div>
+								</div>
+								<div id="visiblility_function2" class="visiblility_functions" onclick="turn_off_visibility()">
+									<div id="visiblility_inner2" class="visiblility_inners">仅粉丝可见</div>
+								</div>
+								<div id="visiblility_function3" class="visiblility_functions" onclick="turn_off_visibility()">
+									<div id="visiblility_inner3" class="visiblility_inners">所有人可见</div>
+								</div>
+							</div>
+							
+							<!-- 背景 -->
+							<div id="c_panelpic_bkg"></div>
+						</div>
+						
+						<!-- 2.图片发布界面 
 						<div id="c_panel2" class="c_panels">
 							<div id="picuploadcount">
 								最多可上传 6 张图片
 							</div>
 							<br/>
 							<hr/>
-							<!-- 新的图片放置区 -->
 							<div id="picsarea">
-								<!-- 放置六张图片 -->
 								<img src="images/blank.png" id="previewimage1" class="previewimages" onclick="cancel_an_image(0)">
 
 								</img>
@@ -324,18 +401,15 @@
 
 								</img>
 								<br/>
-								<!-- 放置上传按钮 -->
 								<div id="uploadbtn" onclick="trigger_filebox()">
 									+添加图片
 								</div>
-								<!-- 骗人用的隐藏对话框 -->
 								<input type="file" accept="image/*" id="cpanel2_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
 							</div>
 							说点儿什么吧......<br/>
 							<textarea id="cpanel2_input2" onclick="textcomplete()"> </textarea>
 							<br/>
 							<hr/>
-							<!-- 以谁的名义发布？ -->
 							<div id="publisher_leader">
 								<div id="publisher1" class="publishers">
 									以主人名义发布(默认)
@@ -349,7 +423,6 @@
 							</div>
 							<br/>
 							<hr/>
-							<!-- 发布给谁看？ -->
 							<div id="receiver_leader">
 								<div id="receiver1" class="receivers">
 									所有人可见(默认)
@@ -367,6 +440,8 @@
 								<a>发布</a>
 							</div>
 						</div>
+						-->
+						
 						<!-- 3.声音发布界面 -->
 						<div id="c_panel3" class="c_panels">
 							请输入声音链接：(或点击<a href="#">这里</a>上传)<br/>
