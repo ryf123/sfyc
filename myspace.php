@@ -40,6 +40,9 @@
 	</head>
 
 	<body>
+		<div id="containertitleboard">
+			<img src="images/TitleBoard9.png" id="containertitleboardinner"></img>
+		</div>
 		<div id="container">
 			<!-- 标题图 -->
 			<div id="titleboard">
@@ -322,12 +325,30 @@
 							
 							<!-- 以谁的名义发布 -->
 							<div id="announcerheads">
-								<img src="images/userhead.png" id="announcer0" class="announcers" onclick="distributer_select(0)"></img>
-								<img src="images/pet1.png" id="announcer1" class="announcers" onclick="distributer_select(1)"></img>
-								<img src="images/pet2.png" id="announcer2" class="announcers" onclick="distributer_select(2)"></img>
-								<img src="images/pet3.png" id="announcer3" class="announcers" onclick="distributer_select(3)"></img>
-								<img src="images/pet4.png" id="announcer4" class="announcers" onclick="distributer_select(4)"></img>
-								<img src="images/pet5.png" id="announcer5" class="announcers" onclick="distributer_select(5)"></img>
+								<div id="announcer0" class="announcers" onclick="distributer_select(0)">
+									<img src="images/userhead.png" id="announcer0_inner" class="announcers_inner"></img>
+									<img src="images/smallroundshrink.png" class="announcers_ring"></img>
+								</div>
+								<div id="announcer1" class="announcers" onclick="distributer_select(1)">
+									<img src="images/pet1.png" id="announcer1_inner" class="announcers_inner"></img>
+									<img src="images/smallroundshrink.png" class="announcers_ring"></img>
+								</div>
+								<div id="announcer2" class="announcers" onclick="distributer_select(2)">
+									<img src="images/pet2.png" id="announcer2_inner" class="announcers_inner"></img>
+									<img src="images/smallroundshrink.png" class="announcers_ring"></img>
+								</div>
+								<div id="announcer3" class="announcers" onclick="distributer_select(3)">
+									<img src="images/pet3.png" id="announcer3_inner" class="announcers_inner"></img>
+									<img src="images/smallroundshrink.png" class="announcers_ring"></img>
+								</div>
+								<div id="announcer4" class="announcers" onclick="distributer_select(4)">
+									<img src="images/pet4.png" id="announcer4_inner" class="announcers_inner"></img>
+									<img src="images/smallroundshrink.png" class="announcers_ring"></img>
+								</div>
+								<div id="announcer5" class="announcers" onclick="distributer_select(5)">
+									<img src="images/pet5.png" id="announcer5_inner" class="announcers_inner"></img>
+									<img src="images/smallroundshrink.png" class="announcers_ring"></img>
+								</div>
 							</div>
 							
 							<!-- 小三角排列 -->
