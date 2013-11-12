@@ -11,6 +11,7 @@ body{
 	width: 1000px;
 	padding: 0;
 	margin: 0 auto;
+	margin-top: -8px;
 }
 
 #header{
@@ -74,6 +75,12 @@ body{
 	position: absolute;
 	margin: 0;
 	padding: 0;
+}
+#titleboard #board_inner{
+	position: absolute;
+}
+#titleboard #board_outer{
+	position: absolute;
 }
 
 #menu{

@@ -7,6 +7,7 @@ body{
 	font-size: 16px;
 }
 
+/*
 #containertitleboard{
 	position: absolute;
 	width: 100%;
@@ -19,6 +20,7 @@ body{
 	height: 128px;
 	margin: 0 auto;
 }
+*/
 
 #container{
 	position: relative;
@@ -88,6 +90,12 @@ body{
 	position: absolute;
 	margin: 0;
 	padding: 0;
+}
+#titleboard #board_inner{
+	position: absolute;
+}
+#titleboard #board_outer{
+	position: absolute;
 }
 
 #menu{

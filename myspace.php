@@ -40,13 +40,16 @@
 	</head>
 
 	<body>
-		<div id="containertitleboard">
+		<!-- div id="containertitleboard">
 			<img src="images/TitleBoard9.png" id="containertitleboardinner"></img>
-		</div>
+		</div -->
 		<div id="container">
 			<!-- 标题图 -->
 			<div id="titleboard">
-				<img src="images/TitleBoard8.png">
+				<img src="images/TitleBoard9.png" id="board_inner">
+
+				</img>
+				<img src="images/TitleBoard8.png" id="board_outer">
 
 				</img>
 			</div>
