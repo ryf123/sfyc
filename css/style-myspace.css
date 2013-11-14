@@ -531,6 +531,9 @@ body{
 	height: 96px;
 	cursor: pointer;
 }
+#controlpanel #c_panelpic #uploadpics #upload_fileuploader{
+	
+}
 #controlpanel #c_panelpic #announcerheads{
 	position: relative;
 	margin-top: 8px;
@@ -651,24 +654,37 @@ body{
 	color: #ffffff;
 }
 #controlpanel #c_panelpic #announce_visiblility{
-	position: relative;
-	margin-top: 16px;
-	margin-left: 32px;
-	width: 576px;
-	height: 64px;
+	position: absolute;
+	top: 768px;
+	left: 192px;
+	width: 448px;
+	height: 104px;
 	margin-bottom: 24px;
+	z-index: 200;
+}
+#controlpanel #c_panelpic #announce_visiblility #funcframe{
+	position: absolute;
+	width: 448px;
+	height: 104px;
+	z-index: -1;
 }
 #controlpanel #c_panelpic #announce_visiblility .visiblility_functions{
-	position: relative;
+	position: absolute;
 	width: 128px;
 	height: 64px;
-	float: right;
-	margin-right: 16px;
-	background-color: #58595b;
+	background-color: #ff9900;
+	color: #ffffff;
 	cursor: pointer;
+	top: 28px;
 }
 #controlpanel #c_panelpic #announce_visiblility #visiblility_function1{
-	margin-right: 0px;
+	left: 16px;
+}
+#controlpanel #c_panelpic #announce_visiblility #visiblility_function2{
+	left: 160px;
+}
+#controlpanel #c_panelpic #announce_visiblility #visiblility_function3{
+	left: 304px;
 }
 #controlpanel #c_panelpic #announce_visiblility .visiblility_functions .visiblility_inners{
 	position: relative;
@@ -685,7 +701,7 @@ body{
 	filter: Alpha(80);
 	opacity: 0.8;
 	width: 100%;
-	height: 100%;
+	height: 776px;
 	background-color: #000000;
 	top: 0px;
 	left: 0px;

@@ -7,7 +7,7 @@ $(document).ready(function () {
 	$("#posts .postscontents").hide();
 	$("#postscontent_pic").show();
 	$("#controlpanel").hide();
-	//$("#controlpanel #c_panel2 .picuploads").hide();
+	$("#controlpanel #c_panelpic #uploadpics #upload_fileuploader").hide();
 	//$("#controlpanel #c_panel2 #cpanel2_btn1").hide();
 	//$("#cpanel2_fileuploader").hide();
 	stepcompleted1 = false;
@@ -74,10 +74,10 @@ function init_filepanels(){
 }
 
 function trigger_filebox(){
-	//$("#cpanel2_fileuploader").trigger("click");
+	$("#controlpanel #c_panelpic #uploadpics #upload_fileuploader").trigger("click");
 }
 function begin_upload_image(){ //上传一张图片
-	if(picuploaded.length >= 6){
+	if(picuploaded.length >= 9){
 		alert("无法上传更多的图片");
 		return;
 	}
@@ -95,11 +95,11 @@ function cancel_an_image(pos){ //取消一张图片
 	redraw_images();
 }
 function redraw_images(){ //重画预览图片
-	for(var s = 0; s < 6; s++){
+	for(var s = 0; s < 9; s++){
 		if(s < picuploaded.length){
-			document.getElementById("previewimage" + String(s + 1)).src = "images/" + String(picuploaded[s]) + ".jpg";
+			document.getElementById("uploadpicture" + String(s + 1)).src = "images/" + String(picuploaded[s]) + ".jpg";
 		}else{
-			document.getElementById("previewimage" + String(s + 1)).src = "images/blank.png";
+			document.getElementById("uploadpicture" + String(s + 1)).src = "images/blank.png";
 		}
 	}
 }
@@ -138,15 +138,15 @@ function turn_off_visibility(){
 	$("#controlpanel #c_panelpic #announce_visiblility").hide();
 }
 function distribute_pics(){
-	var string1 = document.getElementById("cpanel2_input2").value;
-	if(string1 == "" || picuploaded.length <= 0){
-		alert("发布失败——图片栏和文字栏均不能为空！");
+	var string1 = document.getElementById("upload_fileuploader").value;
+	if(picuploaded.length <= 0){
+		alert("发布失败——图片栏不能为空！");
 	}else{
 		$("#controlpanel").hide();
 		alert("发布成功！");
 		picuploaded = [];
 		redraw_images();
-		document.getElementById("cpanel2_input2").value = "";
+		document.getElementById("upload_fileuploader").value = "";
 	}
 }
 

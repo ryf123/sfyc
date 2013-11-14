@@ -315,15 +315,16 @@
 							
 							<!-- 上传了什么图 -->
 							<div id="uploadpics">
-								<img src="images/11.jpg" id="uploadpicture1" class="uploadpictures"></img>
-								<img src="images/12.jpg" id="uploadpicture2" class="uploadpictures"></img>
-								<img src="images/13.jpg" id="uploadpicture3" class="uploadpictures"></img>
-								<img src="images/14.jpg" id="uploadpicture4" class="uploadpictures"></img>
-								<img src="images/15.jpg" id="uploadpicture5" class="uploadpictures"></img>
-								<img src="images/16.jpg" id="uploadpicture6" class="uploadpictures"></img>
-								<img src="images/17.jpg" id="uploadpicture7" class="uploadpictures"></img>
-								<img src="images/18.jpg" id="uploadpicture8" class="uploadpictures"></img>
-								<img src="images/19.jpg" id="uploadpicture9" class="uploadpictures"></img>
+								<img src="images/blank.png" id="uploadpicture1" class="uploadpictures" onclick="trigger_filebox()"></img>
+								<img src="images/blank.png" id="uploadpicture2" class="uploadpictures" onclick="trigger_filebox()"></img>
+								<img src="images/blank.png" id="uploadpicture3" class="uploadpictures" onclick="trigger_filebox()"></img>
+								<img src="images/blank.png" id="uploadpicture4" class="uploadpictures" onclick="trigger_filebox()"></img>
+								<img src="images/blank.png" id="uploadpicture5" class="uploadpictures" onclick="trigger_filebox()"></img>
+								<img src="images/blank.png" id="uploadpicture6" class="uploadpictures" onclick="trigger_filebox()"></img>
+								<img src="images/blank.png" id="uploadpicture7" class="uploadpictures" onclick="trigger_filebox()"></img>
+								<img src="images/blank.png" id="uploadpicture8" class="uploadpictures" onclick="trigger_filebox()"></img>
+								<img src="images/blank.png" id="uploadpicture9" class="uploadpictures" onclick="trigger_filebox()"></img>
+								<input type="file" accept="image/*" id="upload_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
 							</div>
 							
 							<!-- 以谁的名义发布 -->
@@ -384,6 +385,7 @@
 							
 							<!-- 何种权限可见 -->
 							<div id="announce_visiblility">
+								<img src="images/funcframe.png" id="funcframe"></img>
 								<div id="visiblility_function1" class="visiblility_functions" onclick="turn_off_visibility()">
 									<div id="visiblility_inner1" class="visiblility_inners">仅自己可见</div>
 								</div>
