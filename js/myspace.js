@@ -2,6 +2,7 @@ var stepcompleted1 = false;
 var stepcompleted2 = false;
 var picuploaded = [];
 var distributers = [];
+var picmaxnum = 10;
 
 $(document).ready(function () {
 	$("#posts .postscontents").hide();
@@ -26,6 +27,8 @@ function filterbtn_onclick(para){
 		case 2:
 			//init_filepanels();
 			distributer_select(0);
+			$("#controlpanel #c_panelpic #uploadbtntext_right #picleftnum").html(String(picmaxnum - picuploaded.length));
+			$("#controlpanel #c_panelpic #announce_functions #distribute_visibility").html("公开发表");
 			$("#controlpanel #c_panelpic").show();
 			break;
 		case 3:
@@ -77,7 +80,7 @@ function trigger_filebox(){
 	$("#controlpanel #c_panelpic #uploadpics #upload_fileuploader").trigger("click");
 }
 function begin_upload_image(){ //上传一张图片
-	if(picuploaded.length >= 9){
+	if(picuploaded.length >= picmaxnum){
 		alert("无法上传更多的图片");
 		return;
 	}
@@ -95,13 +98,14 @@ function cancel_an_image(pos){ //取消一张图片
 	redraw_images();
 }
 function redraw_images(){ //重画预览图片
-	for(var s = 0; s < 9; s++){
+	for(var s = 0; s < picmaxnum; s++){
 		if(s < picuploaded.length){
 			document.getElementById("uploadpicture" + String(s + 1)).src = "images/" + String(picuploaded[s]) + ".jpg";
 		}else{
 			document.getElementById("uploadpicture" + String(s + 1)).src = "images/blank.png";
 		}
 	}
+	$("#controlpanel #c_panelpic #uploadbtntext_right #picleftnum").html(String(picmaxnum - picuploaded.length));
 }
 
 function textcomplete(){
@@ -134,7 +138,17 @@ function cancel_distribute(){
 function turn_on_visibility(){
 	$("#controlpanel #c_panelpic #announce_visiblility").show();
 }
-function turn_off_visibility(){
+function turn_off_visibility(ann){
+	switch(ann){ //谁可见？
+		case 0:
+			$("#controlpanel #c_panelpic #announce_functions #distribute_visibility").html("公开发表");
+			break;
+		case 1:
+			$("#controlpanel #c_panelpic #announce_functions #distribute_visibility").html("粉丝可见");
+			break;
+		default:
+			$("#controlpanel #c_panelpic #announce_functions #distribute_visibility").html("留给自己");
+	}
 	$("#controlpanel #c_panelpic #announce_visiblility").hide();
 }
 function distribute_pics(){

@@ -309,21 +309,22 @@
 							<div id="pictopic">发布图片</div>
 							<div id="splitline"></div>
 							<div id="uploadbtn">
-								<div id="uploadbtntext">添加图片</div>
+								<div id="uploadbtntext" onclick="trigger_filebox()">添加图片</div>
 							</div>
-							<div id="uploadbtntext_right">JPG,GIF,PNG或BMP，单张最大20M，最多9张</div>
+							<div id="uploadbtntext_right">JPG,GIF,PNG或BMP，单张最大20M<br/>还可以上传&nbsp;<span id="picleftnum"></span>&nbsp;张</div>
 							
 							<!-- 上传了什么图 -->
 							<div id="uploadpics">
-								<img src="images/blank.png" id="uploadpicture1" class="uploadpictures" onclick="trigger_filebox()"></img>
-								<img src="images/blank.png" id="uploadpicture2" class="uploadpictures" onclick="trigger_filebox()"></img>
-								<img src="images/blank.png" id="uploadpicture3" class="uploadpictures" onclick="trigger_filebox()"></img>
-								<img src="images/blank.png" id="uploadpicture4" class="uploadpictures" onclick="trigger_filebox()"></img>
-								<img src="images/blank.png" id="uploadpicture5" class="uploadpictures" onclick="trigger_filebox()"></img>
-								<img src="images/blank.png" id="uploadpicture6" class="uploadpictures" onclick="trigger_filebox()"></img>
-								<img src="images/blank.png" id="uploadpicture7" class="uploadpictures" onclick="trigger_filebox()"></img>
-								<img src="images/blank.png" id="uploadpicture8" class="uploadpictures" onclick="trigger_filebox()"></img>
-								<img src="images/blank.png" id="uploadpicture9" class="uploadpictures" onclick="trigger_filebox()"></img>
+								<img src="images/blank.png" id="uploadpicture1" class="uploadpictures" onclick="cancel_an_image(0)"></img>
+								<img src="images/blank.png" id="uploadpicture2" class="uploadpictures" onclick="cancel_an_image(1)"></img>
+								<img src="images/blank.png" id="uploadpicture3" class="uploadpictures" onclick="cancel_an_image(2)"></img>
+								<img src="images/blank.png" id="uploadpicture4" class="uploadpictures" onclick="cancel_an_image(3)"></img>
+								<img src="images/blank.png" id="uploadpicture5" class="uploadpictures" onclick="cancel_an_image(4)"></img>
+								<img src="images/blank.png" id="uploadpicture6" class="uploadpictures" onclick="cancel_an_image(5)"></img>
+								<img src="images/blank.png" id="uploadpicture7" class="uploadpictures" onclick="cancel_an_image(6)"></img>
+								<img src="images/blank.png" id="uploadpicture8" class="uploadpictures" onclick="cancel_an_image(7)"></img>
+								<img src="images/blank.png" id="uploadpicture9" class="uploadpictures" onclick="cancel_an_image(8)"></img>
+								<img src="images/blank.png" id="uploadpicture9" class="uploadpictures" onclick="cancel_an_image(9)"></img>
 								<input type="file" accept="image/*" id="upload_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
 							</div>
 							
@@ -376,7 +377,7 @@
 									<div id="a_function1_inner" class="a_functions_inner">取消</div>
 								</div>
 								<div id="a_function2" class="a_functions" onclick="turn_on_visibility()">
-									<div id="a_function2_inner" class="a_functions_inner">公开</div>
+									<div id="a_function2_inner" class="a_functions_inner"><span id="distribute_visibility"></span></div>
 								</div>
 								<div id="a_function3" class="a_functions" onclick="distribute_pics()">
 									<div id="a_function3_inner" class="a_functions_inner">发布</div>
@@ -386,13 +387,13 @@
 							<!-- 何种权限可见 -->
 							<div id="announce_visiblility">
 								<img src="images/funcframe.png" id="funcframe"></img>
-								<div id="visiblility_function1" class="visiblility_functions" onclick="turn_off_visibility()">
+								<div id="visiblility_function1" class="visiblility_functions" onclick="turn_off_visibility(2)">
 									<div id="visiblility_inner1" class="visiblility_inners">仅自己可见</div>
 								</div>
-								<div id="visiblility_function2" class="visiblility_functions" onclick="turn_off_visibility()">
+								<div id="visiblility_function2" class="visiblility_functions" onclick="turn_off_visibility(1)">
 									<div id="visiblility_inner2" class="visiblility_inners">仅粉丝可见</div>
 								</div>
-								<div id="visiblility_function3" class="visiblility_functions" onclick="turn_off_visibility()">
+								<div id="visiblility_function3" class="visiblility_functions" onclick="turn_off_visibility(0)">
 									<div id="visiblility_inner3" class="visiblility_inners">所有人可见</div>
 								</div>
 							</div>
