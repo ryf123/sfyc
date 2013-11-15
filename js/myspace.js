@@ -89,6 +89,10 @@ function begin_upload_image(){ //上传一张图片
 	picuploaded.push(picuploaded.length + 1);
 	//document.getElementById("cpanel2_fileuploader").value = "";
 	redraw_images();
+	//alert($("#controlpanel #c_panelpic #uploadpics #upload_fileuploader").value);
+	alert(document.getElementById('upload_fileuploader').value);
+	document.getElementById('upload_fileuploader').value = "";
+	alert(document.getElementById('upload_fileuploader').value);
 }
 function cancel_an_image(pos){ //取消一张图片
 	if(pos >= picuploaded.length){

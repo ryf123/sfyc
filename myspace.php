@@ -308,8 +308,8 @@
 							<!-- 前导功能 -->
 							<div id="pictopic">发布图片</div>
 							<div id="splitline"></div>
-							<div id="uploadbtn">
-								<div id="uploadbtntext" onclick="trigger_filebox()">添加图片</div>
+							<div id="uploadbtn" onclick="trigger_filebox()">
+								<div id="uploadbtntext">添加图片</div>
 							</div>
 							<div id="uploadbtntext_right">JPG,GIF,PNG或BMP，单张最大20M<br/>还可以上传&nbsp;<span id="picleftnum"></span>&nbsp;张</div>
 							
@@ -324,7 +324,7 @@
 								<img src="images/blank.png" id="uploadpicture7" class="uploadpictures" onclick="cancel_an_image(6)"></img>
 								<img src="images/blank.png" id="uploadpicture8" class="uploadpictures" onclick="cancel_an_image(7)"></img>
 								<img src="images/blank.png" id="uploadpicture9" class="uploadpictures" onclick="cancel_an_image(8)"></img>
-								<img src="images/blank.png" id="uploadpicture9" class="uploadpictures" onclick="cancel_an_image(9)"></img>
+								<img src="images/blank.png" id="uploadpicture10" class="uploadpictures" onclick="cancel_an_image(9)"></img>
 								<input type="file" accept="image/*" id="upload_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
 							</div>
 							

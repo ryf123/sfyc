@@ -609,10 +609,15 @@ body{
 	position: relative;
 	margin-top: 16px;
 	margin-left: 16px;
+	border-style: 0px none;
 	border-color: #d1d2d4;
 	width: 540px;
 	height: 108px;
 	background-color: #d1d2d4;
+	resize: none;
+	border: none;
+	border: 1px solid none;
+	overflow-y: hidden;
 }
 #controlpanel #c_panelpic #announce_functions{
 	position: relative;
