@@ -246,7 +246,10 @@
 							</div>
 						</a>
 					</div>
-
+					<!-- 三个底色区域 -->
+					<div id="left-btmcolor1" class="left-btmcolors"></div>
+					<div id="left-btmcolor2" class="left-btmcolors"></div>
+					<div id="left-btmcolor3" class="left-btmcolors"></div>
 				</div>
 
 				<div id="contentCenter">
@@ -306,6 +309,7 @@
 						
 						<div id="c_panelpic">
 							<!-- 前导功能 -->
+							<img id="up_triangle" src="images/triangle_upper_DK.png"></img>
 							<div id="pictopic">发布图片</div>
 							<div id="splitline"></div>
 							<div id="uploadbtn" onclick="trigger_filebox()">
@@ -324,7 +328,7 @@
 								<img src="images/blank.png" id="uploadpicture7" class="uploadpictures" onclick="cancel_an_image(6)"></img>
 								<img src="images/blank.png" id="uploadpicture8" class="uploadpictures" onclick="cancel_an_image(7)"></img>
 								<img src="images/blank.png" id="uploadpicture9" class="uploadpictures" onclick="cancel_an_image(8)"></img>
-								<img src="images/blank.png" id="uploadpicture10" class="uploadpictures" onclick="cancel_an_image(9)"></img>
+								<!-- img src="images/blank.png" id="uploadpicture10" class="uploadpictures" onclick="cancel_an_image(9)"></img -->
 								<input type="file" accept="image/*" id="upload_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
 							</div>
 							
@@ -378,6 +382,7 @@
 								</div>
 								<div id="a_function2" class="a_functions" onclick="turn_on_visibility()">
 									<div id="a_function2_inner" class="a_functions_inner"><span id="distribute_visibility"></span></div>
+									<img id="triangle_dn" src="images/triangle-dn.png"></img>
 								</div>
 								<div id="a_function3" class="a_functions" onclick="distribute_pics()">
 									<div id="a_function3_inner" class="a_functions_inner">发布</div>
@@ -386,7 +391,6 @@
 							
 							<!-- 何种权限可见 -->
 							<div id="announce_visiblility">
-								<img src="images/funcframe.png" id="funcframe"></img>
 								<div id="visiblility_function1" class="visiblility_functions" onclick="turn_off_visibility(2)">
 									<div id="visiblility_inner1" class="visiblility_inners">仅自己可见</div>
 								</div>

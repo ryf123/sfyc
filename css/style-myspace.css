@@ -25,9 +25,11 @@ body{
 #container{
 	position: relative;
 	width: 1000px;
+	height: auto;
 	padding: 0;
 	margin: 0 auto;
 	margin-top: -8px;
+	background-color: #e1e2ea;
 }
 
 #header{
@@ -160,13 +162,14 @@ body{
 	padding: 0;
 }
 
-#contentLeft{
+#content #contentLeft{
 	position: relative;
-	width: 264px;
-	height: 1200px auto;
-	margin: 10px 10px 0 0;
+	width: 274px;
+	height: 100%;
+	margin-top: -12px;
 	padding: 0;
 	float: left;
+	background-color: #ffffff;
 }
 
 #content #contentLeft #myInfo{
@@ -174,7 +177,8 @@ body{
 	width: 244px;
 	height: 120px;
 	margin: 0;
-	padding: 0 10px;
+	padding-top: 16px;
+	padding-left: 10px;
 	border: none;
 }
 #content #contentLeft #myInfo #ownername{
@@ -233,7 +237,7 @@ body{
 	position: relative;
 	width: 264px;
 	height: 178px;
-	margin-top: 10px;
+	margin-top: 16px;
 	margin-left: 10px;
 }
 #content #contentLeft #petheadcontainer .petnames{
@@ -250,7 +254,7 @@ body{
 	position: relative;
 	width: 70px;
 	height: 70px;
-	margin-left: 9px;
+	margin-left: 12px;
 	margin-top: 9px;
 	float: left;
 }
@@ -276,7 +280,7 @@ body{
 	position: relative;
 	width: 195px;
 	height: 46px;
-	margin-left: 10px;
+	margin-left: 20px;
 	margin-bottom: 10px;
 	background-color: #e0e1e9;
 	cursor: pointer;
@@ -304,11 +308,34 @@ body{
 	color: #4568b1;
 	font-weight: bold;
 }
+#content #contentLeft .left-btmcolors{
+	position: absolute;
+	background-color: #e1e2ea;
+	z-index: 1;
+}
+#content #contentLeft #left-btmcolor1{
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 12px;
+}
+#content #contentLeft #left-btmcolor2{
+	left: 0px;
+	top: 0px;
+	width: 12px;
+	height: 100%;
+}
+#content #contentLeft #left-btmcolor3{
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 12px;
+}
 
 #contentCenter{
 	position: relative;
 	width: 726px;
-	height: 1224px auto;
+	height: 100%;
 	margin-top: -12px;
 	padding-bottom: 20px;
 	background-color: #e1e2ea;
@@ -637,13 +664,14 @@ body{
 }
 #controlpanel #c_panelpic #announce_functions #a_function2{
 	position: relative;
-	left: 224px;
+	left: 192px;
+	width: 144px;
 	float: left;
 	background-color: #58595b;
 }
 #controlpanel #c_panelpic #announce_functions #a_function3{
 	position: relative;
-	left: 240px;
+	left: 208px;
 	width: 112px;
 	height: 64px;
 	float: left;
@@ -658,46 +686,65 @@ body{
 	text-align: center;
 	vertical-align: middle;
 }
+#controlpanel #c_panelpic #announce_functions .a_functions #a_function2_inner{
+	position: relative;
+	font-size: 20px;
+	top: 20px;
+	left: 16px;
+	color: #20284f;
+	text-align: left;
+	vertical-align: middle;
+}
+#controlpanel #c_panelpic #announce_functions #a_function2 #triangle_dn{
+	position: absolute;
+	font-size: 20px;
+	top: 28px;
+	left: 112px;
+	color: #20284f;
+}
 #controlpanel #c_panelpic #announce_functions .a_functions #a_function3_inner{
 	color: #ffffff;
 }
 #controlpanel #c_panelpic #announce_visiblility{
 	position: absolute;
-	top: 768px;
-	left: 192px;
-	width: 448px;
-	height: 104px;
+	top: 752px;
+	left: 328px;
+	width: 160px;
+	height: 272px;
 	margin-bottom: 24px;
 	z-index: 200;
 }
 #controlpanel #c_panelpic #announce_visiblility #funcframe{
 	position: absolute;
-	width: 448px;
-	height: 104px;
+	width: 160px;
+	height: 144px;
 	z-index: -1;
 }
 #controlpanel #c_panelpic #announce_visiblility .visiblility_functions{
 	position: absolute;
-	width: 128px;
-	height: 64px;
-	background-color: #ff9900;
-	color: #ffffff;
+	width: 144px;
+	height: 47px;
+	background-color: #d1d2d4;
+	color: #20284f;
 	cursor: pointer;
-	top: 28px;
+	border-style: solid;
+	border-width: 1px 0 0 0;
+	border-color: #58595b;
+	left: 8px;
 }
 #controlpanel #c_panelpic #announce_visiblility #visiblility_function1{
-	left: 16px;
+	top: 8px;
 }
 #controlpanel #c_panelpic #announce_visiblility #visiblility_function2{
-	left: 160px;
+	top: 55px;
 }
 #controlpanel #c_panelpic #announce_visiblility #visiblility_function3{
-	left: 304px;
+	top: 102px;
 }
 #controlpanel #c_panelpic #announce_visiblility .visiblility_functions .visiblility_inners{
 	position: relative;
 	font-size: 20px;
-	top: 20px;
+	top: 10px;
 	color: #20284f;
 	text-align: center;
 	vertical-align: middle;
@@ -706,13 +753,22 @@ body{
 #controlpanel #c_panelpic #c_panelpic_bkg{
 	position: absolute;
 	z-index: -1;
-	filter: Alpha(80);
-	opacity: 0.8;
+	filter: Alpha(90);
+	opacity: 0.9;
 	width: 100%;
 	height: 776px;
-	background-color: #000000;
+	background-color: #797978;
 	top: 0px;
 	left: 0px;
+}
+
+#controlpanel #c_panelpic #up_triangle{
+	position: absolute;
+	z-index: -1;
+	filter: Alpha(90);
+	opacity: 0.9;
+	left: 300px;
+	top: -16px;
 }
 
 /*

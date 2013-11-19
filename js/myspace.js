@@ -2,7 +2,7 @@ var stepcompleted1 = false;
 var stepcompleted2 = false;
 var picuploaded = [];
 var distributers = [];
-var picmaxnum = 10;
+var picmaxnum = 9;
 
 $(document).ready(function () {
 	$("#posts .postscontents").hide();
@@ -14,6 +14,7 @@ $(document).ready(function () {
 	stepcompleted1 = false;
 	stepcompleted2 = false;
 	$("#controlpanel #c_panelpic #announce_visiblility").hide();
+	$("#c_panelpic #uploadpics .uploadpictures").hide();
 });
 
 function filterbtn_onclick(para){
@@ -42,6 +43,7 @@ function filterbtn_onclick(para){
 			break;
 		default:
 	}
+	z_align();
 }
 
 function posterbtn_onclick(para){
@@ -61,6 +63,7 @@ function posterbtn_onclick(para){
 			break;
 		default:
 	}
+	z_align();
 }
 
 function checkload(){
@@ -90,9 +93,9 @@ function begin_upload_image(){ //上传一张图片
 	//document.getElementById("cpanel2_fileuploader").value = "";
 	redraw_images();
 	//alert($("#controlpanel #c_panelpic #uploadpics #upload_fileuploader").value);
-	alert(document.getElementById('upload_fileuploader').value);
+	//alert(document.getElementById('upload_fileuploader').value);
 	document.getElementById('upload_fileuploader').value = "";
-	alert(document.getElementById('upload_fileuploader').value);
+	//alert(document.getElementById('upload_fileuploader').value);
 }
 function cancel_an_image(pos){ //取消一张图片
 	if(pos >= picuploaded.length){
@@ -105,8 +108,10 @@ function redraw_images(){ //重画预览图片
 	for(var s = 0; s < picmaxnum; s++){
 		if(s < picuploaded.length){
 			document.getElementById("uploadpicture" + String(s + 1)).src = "images/" + String(picuploaded[s]) + ".jpg";
+			$("#c_panelpic #uploadpics #uploadpicture" + String(s + 1)).show();
 		}else{
 			document.getElementById("uploadpicture" + String(s + 1)).src = "images/blank.png";
+			$("#c_panelpic #uploadpics #uploadpicture" + String(s + 1)).hide();
 		}
 	}
 	$("#controlpanel #c_panelpic #uploadbtntext_right #picleftnum").html(String(picmaxnum - picuploaded.length));
@@ -197,4 +202,41 @@ function arraydeleteelement(parray, pos){ //删除数组中的指定元素
 		}
 	}
 	return neoarray;
+}
+
+function alignHeight(eleA, eleB){
+  if(!document.getElementById(eleA)){return false;}
+  if(!document.getElementById(eleB)){return false;}
+  //var heightA = document.getElementById(eleA).clientHeight;
+  var heightA = document.getElementById(eleA).style.height;
+  document.getElementById(eleB).style.height = heightA + "px";
+  //document.getElementById(eleA).style.height = heightA + "px";
+  /*
+  var heightB = document.getElementById(eleB).clientHeight;
+  if(heightA > heightB){
+    document.getElementById(eleB).style.height = heightA + "px";
+    document.getElementById(eleA).style.height = heightA + "px";
+  }else{
+    document.getElementById(eleA).style.height = heightB + "px";
+    document.getElementById(eleB).style.height = heightB + "px";
+  }
+  */
+}
+function z_align(){
+	//var Lh = document.getElementById("contentLeft");
+	//var Rh = document.getElementById("contentCenter").clientHeight);
+	//alert("!!!");
+	//if(document.getElementById("contentLeft").clientHeight > document.getElementById("contentCenter").clientHeight){
+	//	alert(document.getElementById("contentLeft").clientHeight);
+	//}else{
+	//	alert(document.getElementById("contentCenter").clientHeight);
+	//}
+	//alert(document.getElementById("contentLeft").clientHeight);
+	//alert(document.getElementById("contentCenter").clientHeight);
+	//document.getElementById("contentLeft").style.height = document.getElementById("contentCenter").clientHeight;
+}
+
+window.onload =
+function z_align_1(){
+	//Lh.style.height = Rh.offsetHeight + "px";
 }
