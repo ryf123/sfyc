@@ -2,10 +2,13 @@
 	if (session_id() == '') { 
 	session_start();
 	}
-	require_once('check_login.php'); 
+	require_once('upload_target.php');
+	require_once('check_login.php');
+	require_once 'topic_submit.php';
 	if(isset($_SESSION['LOGIN'])){
 		$sign_in=TRUE;
 		$login = new LOGIN();
+		$upload_handler = new upload_photo();// used to upload files
 		$photo_url = $login->fetch_photo($_SESSION['username']);
 		if (!file_exists($photo_url)) {
 			$photo_url = "images/userhead.png";
@@ -13,6 +16,20 @@
 		$count_follow = $login->count_follow($_SESSION['username']);
 		$count_followed = $login->count_followed($_SESSION['username']);
 		$count_pet = $login->count_pet($_SESSION['username']);
+
+		if(!empty($_FILES["file1"])){
+			echo "file1";
+			if($upload_handler->upload_image($_FILES["file1"])){
+				echo "upload";				
+			}
+		}
+		elseif (!empty($_POST)) {
+			if(isset($_POST['topic_form_submit'])){
+				echo "topic form submit";
+				$topic_form_submit = new topic_submit();
+				$topic_form_submit->submit_topic_form($_POST);
+			}
+		}
 	}
 	else{
 		$sign_in=FALSE;
@@ -28,7 +45,7 @@
 		<title>个人主页-i宠</title>
 		<meta name="description" content="" />
 		<meta name="author" content="Shi" />
-		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0" />
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -318,6 +335,7 @@
 							<div id="uploadbtntext_right">JPG,GIF,PNG或BMP，单张最大20M<br/>还可以上传&nbsp;<span id="picleftnum"></span>&nbsp;张</div>
 							
 							<!-- 上传了什么图 -->
+							
 							<div id="uploadpics">
 								<img src="images/blank.png" id="uploadpicture1" class="uploadpictures" onclick="cancel_an_image(0)"></img>
 								<img src="images/blank.png" id="uploadpicture2" class="uploadpictures" onclick="cancel_an_image(1)"></img>
@@ -327,15 +345,22 @@
 								<img src="images/blank.png" id="uploadpicture6" class="uploadpictures" onclick="cancel_an_image(5)"></img>
 								<img src="images/blank.png" id="uploadpicture7" class="uploadpictures" onclick="cancel_an_image(6)"></img>
 								<img src="images/blank.png" id="uploadpicture8" class="uploadpictures" onclick="cancel_an_image(7)"></img>
-								<img src="images/blank.png" id="uploadpicture9" class="uploadpictures" onclick="cancel_an_image(8)"></img>
-								<!-- img src="images/blank.png" id="uploadpicture10" class="uploadpictures" onclick="cancel_an_image(9)"></img -->
-								<input type="file" accept="image/*" id="upload_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
+								<img src="images/blank.png" id="uploadpicture9" class="uploadpictures" onclick="cancel_an_image(8)"></img>								
+								<input type="text" id ="hiddenusername" value="<?php echo $_SESSION['username'] ?>" style="display: none"/>
+								<form method="post" action="" id="upload_form" enctype="multipart/form-data" target="hidden_upload">
+								<input type="file" name= "file1"accept="image/*" id="upload_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
+								<iframe id="hidden_upload" name="hidden_upload" style="display:none" ></iframe>		
+								</form>
 							</div>
 							
 							<!-- 以谁的名义发布 -->
 							<div id="announcerheads">
 								<div id="announcer0" class="announcers" onclick="distributer_select(0)">
-									<img src="images/userhead.png" id="announcer0_inner" class="announcers_inner"></img>
+									<?php
+										if($sign_in){
+											echo "<img id='announcer0_inner' class='announcers_inner' src=$photo_url width=140 height=140>";
+										}
+									?>
 									<img src="images/smallroundshrink.png" class="announcers_ring"></img>
 								</div>
 								<div id="announcer1" class="announcers" onclick="distributer_select(1)">
@@ -371,10 +396,23 @@
 							</div>
 							
 							<!-- 文字区 -->
+							<form id="topic_form" action="" method="post" enctype="multipart/form-data" target="hidden_upload">
+								<input type="text"  name="hide_uploadpicture1" id="hide_uploadpicture1" style="display:none" ></input>
+								<input type="text"  name="hide_uploadpicture2" id="hide_uploadpicture2" style="display:none" ></input>
+								<input type="text"  name="hide_uploadpicture3" id="hide_uploadpicture3" style="display:none" ></input>
+								<input type="text"  name="hide_uploadpicture4" id="hide_uploadpicture4" style="display:none" ></input>
+								<input type="text"  name="hide_uploadpicture5" id="hide_uploadpicture5" style="display:none" ></input>
+								<input type="text"  name="hide_uploadpicture6" id="hide_uploadpicture6" style="display:none" ></input>
+								<input type="text"  name="hide_uploadpicture7" id="hide_uploadpicture7" style="display:none" ></input>
+								<input type="text"  name="hide_uploadpicture8" id="hide_uploadpicture8" style="display:none" ></input>
+								<input type="text"  name="hide_uploadpicture9" id="hide_uploadpicture9" style="display:none" ></input>								
+								<input type="text" name ="hiddenusername" value="<?php echo $_SESSION['username'] ?>" style="display: none"/>
+								<input type="text" name ="topic_form_submit" value="topic_form_submit" style="display: none"/>							
 							<div id="announcertexts">
-								<textarea id="announcertext_inner">说点什么...</textarea>
+								<textarea placeholder="说点儿什么..." name="announcertext_inner" id="announcertext_inner"></textarea>
 							</div>
-							
+							</form><!-- end of form topic_submit->
+
 							<!-- 发布还是取消 -->
 							<div id="announce_functions">
 								<div id="a_function1" class="a_functions" onclick="cancel_distribute()">

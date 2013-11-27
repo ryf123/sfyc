@@ -15,6 +15,7 @@ $(document).ready(function () {
 	stepcompleted2 = false;
 	$("#controlpanel #c_panelpic #announce_visiblility").hide();
 	$("#c_panelpic #uploadpics .uploadpictures").hide();
+	$("#hidden_upload").load(function(){redraw_images();});
 });
 
 function filterbtn_onclick(para){
@@ -83,19 +84,23 @@ function trigger_filebox(){
 	$("#controlpanel #c_panelpic #uploadpics #upload_fileuploader").trigger("click");
 }
 function begin_upload_image(){ //上传一张图片
+	$("#upload_form").submit();
+	var fileInput = document.getElementById('upload_fileuploader');
+	//alert(fileInput.value);
 	if(picuploaded.length >= picmaxnum){
 		alert("无法上传更多的图片");
 		return;
 	}
 	//alert("Upload your own image");
 	//show.document.execCommand('SaveAs');
-	picuploaded.push(picuploaded.length + 1);
+	var path = document.getElementById('upload_fileuploader').value;
+	var fileName = path.match(/[^\/\\]+$/);
+	var img_src = document.getElementById('hiddenusername').value+fileName;
+	picuploaded.push(img_src);	
 	//document.getElementById("cpanel2_fileuploader").value = "";
 	redraw_images();
 	//alert($("#controlpanel #c_panelpic #uploadpics #upload_fileuploader").value);
-	//alert(document.getElementById('upload_fileuploader').value);
-	document.getElementById('upload_fileuploader').value = "";
-	//alert(document.getElementById('upload_fileuploader').value);
+
 }
 function cancel_an_image(pos){ //取消一张图片
 	if(pos >= picuploaded.length){
@@ -105,16 +110,20 @@ function cancel_an_image(pos){ //取消一张图片
 	redraw_images();
 }
 function redraw_images(){ //重画预览图片
+	console.log(document.getElementById("hide_uploadpicture" + String(0 + 1)).value);
 	for(var s = 0; s < picmaxnum; s++){
 		if(s < picuploaded.length){
-			document.getElementById("uploadpicture" + String(s + 1)).src = "images/" + String(picuploaded[s]) + ".jpg";
+			document.getElementById("uploadpicture" + String(s + 1)).src = "images/upload/" + picuploaded[s];
+			document.getElementById("hide_uploadpicture" + String(s + 1)).value = "images/upload/" + picuploaded[s];
 			$("#c_panelpic #uploadpics #uploadpicture" + String(s + 1)).show();
 		}else{
 			document.getElementById("uploadpicture" + String(s + 1)).src = "images/blank.png";
+			document.getElementById("hide_uploadpicture" + String(s + 1)).value = "";
 			$("#c_panelpic #uploadpics #uploadpicture" + String(s + 1)).hide();
 		}
 	}
 	$("#controlpanel #c_panelpic #uploadbtntext_right #picleftnum").html(String(picmaxnum - picuploaded.length));
+	console.log(document.getElementById("hide_uploadpicture" + String(0 + 1)).value);
 }
 
 function textcomplete(){
@@ -165,6 +174,7 @@ function distribute_pics(){
 	if(picuploaded.length <= 0){
 		alert("发布失败——图片栏不能为空！");
 	}else{
+		$("#topic_form").submit();
 		$("#controlpanel").hide();
 		alert("发布成功！");
 		picuploaded = [];
@@ -236,7 +246,6 @@ function z_align(){
 	//document.getElementById("contentLeft").style.height = document.getElementById("contentCenter").clientHeight;
 }
 
-window.onload =
-function z_align_1(){
+window.onload =function z_align_1(){
 	//Lh.style.height = Rh.offsetHeight + "px";
 }
