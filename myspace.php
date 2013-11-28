@@ -405,7 +405,8 @@
 								<input type="text"  name="hide_uploadpicture6" id="hide_uploadpicture6" style="display:none" ></input>
 								<input type="text"  name="hide_uploadpicture7" id="hide_uploadpicture7" style="display:none" ></input>
 								<input type="text"  name="hide_uploadpicture8" id="hide_uploadpicture8" style="display:none" ></input>
-								<input type="text"  name="hide_uploadpicture9" id="hide_uploadpicture9" style="display:none" ></input>								
+								<input type="text"  name="hide_uploadpicture9" id="hide_uploadpicture9" style="display:none" ></input>	
+								<input type="text"  name="visibility_type" id="visibility_type" style="display:none"  value="self"></input>																							
 								<input type="text" name ="hiddenusername" value="<?php echo $_SESSION['username'] ?>" style="display: none"/>
 								<input type="text" name ="topic_form_submit" value="topic_form_submit" style="display: none"/>							
 							<div id="announcertexts">

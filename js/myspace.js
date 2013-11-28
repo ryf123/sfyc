@@ -160,12 +160,15 @@ function turn_off_visibility(ann){
 	switch(ann){ //谁可见？
 		case 0:
 			$("#controlpanel #c_panelpic #announce_functions #distribute_visibility").html("公开发表");
+			document.getElementById("visibility_type").value = "public";
 			break;
 		case 1:
 			$("#controlpanel #c_panelpic #announce_functions #distribute_visibility").html("粉丝可见");
+			document.getElementById("visibility_type").value = "fans";
 			break;
 		default:
 			$("#controlpanel #c_panelpic #announce_functions #distribute_visibility").html("留给自己");
+			document.getElementById("visibility_type").value = "self";
 	}
 	$("#controlpanel #c_panelpic #announce_visiblility").hide();
 }

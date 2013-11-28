@@ -1,5 +1,9 @@
 <?php
+	require_once("get_news.php");
 	session_start();
+	$get_news = new get_news();
+	$result = $get_news->retrieve_news();
+	var_dump($result);
 	if(isset($_SESSION['LOGIN'])){
 		$sign_in=TRUE;
 	}
@@ -191,15 +195,17 @@
 
 				<!-- contentRight块现在放一些图片-->
 				<div id="contentRight">
-					<img class="item" src="images/11.jpg" width="170" height="135">
-					<img class="item" src="images/12.jpg" width="170" height="135">
-					<img class="item" src="images/13.jpg" width="170" height="135">
-					<img class="item" src="images/14.jpg" width="170" height="135">
-					<img class="item" src="images/15.jpg" width="170" height="135">
-					<img class="item" src="images/16.jpg" width="170" height="135">
-					<img class="item" src="images/17.jpg" width="170" height="135">
-					<img class="item" src="images/18.jpg" width="170" height="135">
-					<img class="item" src="images/19.jpg" width="170" height="135">
+					<?php
+						foreach($result as &$topic){
+							echo "<div class='item' width='170' height='135'>";
+							foreach($topic as &$photo){
+								echo "<img class='item_photo' src=$photo>";
+							}
+							echo "<input value=".sizeof($topic)."></input>";
+							echo "</div>";
+						}
+					?>
+
 					<!--
 					<p>This is contentRight. contentRight块是放置主要阅读内容的</p>
 					<p>This is contentRight. contentRight块是放置主要阅读内容的</p>

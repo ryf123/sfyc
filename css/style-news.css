@@ -212,3 +212,8 @@ body{
 	border: none;
 	clear: both;
 }
+.item_photo{
+	position:relative;
+	width:40px;
+	height:40px;
+}
