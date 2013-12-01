@@ -3,7 +3,6 @@
 	session_start();
 	$get_news = new get_news();
 	$result = $get_news->retrieve_news();
-	var_dump($result);
 	if(isset($_SESSION['LOGIN'])){
 		$sign_in=TRUE;
 	}
@@ -197,11 +196,19 @@
 				<div id="contentRight">
 					<?php
 						foreach($result as &$topic){
+							var_dump($topic);
+							$content = $topic[0];
+							$username = $topic[1];
+							$user_photo = $topic[2];
 							echo "<div class='item' width='170' height='135'>";
-							foreach($topic as &$photo){
+							$photo_array = array_slice($topic,3);
+							foreach($photo_array as &$photo){
 								echo "<img class='item_photo' src=$photo>";
 							}
-							echo "<input value=".sizeof($topic)."></input>";
+							echo "<image src=".$user_photo."></image>";
+							echo "<input value=".(sizeof($topic)-1)."></input>";
+							echo '<input value="'.$content.'"></input>';
+							echo '<input value="'.$username.'"></input>';
 							echo "</div>";
 						}
 					?>
