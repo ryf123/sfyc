@@ -3,6 +3,7 @@ var stepcompleted2 = false;
 var picuploaded = [];
 var distributers = [];
 var picmaxnum = 9;
+var comment_visibility = 2; //默认为公开可见
 
 $(document).ready(function () {
 	$("#posts .postscontents").hide();
@@ -83,25 +84,81 @@ function init_filepanels(){
 function trigger_filebox(){
 	$("#controlpanel #c_panelpic #uploadpics #upload_fileuploader").trigger("click");
 }
+
+var ImgObj = new Image();
+var AllowImgFileSize = 1024; //允许上传图片文件的大小 0为无限制 单位：KB   
+var AllowImgWidth = 500; //允许上传的图片的宽度 ?为无限制 单位：px(像素)   
+var AllowImgHeight = 500; //允许上传的图片的高度 ?为无限制 单位：px(像素)
 function begin_upload_image(){ //上传一张图片
-	$("#upload_form").submit();
 	var fileInput = document.getElementById('upload_fileuploader');
 	//alert(fileInput.value);
 	if(picuploaded.length >= picmaxnum){
 		alert("无法上传更多的图片");
 		return;
 	}
+	if(!checkfile()){
+		return;
+	}
+	//alert("File upload succeeded");
+	$("#upload_form").submit();
 	//alert("Upload your own image");
 	//show.document.execCommand('SaveAs');
 	var path = document.getElementById('upload_fileuploader').value;
 	var fileName = path.match(/[^\/\\]+$/);
-	var img_src = document.getElementById('hiddenusername').value+fileName;
+	var img_src = document.getElementById('hiddenusername').value + fileName;
 	picuploaded.push(img_src);	
-	//document.getElementById("cpanel2_fileuploader").value = "";
 	redraw_images();
-	//alert($("#controlpanel #c_panelpic #uploadpics #upload_fileuploader").value);
-
 }
+
+//检测文件大小======================================================================
+     var maxsize = 1024*1024; //1M
+     var errMsg = "Please do not select too large file(Up to 1MB)";
+     var tipMsg = "This browser cannot figure out the file's size";
+     var browserCfg = {};
+     var ua = window.navigator.userAgent;
+     if (ua.indexOf("MSIE")>=1){
+         browserCfg.ie = true;
+     }else if(ua.indexOf("Firefox")>=1){
+         browserCfg.firefox = true;
+     }else if(ua.indexOf("Chrome")>=1){
+         browserCfg.chrome = true;
+     }
+     function checkfile(){
+         try{
+             var obj_file = document.getElementById("upload_fileuploader");
+             //alert(obj_file);
+             if(obj_file.value==""){
+                 alert("Please select a file to upload");
+                 return false;
+             }
+             var filesize = 0;
+             if(browserCfg.firefox || browserCfg.chrome ){
+                 filesize = obj_file.files[0].size;
+             }else if(browserCfg.ie){
+                 var obj_img = document.getElementById('tempimg');
+                 obj_img.dynsrc=obj_file.value;
+                 filesize = obj_img.fileSize;
+             }else{
+                 alert(tipMsg);
+                 return false;
+             }
+             if(filesize==-1){
+                 alert(tipMsg);
+                 return false;
+             }else if(filesize>maxsize){
+                 alert(errMsg);
+                 return false;
+             }else{
+                 //alert("That's OK");
+                 return true;
+             }
+         }catch(e){
+             alert(e);
+             return false;
+         }
+    }
+//==================================================================================================
+
 function cancel_an_image(pos){ //取消一张图片
 	if(pos >= picuploaded.length){
 		return;
@@ -161,22 +218,31 @@ function turn_off_visibility(ann){
 		case 0:
 			$("#controlpanel #c_panelpic #announce_functions #distribute_visibility").html("公开发表");
 			document.getElementById("visibility_type").value = "public";
+			comment_visibility = 2;
 			break;
 		case 1:
 			$("#controlpanel #c_panelpic #announce_functions #distribute_visibility").html("粉丝可见");
 			document.getElementById("visibility_type").value = "fans";
+			comment_visibility = 1;
 			break;
 		default:
 			$("#controlpanel #c_panelpic #announce_functions #distribute_visibility").html("留给自己");
 			document.getElementById("visibility_type").value = "self";
+			comment_visibility = 0;
 	}
 	$("#controlpanel #c_panelpic #announce_visiblility").hide();
 }
 function distribute_pics(){
+	var fso, f;
+	fso = new ActiveXObject("Scripting.FileSystemObject");
 	var string1 = document.getElementById("upload_fileuploader").value;
 	if(picuploaded.length <= 0){
 		alert("发布失败——图片栏不能为空！");
 	}else{
+		//检查图片大小
+		for(var k = 0; k < picuploaded.length; k++){
+			f = fso.GetFile(filestr)
+		}
 		$("#topic_form").submit();
 		$("#controlpanel").hide();
 		alert("发布成功！");

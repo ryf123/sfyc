@@ -326,7 +326,7 @@
 						
 						<div id="c_panelpic">
 							<!-- 前导功能 -->
-							<img id="up_triangle" src="images/triangle_upper_DK.png"></img>
+							<img id="up_triangle" src="images/triangle_upper_dk.png"></img>
 							<div id="pictopic">发布图片</div>
 							<div id="splitline"></div>
 							<div id="uploadbtn" onclick="trigger_filebox()">
@@ -345,10 +345,11 @@
 								<img src="images/blank.png" id="uploadpicture6" class="uploadpictures" onclick="cancel_an_image(5)"></img>
 								<img src="images/blank.png" id="uploadpicture7" class="uploadpictures" onclick="cancel_an_image(6)"></img>
 								<img src="images/blank.png" id="uploadpicture8" class="uploadpictures" onclick="cancel_an_image(7)"></img>
-								<img src="images/blank.png" id="uploadpicture9" class="uploadpictures" onclick="cancel_an_image(8)"></img>								
+								<img src="images/blank.png" id="uploadpicture9" class="uploadpictures" onclick="cancel_an_image(8)"></img>
+								<img id="tempimg" dynsrc="" src="" style="display:none" />								
 								<input type="text" id ="hiddenusername" value="<?php echo $_SESSION['username'] ?>" style="display: none"/>
 								<form method="post" action="" id="upload_form" enctype="multipart/form-data" target="hidden_upload">
-								<input type="file" name= "file1"accept="image/*" id="upload_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
+								<input type="file" name= "file1" accept="image/*" id="upload_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
 								<iframe id="hidden_upload" name="hidden_upload" style="display:none" ></iframe>		
 								</form>
 							</div>
@@ -421,7 +422,7 @@
 								</div>
 								<div id="a_function2" class="a_functions" onclick="turn_on_visibility()">
 									<div id="a_function2_inner" class="a_functions_inner"><span id="distribute_visibility"></span></div>
-									<img id="triangle_dn" src="images/triangle-dn.png"></img>
+									<img id="triangle_dn" src="images/triangle_dn.png"></img>
 								</div>
 								<div id="a_function3" class="a_functions" onclick="distribute_pics()">
 									<div id="a_function3_inner" class="a_functions_inner">发布</div>

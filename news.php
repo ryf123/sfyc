@@ -196,20 +196,58 @@
 				<div id="contentRight">
 					<?php
 						foreach($result as &$topic){
-							var_dump($topic);
+							//var_dump($topic);
 							$content = $topic[0];
 							$username = $topic[1];
 							$user_photo = $topic[2];
-							echo "<div class='item' width='170' height='135'>";
-							$photo_array = array_slice($topic,3);
-							foreach($photo_array as &$photo){
-								echo "<img class='item_photo' src=$photo>";
-							}
-							echo "<image src=".$user_photo."></image>";
-							echo "<input value=".(sizeof($topic)-1)."></input>";
-							echo '<input value="'.$content.'"></input>';
-							echo '<input value="'.$username.'"></input>';
+							echo "<div class='picsitem'>";
+								echo "<img src='images/newsblockupper.png' class='picsitemupper'></img>";
+								echo "<div class='picsitemmiddle'>";
+									//echo "<img src='images/newsblockmiddle.png' class='picsitemmiddle'></img>";
+									$photo_array = array_slice($topic,3);
+									foreach($photo_array as &$photo){
+										echo "<img src=$photo class='upicsinner'></img>";
+										break;
+									}
+									echo "<img src='images/newsblockmiddle.png' class='upicsback'></img>";
+								echo "</div>";
+								echo "<div class='picsitemlower'>";
+									//图片文字
+									echo "<div class='commenttopic'>$content</div>";
+									//用户资料
+									echo "<div class='usersprofiles'>";
+										echo "<div class='usershead'>";
+											echo "<image src=".$user_photo." class='usershead'></image>";
+										echo "</div>";
+										echo "<div class='usersname'>$username</div>";
+									echo "</div>";
+									//更多，回复，转发，赞
+									echo "<div class='bottomfunc'>";
+										echo "<div class='readmore'>READ MORE</div>";
+										echo "<img src='images/ReadmoreArrow.png' class='readmorearrow'></img>";
+										//回复
+										echo "<img src='images/CommentRTPic1.png' class='feedbackpic'></img>";
+										echo "<div class='feedback'>256</div>";
+										//转发
+										echo "<img src='images/CommentRTPic2.png' class='forwardpic'></img>";
+										echo "<div class='forwardnum'>128</div>";
+										//赞
+										echo "<img src='images/CommentRTPic3.png' class='praisepic'></img>";
+										echo "<div class='praise'>128</div>";
+									echo "</div>";
+									echo "<img src='images/newsblocklower.png' class='lpicsback'></img>";
+								echo "</div>";
 							echo "</div>";
+							//echo "<div class='item' width='170' height='135'>";
+							//$photo_array = array_slice($topic,3);
+							//foreach($photo_array as &$photo){
+								//echo "<img class='item_photo' src=$photo>";
+							//}
+							//echo "<image src=".$user_photo."></image>";
+							//echo "<input value=".(sizeof($topic)-1)."></input>";
+							//echo '<input value="'.$content.'"></input>';
+							//echo '<input value="'.$username.'"></input>';
+							//echo "</div>";
 						}
 					?>
 
