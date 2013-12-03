@@ -213,13 +213,19 @@
 								echo "</div>";
 								echo "<div class='picsitemlower'>";
 									//图片文字
+									echo "<div class='usersname'>$username";
+									echo "：</div>";
 									echo "<div class='commenttopic'>$content</div>";
 									//用户资料
 									echo "<div class='usersprofiles'>";
 										echo "<div class='usershead'>";
 											echo "<image src=".$user_photo." class='usershead'></image>";
 										echo "</div>";
-										echo "<div class='usersname'>$username</div>";
+									echo "</div>";
+									echo "<div class='usersprofilesupper'>";
+										echo "<div class='usershead'>";
+											echo "<image src=".$user_photo." class='usersheadring'></image>";
+										echo "</div>";
 									echo "</div>";
 									//更多，回复，转发，赞
 									echo "<div class='bottomfunc'>";
@@ -227,13 +233,13 @@
 										echo "<img src='images/ReadmoreArrow.png' class='readmorearrow'></img>";
 										//回复
 										echo "<img src='images/CommentRTPic1.png' class='feedbackpic'></img>";
-										echo "<div class='feedback'>256</div>";
+										echo "<div class='feedback'>256回复</div>";
 										//转发
 										echo "<img src='images/CommentRTPic2.png' class='forwardpic'></img>";
-										echo "<div class='forwardnum'>128</div>";
+										echo "<div class='forwardnum'>128转发</div>";
 										//赞
 										echo "<img src='images/CommentRTPic3.png' class='praisepic'></img>";
-										echo "<div class='praise'>128</div>";
+										echo "<div class='praise'>128赞</div>";
 									echo "</div>";
 									echo "<img src='images/newsblocklower.png' class='lpicsback'></img>";
 								echo "</div>";

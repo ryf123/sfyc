@@ -188,7 +188,6 @@ body{
 	width: 840px;
 	margin: 10px 0 0 0;
 	padding: 0;
-	border: 1px red solid;
 	padding-bottom: 20px;
 	float: right;
 }
@@ -241,12 +240,24 @@ body{
 	position: relative;
 	margin-top: -4px;
 }
+#contentRight .picsitem .picsitemlower .usersname{
+	width: 96px auto;
+	height: 16px;
+	left: 8px;
+	top: 12px;
+	position: absolute;
+	font-size: 12px;
+	font-weight: bold;
+	color: #2c3055;
+	margin-right: 8px;
+}
 #contentRight .picsitem .picsitemlower .commenttopic{
 	width: 224px;
 	height: 20px;
 	position: absolute;
-	top: 16px;
+	top: 32px;
 	left: 8px;
+	color: #2c3055;
 	font-size: 12px;
 }
 #contentRight .picsitem .picsitemlower .usersprofiles{
@@ -259,28 +270,34 @@ body{
 #contentRight .picsitem .picsitemlower .usersprofiles .usershead{
 	width: 32px;
 	height: 32px;
+	border-radius: 16px;
 	position: relative;
 	float: right;
 }
-#contentRight .picsitem .picsitemlower .usersprofiles .usersname{
-	width: 96px;
-	height: 16px;
+#contentRight .picsitem .picsitemlower .usersprofilesupper{
+	width: 224px;
+	height: 32px;
+	position: absolute;
 	top: 16px;
-	text-align: right;
+	left: 8px;
+	z-index: 10;
+}
+#contentRight .picsitem .picsitemlower .usersprofilesupper .usersheadring{
+	width: 32px;
+	height: 32px;
+	border-radius: 16px;
 	position: relative;
-	font-size: 12px;
-	font-weight: bold;
-	color: #c1c2c0;
 	float: right;
-	margin-right: 8px;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc{
 	width: 224px;
 	height: 16px;
 	position: absolute;
-	top: 56px;
+	top: 64px;
 	left: 8px;
-	font-size: 10px;
+	font-size: 8px;
+	color: #2c3055;
+	font-weight: bold;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .readmore{
 	width: 64px;
@@ -290,39 +307,47 @@ body{
 	color: #4568b1;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .readmorearrow{
-	left: 68px;
+	left: 60px;
 	top: 2px;
+	width: 6px;
+	height: 9px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .feedbackpic{
-	left: 104px;
+	left: 88px;
+	width: 12px;
+	height: 12px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .feedback{
-	left: 120px;
-	width: 24px;
+	left: 100px;
+	width: 32px;
 	height: 16px;
 	position: absolute;
 	color: #4568b1;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .forwardpic{
-	left: 144px;
+	left: 136px;
+	width: 12px;
+	height: 12px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .forwardnum{
-	left: 160px;
-	width: 24px;
+	left: 148px;
+	width: 32px;
 	height: 16px;
 	position: absolute;
 	color: #4568b1;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .praisepic{
 	left: 184px;
+	width: 12px;
+	height: 12px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .praise{
-	left: 200px;
-	width: 24px;
+	left: 196px;
+	width: 32px;
 	height: 16px;
 	position: absolute;
 	color: #4568b1;
