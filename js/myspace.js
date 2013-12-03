@@ -17,6 +17,7 @@ $(document).ready(function () {
 	$("#controlpanel #c_panelpic #announce_visiblility").hide();
 	$("#c_panelpic #uploadpics .uploadpictures").hide();
 	$("#hidden_upload").load(function(){redraw_images();});
+	document.getElementById("visibility_type").value = "public";
 });
 
 function filterbtn_onclick(para){
@@ -96,8 +97,11 @@ function begin_upload_image(){ //上传一张图片
 		alert("无法上传更多的图片");
 		return;
 	}
-	if(!checkfile()){
+	if(checkfile() == false){
+		//alert("upload failed");
 		return;
+	}else{
+		//alert("upload succeeded");
 	}
 	//alert("File upload succeeded");
 	$("#upload_form").submit();
@@ -233,16 +237,16 @@ function turn_off_visibility(ann){
 	$("#controlpanel #c_panelpic #announce_visiblility").hide();
 }
 function distribute_pics(){
-	var fso, f;
-	fso = new ActiveXObject("Scripting.FileSystemObject");
+	//var fso, f;
+	//fso = new ActiveXObject("Scripting.FileSystemObject");
 	var string1 = document.getElementById("upload_fileuploader").value;
 	if(picuploaded.length <= 0){
 		alert("发布失败——图片栏不能为空！");
 	}else{
 		//检查图片大小
-		for(var k = 0; k < picuploaded.length; k++){
-			f = fso.GetFile(filestr)
-		}
+		//for(var k = 0; k < picuploaded.length; k++){
+			//f = fso.GetFile(filestr)
+		//}
 		$("#topic_form").submit();
 		$("#controlpanel").hide();
 		alert("发布成功！");
