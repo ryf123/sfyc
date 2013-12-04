@@ -221,11 +221,11 @@ body{
 	margin-top: -4px;
 }
 #contentRight .picsitem .picsitemmiddle .upicsinner{
-	width: 208px;
+	width: 220px;
 	height: 176px;
 	position: relative;
 	margin-top: 0px;
-	margin-left: 16px;
+	margin-left: 10px;
 }
 #contentRight .picsitem .picsitemmiddle .upicsback{
 	width: 240px;
@@ -268,9 +268,9 @@ body{
 	left: 8px;
 }
 #contentRight .picsitem .picsitemlower .usersprofiles .usershead{
-	width: 32px;
-	height: 32px;
-	border-radius: 16px;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
 	position: relative;
 	float: right;
 }
@@ -283,9 +283,9 @@ body{
 	z-index: 10;
 }
 #contentRight .picsitem .picsitemlower .usersprofilesupper .usersheadring{
-	width: 32px;
-	height: 32px;
-	border-radius: 16px;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
 	position: relative;
 	float: right;
 }
@@ -293,7 +293,7 @@ body{
 	width: 224px;
 	height: 16px;
 	position: absolute;
-	top: 64px;
+	top: 60px;
 	left: 8px;
 	font-size: 8px;
 	color: #2c3055;
@@ -302,54 +302,57 @@ body{
 #contentRight .picsitem .picsitemlower .bottomfunc .readmore{
 	width: 64px;
 	height: 16px;
-	left: 4px;
+	left: 0px;
 	position: absolute;
 	color: #4568b1;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .readmorearrow{
-	left: 60px;
+	left: 56px;
 	top: 2px;
 	width: 6px;
 	height: 9px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .feedbackpic{
-	left: 88px;
+	left: 120px;
 	width: 12px;
 	height: 12px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .feedback{
-	left: 100px;
-	width: 32px;
+	left: 136px;
+	width: 16px;
 	height: 16px;
 	position: absolute;
+	text-align: right;
 	color: #4568b1;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .forwardpic{
-	left: 136px;
+	left: 156px;
 	width: 12px;
 	height: 12px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .forwardnum{
-	left: 148px;
-	width: 32px;
+	left: 172px;
+	width: 16px;
 	height: 16px;
 	position: absolute;
+	text-align: right;
 	color: #4568b1;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .praisepic{
-	left: 184px;
+	left: 192px;
 	width: 12px;
 	height: 12px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .praise{
-	left: 196px;
-	width: 32px;
+	left: 208px;
+	width: 16px;
 	height: 16px;
 	position: absolute;
+	text-align: right;
 	color: #4568b1;
 }
 #contentRight .picsitem .picsitemlower .lpicsback{

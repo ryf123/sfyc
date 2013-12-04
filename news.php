@@ -233,13 +233,13 @@
 										echo "<img src='images/ReadmoreArrow.png' class='readmorearrow'></img>";
 										//回复
 										echo "<img src='images/CommentRTPic1.png' class='feedbackpic'></img>";
-										echo "<div class='feedback'>256回复</div>";
+										echo "<div class='feedback'>256</div>";
 										//转发
 										echo "<img src='images/CommentRTPic2.png' class='forwardpic'></img>";
-										echo "<div class='forwardnum'>128转发</div>";
+										echo "<div class='forwardnum'>128</div>";
 										//赞
 										echo "<img src='images/CommentRTPic3.png' class='praisepic'></img>";
-										echo "<div class='praise'>128赞</div>";
+										echo "<div class='praise'>128</div>";
 									echo "</div>";
 									echo "<img src='images/newsblocklower.png' class='lpicsback'></img>";
 								echo "</div>";
