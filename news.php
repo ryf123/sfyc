@@ -24,6 +24,8 @@
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
    	    <link rel="stylesheet" type="text/css" href="css/style-news.css">
+   	    <script type="text/javascript" src="js/jquery-2.0.3.1.min.js"></script>
+		<script type="text/javascript" src="js/news.js"></script>
 	</head>
 
 	<body>
@@ -112,9 +114,8 @@
 
 			<!-- content块分contentLeft和contentRight,放置主要内容-->
 			<div id="content">
-				<!-- contentLeft块是选择过滤器-->
+				<!--
 				<div id="contentLeft">
-					<!-- 修改内容：这里放上了未加js代码的选择器 -->
 					<div id="cat" class="browserlv1">
 						<div id="cats" class="browsertop">
 							Cats
@@ -191,27 +192,33 @@
 						</div>
 					</div>
 				</div>
-
+				-->
+				
 				<!-- contentRight块现在放一些图片-->
 				<div id="contentRight">
 					<?php
+						//var_dump(sizeof($result));
+						$c = 0;
 						foreach($result as &$topic){
-							//var_dump($topic);
 							$content = $topic[0];
 							$username = $topic[1];
 							$user_photo = $topic[2];
-							echo "<div class='picsitem'>";
-								echo "<img src='images/newsblockupper.png' class='picsitemupper'></img>";
+							echo "<div class='picsitem' id='picsitemnb$c'>";
+								//echo "<img src='images/newsblockupper.png' class='picsitemupper'></img>";
 								echo "<div class='picsitemmiddle'>";
 									//echo "<img src='images/newsblockmiddle.png' class='picsitemmiddle'></img>";
 									$photo_array = array_slice($topic,3);
 									foreach($photo_array as &$photo){
-										echo "<img src=$photo class='upicsinner'></img>";
+										echo "<img src=$photo class='upicsinner' id='picsnb$c'></img>";
 										break;
 									}
-									echo "<img src='images/newsblockmiddle.png' class='upicsback'></img>";
+									//$imgsize = getimagesize($photo);
+									//var_dump($imgsize);
+									//echo "<img src='images/newsblockmiddle.png' class='upicsback'></img>";
 								echo "</div>";
 								echo "<div class='picsitemlower'>";
+									//分割线
+									echo "<div class='breakline'></div>";
 									//图片文字
 									echo "<div class='usersname'>$username";
 									echo "：</div>";
@@ -241,7 +248,7 @@
 										echo "<img src='images/CommentRTPic3.png' class='praisepic'></img>";
 										echo "<div class='praise'>128</div>";
 									echo "</div>";
-									echo "<img src='images/newsblocklower.png' class='lpicsback'></img>";
+									//echo "<img src='images/newsblocklower.png' class='lpicsback'></img>";
 								echo "</div>";
 							echo "</div>";
 							//echo "<div class='item' width='170' height='135'>";
@@ -254,7 +261,11 @@
 							//echo '<input value="'.$content.'"></input>';
 							//echo '<input value="'.$username.'"></input>';
 							//echo "</div>";
+							//开始排版
+							echo "<script type='text/javascript'>columnindex();</script>";
+							$c++;
 						}
+						echo "<script type='text/javascript'>pictloadend();</script>";
 					?>
 
 					<!--
