@@ -13,7 +13,7 @@
 		}	
 		public function retrieve_news(){
 			$counter = 0;
-			$query = "select `topic_id`,`text`,`username` from ".TOPIC_TABLE." WHERE visibility_type='public' ORDER BY ts DESC" ." LIMIT 9";
+			$query = "select `topic_id`,`text`,`username` from ".TOPIC_TABLE." WHERE visibility_type='public' ORDER BY ts DESC" ." LIMIT 30";
 			$result  = mysql_query($query);
 			while ($row = mysql_fetch_row($result)){
 				array_push($this->topic_array,$row[0]);
@@ -23,16 +23,26 @@
 				array_push($this->topic_array_username_photo,$user_photo);
 			}
 			foreach($this->topic_array as &$topic_id){
-				$tmp_photo_array=array();
-				array_push($tmp_photo_array,$this->topic_array_content[$counter]);
-				array_push($tmp_photo_array,$this->topic_array_username[$counter]);
-				array_push($tmp_photo_array,$this->topic_array_username_photo[$counter]);
+				$tmp_topic_array=array();
+				$tmp_photo_array = array();
+				$tmp_photo_array_ratio = array();
+				array_push($tmp_topic_array,$this->topic_array_content[$counter]);
+				array_push($tmp_topic_array,$this->topic_array_username[$counter]);
+				array_push($tmp_topic_array,$this->topic_array_username_photo[$counter]);
 				$query = "select location from ".PHOTO_TABLE." WHERE topic_id='".$topic_id."' LIMIT 9";
 				$result  = mysql_query($query);
 				while ($row = mysql_fetch_row($result)){
+					if(file_exists($row[0])){
+						array_push($tmp_photo_array_ratio,getimagesize($row[0]));
+					}
+					else{
+						array_push($tmp_photo_array_ratio,0);
+					}				
 					array_push($tmp_photo_array,$row[0]);
 				}
-				array_push($this->photo_array,$tmp_photo_array);
+				array_push($tmp_topic_array,$tmp_photo_array_ratio);
+				array_push($tmp_topic_array,$tmp_photo_array);
+				array_push($this->photo_array,$tmp_topic_array);	
 				$counter++;				
 			}
 			return $this->photo_array;	

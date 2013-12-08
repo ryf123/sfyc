@@ -197,7 +197,6 @@
 				<!-- contentRight块现在放一些图片-->
 				<div id="contentRight">
 					<?php
-						//var_dump(sizeof($result));
 						$c = 0;
 						foreach($result as &$topic){
 							$content = $topic[0];
@@ -207,8 +206,15 @@
 								//echo "<img src='images/newsblockupper.png' class='picsitemupper'></img>";
 								echo "<div class='picsitemmiddle'>";
 									//echo "<img src='images/newsblockmiddle.png' class='picsitemmiddle'></img>";
-									$photo_array = array_slice($topic,3);
+									$photo_ratio_array = $topic[3];
+									$photo_array = $topic[4];
+									$photo_counter = 0;
 									foreach($photo_array as &$photo){
+										$ratio = 0;
+										if($photo_ratio_array[$photo_counter][0]!=0){
+											$ratio = $photo_ratio_array[$photo_counter][0]/$photo_ratio_array[$photo_counter][1];
+										}				
+										echo $ratio;
 										echo "<img src=$photo class='upicsinner' id='picsnb$c'></img>";
 										break;
 									}
