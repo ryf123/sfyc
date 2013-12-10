@@ -240,7 +240,7 @@ html, body{
 }
 #contentRight .picsitem .picsitemlower{
 	width: 240px;
-	height: 81px;
+	height: 89px;
 	position: relative;
 	margin-top: -4px;
 }
@@ -264,13 +264,29 @@ html, body{
 	margin-right: 8px;
 }
 #contentRight .picsitem .picsitemlower .commenttopic{
-	width: 224px;
-	height: 20px;
+	width: 160px;
+	height: 32px;
 	position: absolute;
 	top: 32px;
 	left: 8px;
 	color: #2c3055;
 	font-size: 12px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+#contentRight .picsitem .picsitemlower .commenttopic .commenttopicinners{
+	width: 160px;
+	height: 32px;
+	position: absolute;
+	color: #2c3055;
+	font-size: 12px;
+	border-style: 0px none;
+	border: none;
+	border: 1px solid none;
+	text-align: left;
+	vertical-align: top;
+	word-break: normal;
+	text-overflow: ellipsis;
 }
 #contentRight .picsitem .picsitemlower .usersprofiles{
 	width: 224px;
@@ -305,7 +321,7 @@ html, body{
 	width: 224px;
 	height: 16px;
 	position: absolute;
-	top: 60px;
+	top: 72px;
 	left: 8px;
 	font-size: 8px;
 	color: #2c3055;

@@ -10,10 +10,9 @@ $(document).ready(function () {
 	for(var r = 0; r < columns; r++){
 		columnHeight[r] = 0;
 	}
-	//itemscount = 0;
-	//$("#hidden_upload").load(function(){redraw_images();});
-	//document.getElementById("visibility_type").value = "public";
 	//arrangeStyle();
+	$("#contentRight .picsitem .picsitemmiddle .photoratiofrm").hide();
+	arrangeStyle_bef();
 });
 
 function columnindex(){ //统计图片数量
@@ -32,6 +31,47 @@ function singlepicloadcomp(pindex){ //一张图片读取完毕
 	alert("Number #" + String(pindex) + " picture load completed");
 }
 */
+function arrangeStyle_bef(){
+	var tempobj;
+	var tempimg;
+	var tempimght = 0;
+	var tempratio = 1.0;
+	var tempht = 0;
+	var temphtat = 0;
+	var tempcolor1 = 0;
+	var tempcolor2 = 0;
+	var tempcolor3 = 0;
+	for(var r = 0; r < itemscount; r++){
+		tempobj = document.getElementById("picsitemnb" + String(r));
+		tempratio = parseFloat(document.getElementById("photoratio" + String(r)).value);
+		tempratio = (tempratio == 0 ? 2 : tempratio);
+		//整理图片大小
+		tempimg = document.getElementById("picsnb" + String(r));
+		tempimg.style.width = String(220) + "px";
+		tempimg.style.height = String(220.0 / tempratio) + "px";
+		if(r < columns){ //位于第一行
+			tempobj.style.top = "4px";
+			columnHeight[r] = tempobj.clientHeight + 4;
+			tempobj.style.left = String(6 + (r % columns) * (tempobj.clientWidth + marginHorizontal)) + "px";
+		}else{ //位于第一行之下
+			//看哪一列最短
+			tempht = columnHeight.min();
+			temphtat = columnHeight.minat();
+			tempobj.style.left = String(6 + temphtat * (tempobj.clientWidth + marginHorizontal)) + "px";
+			tempobj.style.top = String(columnHeight[temphtat] + marginVertical) + "px";
+			columnHeight[temphtat] += tempobj.clientHeight + marginVertical;
+		}
+		//更改颜色
+		tempcolor1 = 255;
+		tempcolor2 = 255;
+		tempcolor3 = 255;
+		tempobj.style.backgroundColor = "#" + (tempcolor1 * 65536 + tempcolor2 * 256 + tempcolor3).toString(16);
+	}
+	tempht = columnHeight.max();
+	document.getElementById("contentRight").style.height = String(tempht - 8) + "px";
+}
+
+/*
 window.onload = function z_align_1(){ //所有图片读取完毕
 	//alert("Pics Loaded");
 	arrangeStyle();
@@ -51,6 +91,9 @@ function arrangeStyle(){
 	for(var r = 0; r < itemscount; r++){
 		tempobj = document.getElementById("picsitemnb" + String(r));
 		//整理图片大小
+		tempht = parseFloat(document.getElementById("photoratio" + String(r)).value);
+		tempht = (tempht == 0 ? 2 : tempht);
+		alert(tempht);
 		tempimg = document.getElementById("picsnb" + String(r));
 		tempimgwd = tempimg.offsetWidth;
 		tempimgwd = (tempimgwd < 16 ? 16 : tempimgwd);
@@ -83,6 +126,7 @@ function arrangeStyle(){
 	tempht = columnHeight.max();
 	document.getElementById("contentRight").style.height = String(tempht - 8) + "px";
 }
+*/
 
 //最小值
 

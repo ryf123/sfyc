@@ -203,9 +203,7 @@
 							$username = $topic[1];
 							$user_photo = $topic[2];
 							echo "<div class='picsitem' id='picsitemnb$c'>";
-								//echo "<img src='images/newsblockupper.png' class='picsitemupper'></img>";
 								echo "<div class='picsitemmiddle'>";
-									//echo "<img src='images/newsblockmiddle.png' class='picsitemmiddle'></img>";
 									$photo_ratio_array = $topic[3];
 									$photo_array = $topic[4];
 									$photo_counter = 0;
@@ -213,14 +211,14 @@
 										$ratio = 0;
 										if($photo_ratio_array[$photo_counter][0]!=0){
 											$ratio = $photo_ratio_array[$photo_counter][0]/$photo_ratio_array[$photo_counter][1];
-										}				
-										echo $ratio;
+										}
+										echo "<div class='photoratiofrm'>";
+											echo "<input type='text' class='photoratios' id='photoratio$c'></input>";
+											echo "<script>document.getElementById('photoratio$c').value='$ratio';</script>";
+										echo "</div>";
 										echo "<img src=$photo class='upicsinner' id='picsnb$c'></img>";
 										break;
 									}
-									//$imgsize = getimagesize($photo);
-									//var_dump($imgsize);
-									//echo "<img src='images/newsblockmiddle.png' class='upicsback'></img>";
 								echo "</div>";
 								echo "<div class='picsitemlower'>";
 									//分割线
@@ -228,7 +226,11 @@
 									//图片文字
 									echo "<div class='usersname'>$username";
 									echo "：</div>";
-									echo "<div class='commenttopic'>$content</div>";
+									echo "<div class='commenttopic'>".$content."</div>";
+									//echo "<div class='commenttopic'>";
+										//echo "<input type='text' class='commenttopicinners' id='commenttopicid$c'></input>";
+										//echo "<script>document.getElementById('commenttopicid$c').value='$content';</script>";
+									//echo "</div>";
 									//用户资料
 									echo "<div class='usersprofiles'>";
 										echo "<div class='usershead'>";
@@ -254,7 +256,6 @@
 										echo "<img src='images/CommentRTPic3.png' class='praisepic'></img>";
 										echo "<div class='praise'>128</div>";
 									echo "</div>";
-									//echo "<img src='images/newsblocklower.png' class='lpicsback'></img>";
 								echo "</div>";
 							echo "</div>";
 							//echo "<div class='item' width='170' height='135'>";
