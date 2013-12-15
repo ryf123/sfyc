@@ -41,6 +41,10 @@ function arrangeStyle_bef(){
 	var tempcolor1 = 0;
 	var tempcolor2 = 0;
 	var tempcolor3 = 0;
+	var divH = 0;
+	var tpitem;
+	var tpiteminner;
+	var tptext;
 	for(var r = 0; r < itemscount; r++){
 		tempobj = document.getElementById("picsitemnb" + String(r));
 		tempratio = parseFloat(document.getElementById("photoratio" + String(r)).value);
@@ -49,6 +53,18 @@ function arrangeStyle_bef(){
 		tempimg = document.getElementById("picsnb" + String(r));
 		tempimg.style.width = String(220) + "px";
 		tempimg.style.height = String(220.0 / tempratio) + "px";
+		//整理文字区
+		//$(".figcaption").each(function(i){
+			tpitem = document.getElementById("commentcontainer" + String(r));
+			tpiteminner = document.getElementById("commenttopic" + String(r));
+			//alert(tpitem.clientHeight + "    " + tpiteminner.clientHeight);
+			//alert(tpiteminner.innerText);
+			while (tpiteminner.clientHeight > tpitem.clientHeight + 4){
+				tptext = tpiteminner.innerText.replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "...");
+				//alert(tptext);
+				tpiteminner.innerText = tptext;
+			};
+		//});
 		if(r < columns){ //位于第一行
 			tempobj.style.top = "4px";
 			columnHeight[r] = tempobj.clientHeight + 4;

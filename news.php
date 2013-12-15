@@ -226,7 +226,9 @@
 									//图片文字
 									echo "<div class='usersname'>$username";
 									echo "：</div>";
-									echo "<div class='commenttopic'>".$content."</div>";
+									echo "<div class='commentcontainer' id='commentcontainer$c'>";
+										echo "<div class='commenttopic' id='commenttopic$c'>".$content."</div>";
+									echo "</div>";
 									//echo "<div class='commenttopic'>";
 										//echo "<input type='text' class='commenttopicinners' id='commenttopicid$c'></input>";
 										//echo "<script>document.getElementById('commenttopicid$c').value='$content';</script>";

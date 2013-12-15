@@ -9,6 +9,7 @@ body{
 
 html, body{
 	-webkit-text-size-adjust: none;
+	-o-text-size-adjust: none;
 }
 
 #container{
@@ -263,7 +264,7 @@ html, body{
 	color: #2c3055;
 	margin-right: 8px;
 }
-#contentRight .picsitem .picsitemlower .commenttopic{
+#contentRight .picsitem .picsitemlower .commentcontainer{
 	width: 160px;
 	height: 32px;
 	position: absolute;
@@ -271,22 +272,14 @@ html, body{
 	left: 8px;
 	color: #2c3055;
 	font-size: 12px;
-	text-overflow: ellipsis;
 	overflow: hidden;
 }
-#contentRight .picsitem .picsitemlower .commenttopic .commenttopicinners{
+#contentRight .picsitem .picsitemlower .commentcontainer .commenttopic{
 	width: 160px;
-	height: 32px;
+	height: auto;
 	position: absolute;
 	color: #2c3055;
 	font-size: 12px;
-	border-style: 0px none;
-	border: none;
-	border: 1px solid none;
-	text-align: left;
-	vertical-align: top;
-	word-break: normal;
-	text-overflow: ellipsis;
 }
 #contentRight .picsitem .picsitemlower .usersprofiles{
 	width: 224px;

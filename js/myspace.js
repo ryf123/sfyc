@@ -136,16 +136,22 @@ function begin_upload_image(){ //上传一张图片
                  return false;
              }
              var filesize = 0;
+             filesize = obj_file.files[0].size;
+             //alert(filesize);
+             /*
              if(browserCfg.firefox || browserCfg.chrome ){
                  filesize = obj_file.files[0].size;
              }else if(browserCfg.ie){
                  var obj_img = document.getElementById('tempimg');
-                 obj_img.dynsrc=obj_file.value;
+                 obj_img.dynsrc = obj_file.value;
                  filesize = obj_img.fileSize;
              }else{
+             	 filesize = obj_file.files[0].size;
+             	 alert(filesize);
                  alert(tipMsg);
-                 return false;
+                 //return false;
              }
+             */
              if(filesize==-1){
                  alert(tipMsg);
                  return false;
