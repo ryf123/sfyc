@@ -97,6 +97,10 @@ function begin_upload_image(){ //上传一张图片
 		alert("无法上传更多的图片");
 		return;
 	}
+	var path = document.getElementById('upload_fileuploader').value;
+	var fileName = path.match(/[^\/\\]+$/);
+	alert(path);
+	alert(fileName);
 	if(checkfile() == false){
 		//alert("upload failed");
 		return;
@@ -107,8 +111,6 @@ function begin_upload_image(){ //上传一张图片
 	$("#upload_form").submit();
 	//alert("Upload your own image");
 	//show.document.execCommand('SaveAs');
-	var path = document.getElementById('upload_fileuploader').value;
-	var fileName = path.match(/[^\/\\]+$/);
 	var img_src = document.getElementById('hiddenusername').value + fileName;
 	picuploaded.push(img_src);	
 	redraw_images();
