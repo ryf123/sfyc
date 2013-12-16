@@ -99,19 +99,18 @@ function begin_upload_image(){ //上传一张图片
 	}
 	var path = document.getElementById('upload_fileuploader').value;
 	var fileName = path.match(/[^\/\\]+$/);
-	alert(path);
-	alert(fileName);
+	//alert(path);
+	//alert(fileName);
 	if(checkfile() == false){
 		//alert("upload failed");
 		return;
-	}else{
-		//alert("upload succeeded");
 	}
-	//alert("File upload succeeded");
+	alert("File upload succeeded");
 	$("#upload_form").submit();
-	//alert("Upload your own image");
+	alert("Upload your own image");
 	//show.document.execCommand('SaveAs');
 	var img_src = document.getElementById('hiddenusername').value + fileName;
+	//alert(img_src);
 	picuploaded.push(img_src);	
 	redraw_images();
 }

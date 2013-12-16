@@ -348,9 +348,11 @@
 								<img src="images/blank.png" id="uploadpicture9" class="uploadpictures" onclick="cancel_an_image(8)"></img>
 								<img id="tempimg" dynsrc="" src="" style="display:none" />								
 								<input type="text" id ="hiddenusername" value="<?php echo $_SESSION['username'] ?>" style="display: none"/>
+								<!-- 上传文件  -->
 								<form method="post" action="" id="upload_form" enctype="multipart/form-data" target="hidden_upload">
-								<input type="file" name= "file1" accept="image/*" id="upload_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
-								<iframe id="hidden_upload" name="hidden_upload" style="display:none" ></iframe>		
+									<input type="file" name= "file1" accept="image/*" id="upload_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
+									<!-- iframe id="hidden_upload" name="hidden_upload" style="display:none"></iframe -->
+									<iframe id="hidden_upload" name="hidden_upload"></iframe>
 								</form>
 							</div>
 							
