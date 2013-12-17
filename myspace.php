@@ -351,8 +351,8 @@
 								<!-- 上传文件  -->
 								<form method="post" action="" id="upload_form" enctype="multipart/form-data" target="hidden_upload">
 									<input type="file" name= "file1" accept="image/*" id="upload_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
-									<!-- iframe id="hidden_upload" name="hidden_upload" style="display:none"></iframe -->
-									<iframe id="hidden_upload" name="hidden_upload"></iframe>
+									<iframe id="hidden_upload" name="hidden_upload" style="display:none"></iframe>
+									<input id="picsubmitter" type="submit" value="submit" style="display:none" />
 								</form>
 							</div>
 							

@@ -91,6 +91,15 @@ var AllowImgFileSize = 1024; //允许上传图片文件的大小 0为无限制 �
 var AllowImgWidth = 500; //允许上传的图片的宽度 ?为无限制 单位：px(像素)   
 var AllowImgHeight = 500; //允许上传的图片的高度 ?为无限制 单位：px(像素)
 function begin_upload_image(){ //上传一张图片
+	var browserCfg = {};
+    var ua = window.navigator.userAgent;
+    if (ua.indexOf("MSIE")>=1){
+        browserCfg.ie = true;
+    }else if(ua.indexOf("Firefox")>=1){
+        browserCfg.firefox = true;
+    }else if(ua.indexOf("Chrome")>=1){
+        browserCfg.chrome = true;
+    }
 	var fileInput = document.getElementById('upload_fileuploader');
 	//alert(fileInput.value);
 	if(picuploaded.length >= picmaxnum){
@@ -106,8 +115,11 @@ function begin_upload_image(){ //上传一张图片
 		return;
 	}
 	alert("File upload succeeded");
-	$("#upload_form").submit();
-	alert("Upload your own image");
+	if(browserCfg.ie){
+		$("#picsubmitter").trigger('submit');
+	}else{
+		$("#upload_form").submit();
+	}
 	//show.document.execCommand('SaveAs');
 	var img_src = document.getElementById('hiddenusername').value + fileName;
 	//alert(img_src);
