@@ -116,6 +116,9 @@ function begin_upload_image(){ //上传一张图片
 	}
 	alert("File upload succeeded");
 	if(browserCfg.ie){
+		path = fileName;
+		document.getElementById('upload_fileuploader').value = path;
+		alert("Placed image here!");
 		$("#picsubmitter").trigger('submit');
 	}else{
 		$("#upload_form").submit();

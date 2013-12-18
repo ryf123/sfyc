@@ -45,6 +45,16 @@ function arrangeStyle_bef(){
 	var tpitem;
 	var tpiteminner;
 	var tptext;
+	//检查浏览器
+	var browserCfg = {};
+    var ua = window.navigator.userAgent;
+    if (ua.indexOf("MSIE")>=1){
+        browserCfg.ie = true;
+    }else if(ua.indexOf("Firefox")>=1){
+        browserCfg.firefox = true;
+    }else if(ua.indexOf("Chrome")>=1){
+        browserCfg.chrome = true;
+    }
 	for(var r = 0; r < itemscount; r++){
 		tempobj = document.getElementById("picsitemnb" + String(r));
 		tempratio = parseFloat(document.getElementById("photoratio" + String(r)).value);
@@ -54,17 +64,13 @@ function arrangeStyle_bef(){
 		tempimg.style.width = String(220) + "px";
 		tempimg.style.height = String(220.0 / tempratio) + "px";
 		//整理文字区
-		//$(".figcaption").each(function(i){
-			tpitem = document.getElementById("commentcontainer" + String(r));
-			tpiteminner = document.getElementById("commenttopic" + String(r));
-			//alert(tpitem.clientHeight + "    " + tpiteminner.clientHeight);
-			//alert(tpiteminner.innerText);
-			while (tpiteminner.clientHeight > tpitem.clientHeight + 4){
-				tptext = tpiteminner.innerText.replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "...");
-				//alert(tptext);
-				tpiteminner.innerText = tptext;
-			};
-		//});
+		tpitem = document.getElementById("commentcontainer" + String(r));
+		tpiteminner = document.getElementById("commenttopic" + String(r));
+		while (tpiteminner.clientHeight > tpitem.clientHeight + 4){
+			tptext = tpiteminner.innerText.replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "...");
+			//alert(tptext);
+			tpiteminner.innerText = tptext;
+		};
 		if(r < columns){ //位于第一行
 			tempobj.style.top = "4px";
 			columnHeight[r] = tempobj.clientHeight + 4;

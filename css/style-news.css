@@ -6,11 +6,12 @@ body{
 	font-family: "微软雅黑", "宋体", "黑体", Arial;
 	font-size: 16px;
 }
-
+/*
 html, body{
 	-webkit-text-size-adjust: none;
 	-o-text-size-adjust: none;
 }
+*/
 
 #container{
 	position: relative;
