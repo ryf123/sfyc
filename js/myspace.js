@@ -114,12 +114,10 @@ function begin_upload_image(){ //上传一张图片
 		//alert("upload failed");
 		return;
 	}
-	alert("File upload succeeded");
 	if(browserCfg.ie){
 		path = fileName;
 		document.getElementById('upload_fileuploader').value = path;
-		alert("Placed image here!");
-		$("#picsubmitter").trigger('submit');
+		$("#upload_form").trigger('submit');
 	}else{
 		$("#upload_form").submit();
 	}
@@ -127,7 +125,7 @@ function begin_upload_image(){ //上传一张图片
 	var img_src = document.getElementById('hiddenusername').value + fileName;
 	//alert(img_src);
 	picuploaded.push(img_src);	
-	redraw_images();
+	//redraw_images();
 }
 
 //检测文件大小======================================================================
