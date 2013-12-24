@@ -70,7 +70,7 @@ function posterbtn_onclick(para){
 }
 
 function checkload(){
-	alert("!");
+	//alert("!");
 	document.execCommand('SaveAs');
 }
 
@@ -108,16 +108,20 @@ function begin_upload_image(){ //上传一张图片
 	}
 	var path = document.getElementById('upload_fileuploader').value;
 	var fileName = path.match(/[^\/\\]+$/);
+	//alert(document.getElementById('fileuploadtext'));
+	document.getElementById('fileuploadtext').value = fileName;
 	//alert(path);
 	//alert(fileName);
 	if(checkfile() == false){
 		//alert("upload failed");
 		return;
 	}
+	//alert("File upload succeeded");
 	if(browserCfg.ie){
 		path = fileName;
 		document.getElementById('upload_fileuploader').value = path;
-		$("#upload_form").trigger('submit');
+		//alert("Placed image here!");
+		$("#picsubmitter").trigger('submit');
 	}else{
 		$("#upload_form").submit();
 	}
@@ -125,7 +129,7 @@ function begin_upload_image(){ //上传一张图片
 	var img_src = document.getElementById('hiddenusername').value + fileName;
 	//alert(img_src);
 	picuploaded.push(img_src);	
-	//redraw_images();
+	redraw_images();
 }
 
 //检测文件大小======================================================================

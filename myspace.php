@@ -23,6 +23,12 @@
 				echo "upload";				
 			}
 		}
+		//if(!empty($_FILES["fileuploadtext"])){
+			//echo "fileuploadtext";
+			//if($upload_handler->upload_image($_FILES["fileuploadtext"])){
+				//echo "upload";				
+			//}
+		//}
 		elseif (!empty($_POST)) {
 			if(isset($_POST['topic_form_submit'])){
 				echo "topic form submit";
@@ -350,7 +356,8 @@
 								<input type="text" id ="hiddenusername" value="<?php echo $_SESSION['username'] ?>" style="display: none"/>
 								<!-- 上传文件  -->
 								<form method="post" action="" id="upload_form" enctype="multipart/form-data" target="hidden_upload">
-									<input type="file" name= "file1" accept="image/*" id="upload_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
+									<input type="file" name="file1" accept="image/*" id="upload_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
+									<input type="text" name="fileuploadtext" id="fileuploadtext" value=""></input>
 									<iframe id="hidden_upload" name="hidden_upload" style="display:none"></iframe>
 									<input id="picsubmitter" type="submit" value="submit" style="display:none" />
 								</form>
@@ -447,74 +454,6 @@
 							<!-- 背景 -->
 							<div id="c_panelpic_bkg"></div>
 						</div>
-						
-						<!-- 2.图片发布界面 
-						<div id="c_panel2" class="c_panels">
-							<div id="picuploadcount">
-								最多可上传 6 张图片
-							</div>
-							<br/>
-							<hr/>
-							<div id="picsarea">
-								<img src="images/blank.png" id="previewimage1" class="previewimages" onclick="cancel_an_image(0)">
-
-								</img>
-								<img src="images/blank.png" id="previewimage2" class="previewimages" onclick="cancel_an_image(1)">
-
-								</img>
-								<img src="images/blank.png" id="previewimage3" class="previewimages" onclick="cancel_an_image(2)">
-
-								</img>
-								<img src="images/blank.png" id="previewimage4" class="previewimages" onclick="cancel_an_image(3)">
-
-								</img>
-								<img src="images/blank.png" id="previewimage5" class="previewimages" onclick="cancel_an_image(4)">
-
-								</img>
-								<img src="images/blank.png" id="previewimage6" class="previewimages" onclick="cancel_an_image(5)">
-
-								</img>
-								<br/>
-								<div id="uploadbtn" onclick="trigger_filebox()">
-									+添加图片
-								</div>
-								<input type="file" accept="image/*" id="cpanel2_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
-							</div>
-							说点儿什么吧......<br/>
-							<textarea id="cpanel2_input2" onclick="textcomplete()"> </textarea>
-							<br/>
-							<hr/>
-							<div id="publisher_leader">
-								<div id="publisher1" class="publishers">
-									以主人名义发布(默认)
-								</div>
-								<div id="publisher2" class="publishers">
-									以宠物1名义发布
-								</div>
-								<div id="publisher3" class="publishers">
-									以宠物2名义发布
-								</div>
-							</div>
-							<br/>
-							<hr/>
-							<div id="receiver_leader">
-								<div id="receiver1" class="receivers">
-									所有人可见(默认)
-								</div>
-								<div id="receiver2" class="receivers">
-									仅收听者可见
-								</div>
-								<div id="receiver3" class="receivers">
-									仅自己可见
-								</div>
-							</div>
-							<br/>
-							<hr/>
-							<div id="cpanel2_btn1" onclick="distribute_pics()">
-								<a>发布</a>
-							</div>
-						</div>
-						-->
 						
 						<!-- 3.声音发布界面 -->
 						<div id="c_panel3" class="c_panels">
