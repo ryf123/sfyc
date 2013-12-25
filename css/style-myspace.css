@@ -285,14 +285,7 @@ body{
 	background-color: #e0e1e9;
 	cursor: pointer;
 }
-/*
-#content #contentLeft #filter a{
-	background-color: #e0e1e9;
-}
-#content #contentLeft #filter a:hover{
-	background-color: #ff9900;
-}
-*/
+
 #content #contentLeft #filter .newsbtns .newsbtnpics{
 	position: absolute;
 	width: 195px;
@@ -417,14 +410,7 @@ body{
 }
 #poster #newsaction2{
 }
-/*
-#poster #newsaction3{
-	background-color: #eb5c4c;
-}
-#poster #newsaction4{
-	background-color: #00a89e;
-}
-*/
+
 #poster #newsaction5{
 	margin-left: 20px;
 }
@@ -541,6 +527,27 @@ body{
 	top: 32px;
 	left: 96px;
 }
+#controlpanel #c_panelpic #uploadbtn_another{
+	position: relative;
+	width: 80px;
+	height: 64px;
+	top: 24px;
+	left: 32px;
+	margin-left: 88px;
+	vertical-align: middle;
+	background-color: #3bb5e8;
+	float: left;
+	cursor: pointer;
+}
+#controlpanel #c_panelpic #uploadbtn_another #uploadbtntext_2{
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	top: 20px;
+	font-size: 20px;
+	color: #20284f;
+}
+
 #controlpanel #c_panelpic #uploadbtntext_right #picleftnum{
 	color: #ffcc00;
 }
@@ -770,99 +777,6 @@ body{
 	left: 300px;
 	top: -16px;
 }
-
-/*
-#controlpanel #c_panel2{
-	height: 640px;
-}
-#controlpanel #c_panel2 #picuploadcount{
-	margin-top: 6px;
-}
-#controlpanel #c_panel2 #picsarea{
-	position: relative;
-	width: 496px;
-	height: 128px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	border: 1px blue solid;
-}
-#controlpanel #c_panel2 #picsarea .previewimages{
-	position: relative;
-	border: 1px blue solid;
-	width: 70px;
-	height: 70px;
-	margin-top: 10px;
-	margin-left: 8px;
-	float: left;
-}
-#controlpanel #c_panel2 #picsarea #uploadbtn{
-	position: relative;
-	border: 1px blue solid;
-	width: 96px;
-	height: 24px;
-	margin-top: 8px;
-	margin-right: 8px;
-	float: right;
-	cursor: pointer;
-}
-#controlpanel #c_panel2 #cpanel2_input2{
-	position: relative;
-	width: 496px;
-	height: 130px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	border: 1px blue solid;
-	float: left;
-}
-#controlpanel #c_panel2 #cpanel2_btn1{
-	position: relative;
-	width: 80px;
-	height: 20px;
-	border: 1px blue solid;
-	text-align: center;
-	float: right;
-	cursor: pointer;
-}
-#controlpanel #c_panel2 #cpanel2_btn1 a:hover{
-	background-color: #ff9900;
-}
-#controlpanel #c_panel2 #publisher_leader{
-	position: relative;
-	width: 496px;
-	height: 64px;
-	margin-top: 16px;
-	margin-left: 6px;
-	border: 1px black solid;
-}
-#controlpanel #c_panel2 #publisher_leader .publishers{
-	position: relative;
-	width: 140px;
-	height: 48px;
-	margin-top: 6px;
-	margin-left: 6px;
-	border: 1px black solid;
-	float: left;
-	cursor: pointer;
-}
-#controlpanel #c_panel2 #receiver_leader{
-	position: relative;
-	width: 496px;
-	height: 64px;
-	margin-top: 16px;
-	margin-left: 6px;
-	border: 1px black solid;
-}
-#controlpanel #c_panel2 #receiver_leader .receivers{
-	position: relative;
-	width: 140px;
-	height: 48px;
-	margin-top: 6px;
-	margin-left: 6px;
-	border: 1px black solid;
-	float: left;
-	cursor: pointer;
-}
-*/
 
 #controlpanel #c_panel3 #cpanel3_input1{
 	position: relative;

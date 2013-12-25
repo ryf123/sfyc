@@ -47,7 +47,7 @@
 <html>
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+		<!-- meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" / -->
 		<title>个人主页-i宠</title>
 		<meta name="description" content="" />
 		<meta name="author" content="Shi" />
@@ -339,7 +339,9 @@
 								<div id="uploadbtntext">添加图片</div>
 							</div>
 							<div id="uploadbtntext_right">JPG,GIF,PNG或BMP，单张最大20M<br/>还可以上传&nbsp;<span id="picleftnum"></span>&nbsp;张</div>
-							
+							<div id="uploadbtn_another" onclick="submit_your_upload()" style="display:none">
+								<div id="uploadbtntext_2">上传</div>
+							</div>
 							<!-- 上传了什么图 -->
 							
 							<div id="uploadpics">
@@ -357,9 +359,9 @@
 								<!-- 上传文件  -->
 								<form method="post" action="" id="upload_form" enctype="multipart/form-data" target="hidden_upload">
 									<input type="file" name="file1" accept="image/*" id="upload_fileuploader" value="selectFile" onchange="begin_upload_image()"></input>
-									<input type="text" name="fileuploadtext" id="fileuploadtext" value=""></input>
+									<input type="text" name="fileuploadtext" id="fileuploadtext" value="" style="display:none"></input>
 									<iframe id="hidden_upload" name="hidden_upload" style="display:none"></iframe>
-									<input id="picsubmitter" type="submit" value="submit" style="display:none" />
+									<input id="picsubmitter" type="submit" value="submit"  style="display:none" />
 								</form>
 							</div>
 							

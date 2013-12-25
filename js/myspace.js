@@ -4,6 +4,7 @@ var picuploaded = [];
 var distributers = [];
 var picmaxnum = 9;
 var comment_visibility = 2; //默认为公开可见
+var overallfname;
 
 $(document).ready(function () {
 	$("#posts .postscontents").hide();
@@ -101,35 +102,50 @@ function begin_upload_image(){ //上传一张图片
         browserCfg.chrome = true;
     }
 	var fileInput = document.getElementById('upload_fileuploader');
-	//alert(fileInput.value);
 	if(picuploaded.length >= picmaxnum){
 		alert("无法上传更多的图片");
 		return;
 	}
 	var path = document.getElementById('upload_fileuploader').value;
 	var fileName = path.match(/[^\/\\]+$/);
-	//alert(document.getElementById('fileuploadtext'));
+	overallfname = document.getElementById('hiddenusername').value + fileName;
+	//alert(overallfname);
 	document.getElementById('fileuploadtext').value = fileName;
-	//alert(path);
-	//alert(fileName);
 	if(checkfile() == false){
-		//alert("upload failed");
 		return;
 	}
-	//alert("File upload succeeded");
-	if(browserCfg.ie){
-		path = fileName;
-		document.getElementById('upload_fileuploader').value = path;
-		//alert("Placed image here!");
-		$("#picsubmitter").trigger('submit');
-	}else{
-		$("#upload_form").submit();
-	}
-	//show.document.execCommand('SaveAs');
-	var img_src = document.getElementById('hiddenusername').value + fileName;
-	//alert(img_src);
-	picuploaded.push(img_src);	
-	redraw_images();
+	window.setTimeout(submit_your_upload, 100);
+}
+
+function submit_your_upload(){
+	var browserCfg = {};
+    var ua = window.navigator.userAgent;
+    var img_src;
+    if (ua.indexOf("MSIE")>=1){
+        browserCfg.ie = true;
+		//alert("浏览器是IE");
+    }else if(ua.indexOf("Firefox")>=1){
+        browserCfg.firefox = true;
+		//alert("浏览器是火狐");
+    }else if(ua.indexOf("Chrome")>=1){
+        browserCfg.chrome = true;
+		//alert("浏览器是Chrome");
+    }else{
+    	//alert("不知道浏览器种类");
+    }
+    try{
+    	$("#picsubmitter").trigger('click');
+    }catch(e){
+    	//alert(e.name + ": " + e.message);
+    	window.setTimeout(submit_your_upload, 100);
+    	return;
+    }
+    img_src = overallfname;
+	picuploaded.push(img_src);
+	//redraw_images();
+	window.setTimeout(redraw_images_again, 200);
+	window.setTimeout(redraw_images_again, 400);
+	window.setTimeout(redraw_images_again, 600);
 }
 
 //检测文件大小======================================================================
@@ -194,8 +210,18 @@ function cancel_an_image(pos){ //取消一张图片
 	picuploaded = arraydeleteelement(picuploaded, pos);
 	redraw_images();
 }
+function redraw_images_again(){
+	//alert("PIC-REDRAW");
+	try{
+		redraw_images();
+	}catch(e){
+    	alert(e.name + ": " + e.message);
+    	return;
+    }
+}
 function redraw_images(){ //重画预览图片
-	console.log(document.getElementById("hide_uploadpicture" + String(0 + 1)).value);
+	//console.log(document.getElementById("hide_uploadpicture" + String(0 + 1)).value);
+	//alert("PIC-REDRAW");
 	for(var s = 0; s < picmaxnum; s++){
 		if(s < picuploaded.length){
 			document.getElementById("uploadpicture" + String(s + 1)).src = "images/upload/" + picuploaded[s];
