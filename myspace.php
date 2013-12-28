@@ -20,15 +20,10 @@
 		if(!empty($_FILES["file1"])){
 			echo "file1";
 			if($upload_handler->upload_image($_FILES["file1"])){
-				echo "upload";				
+				//此处为上传成功标志
+				echo "upload";
 			}
 		}
-		//if(!empty($_FILES["fileuploadtext"])){
-			//echo "fileuploadtext";
-			//if($upload_handler->upload_image($_FILES["fileuploadtext"])){
-				//echo "upload";				
-			//}
-		//}
 		elseif (!empty($_POST)) {
 			if(isset($_POST['topic_form_submit'])){
 				echo "topic form submit";

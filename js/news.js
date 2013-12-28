@@ -1,8 +1,8 @@
 var columnHeight = [];
 var itemscount = 0;
 var columns = 4;
-var marginHorizontal = 8;
-var marginVertical = 8;
+var marginHorizontal = 16;
+var marginVertical = 16;
 var picloaded = [];
 var imgs = [];
 
@@ -61,8 +61,8 @@ function arrangeStyle_bef(){
 		tempratio = (tempratio == 0 ? 2 : tempratio);
 		//整理图片大小
 		tempimg = document.getElementById("picsnb" + String(r));
-		tempimg.style.width = String(220) + "px";
-		tempimg.style.height = String(220.0 / tempratio) + "px";
+		tempimg.style.width = String(204) + "px";
+		tempimg.style.height = String(204.0 / tempratio) + "px";
 		//整理文字区
 		tpitem = document.getElementById("commentcontainer" + String(r));
 		tpiteminner = document.getElementById("commenttopic" + String(r));
@@ -72,14 +72,14 @@ function arrangeStyle_bef(){
 			tpiteminner.innerText = tptext;
 		};
 		if(r < columns){ //位于第一行
-			tempobj.style.top = "4px";
-			columnHeight[r] = tempobj.clientHeight + 4;
-			tempobj.style.left = String(6 + (r % columns) * (tempobj.clientWidth + marginHorizontal)) + "px";
+			tempobj.style.top = "24px";
+			columnHeight[r] = tempobj.clientHeight + 24;
+			tempobj.style.left = String(24 + (r % columns) * (tempobj.clientWidth + marginHorizontal)) + "px";
 		}else{ //位于第一行之下
 			//看哪一列最短
 			tempht = columnHeight.min();
 			temphtat = columnHeight.minat();
-			tempobj.style.left = String(6 + temphtat * (tempobj.clientWidth + marginHorizontal)) + "px";
+			tempobj.style.left = String(24 + temphtat * (tempobj.clientWidth + marginHorizontal)) + "px";
 			tempobj.style.top = String(columnHeight[temphtat] + marginVertical) + "px";
 			columnHeight[temphtat] += tempobj.clientHeight + marginVertical;
 		}

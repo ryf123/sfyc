@@ -93,7 +93,7 @@ html, body{
 #menu{
 	position: relative;
 	width: 980px;
-	height: 60px;
+	height: 68px;
 	margin-top: 10px;
 	padding: 10px;
 	padding-left: 0;
@@ -103,7 +103,7 @@ html, body{
 #menu #menulogo{
 	position: relative;
 	width: 128px;
-	height: 64px;
+	height: 72px;
 	margin-top: -12px;
 	margin-right: 10px;
 	padding: 0;
@@ -122,34 +122,43 @@ html, body{
 #menu #menuinterface .divoptions{
 	position: relative;
 	width: 96px;
-	height: 64px;
+	height: 72px;
 	margin-left: 4px;
-	margin-top: 4px;
+	margin-top: 0;
 	text-align: center;
 	float: left;
 }
 
 #menu .search-input2{
 	margin-left: 48px;
-	margin-top: 30px;
+	margin-top: 24px;
 	width: 96px;
 	height: 22px;
 	position: relative;
 	background-color: #e1e2ea;
+	color: #222141;
+	fontcolor: #222141;
 	border: none;
 }
 #menu #menuinterface #searchpaw{
 	margin-left: 8px;
-	margin-top: 28px;
+	margin-top: 22px;
 	position: absolute;
 	cursor: pointer;
+}
+input::-webkit-input-placeholder {
+    color: #222141;
+    font-weight: bold;
+}
+input:-moz-placeholder {
+    color: #222141;
+    font-weight: bold;
 }
 
 #content{
 	position: relative;
 	width: 1000px;
-	margin: 0;
-	padding: 0;
+	margin-top: -8px;
 	background-color: #e1e2ea;
 }
 /*
@@ -208,7 +217,7 @@ html, body{
 	border: 1px solid #ececec;
 }
 #contentRight .picsitem{
-	width: 240px;
+	width: 224px;
 	height: auto;
 	position: absolute;
 	border: 2px solid #c9cbcd;
@@ -216,12 +225,12 @@ html, body{
 	background-color: #ffffff;
 }
 #contentRight .picsitem .picsitemupper{
-	width: 240px;
+	width: 224px;
 	height: 9px;
 	position: relative;
 }
 #contentRight .picsitem .picsitemmiddle{
-	width: 240px;
+	width: 224px;
 	height: 208px auto;
 	position: relative;
 	margin-top: 10px;
@@ -234,20 +243,20 @@ html, body{
 	margin-left: 10px;
 }
 #contentRight .picsitem .picsitemmiddle .upicsback{
-	width: 240px;
+	width: 224px;
 	height: 208px;
 	position: absolute;
 	z-index: -1;
 	left: 0px;
 }
 #contentRight .picsitem .picsitemlower{
-	width: 240px;
+	width: 224px;
 	height: 89px;
 	position: relative;
 	margin-top: -4px;
 }
 #contentRight .picsitem .breakline{
-	width: 220px;
+	width: 204px;
 	height: 2px;
 	left: 10px;
 	top: 8px;
@@ -283,7 +292,7 @@ html, body{
 	font-size: 12px;
 }
 #contentRight .picsitem .picsitemlower .usersprofiles{
-	width: 224px;
+	width: 208px;
 	height: 32px;
 	position: absolute;
 	top: 16px;
@@ -297,7 +306,7 @@ html, body{
 	float: right;
 }
 #contentRight .picsitem .picsitemlower .usersprofilesupper{
-	width: 224px;
+	width: 208px;
 	height: 32px;
 	position: absolute;
 	top: 16px;
@@ -336,13 +345,13 @@ html, body{
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .feedbackpic{
-	left: 120px;
+	left: 104px;
 	width: 12px;
 	height: 12px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .feedback{
-	left: 136px;
+	left: 120px;
 	width: 16px;
 	height: 16px;
 	position: absolute;
@@ -350,13 +359,13 @@ html, body{
 	color: #4568b1;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .forwardpic{
-	left: 156px;
+	left: 140px;
 	width: 12px;
 	height: 12px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .forwardnum{
-	left: 172px;
+	left: 156px;
 	width: 16px;
 	height: 16px;
 	position: absolute;
@@ -364,13 +373,13 @@ html, body{
 	color: #4568b1;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .praisepic{
-	left: 192px;
+	left: 176px;
 	width: 12px;
 	height: 12px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .praise{
-	left: 208px;
+	left: 192px;
 	width: 16px;
 	height: 16px;
 	position: absolute;
