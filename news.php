@@ -214,7 +214,7 @@
 											$ratio = $photo_ratio_array[$photo_counter][0]/$photo_ratio_array[$photo_counter][1];
 										}
 										echo "<div class='photoratiofrm'>";
-											echo "<input type='text' class='photoratios' id='photoratio$c'></input>";
+											echo "<input type='text' class='photoratios' id='photoratio$c' style='display:none'></input>";
 											echo "<script>document.getElementById('photoratio$c').value='$ratio';</script>";
 										echo "</div>";
 										echo "<img src=$photo class='upicsinner' id='picsnb$c'></img>";
@@ -230,10 +230,6 @@
 									echo "<div class='commentcontainer' id='commentcontainer$c'>";
 										echo "<div class='commenttopic' id='commenttopic$c'>".$content."</div>";
 									echo "</div>";
-									//echo "<div class='commenttopic'>";
-										//echo "<input type='text' class='commenttopicinners' id='commenttopicid$c'></input>";
-										//echo "<script>document.getElementById('commenttopicid$c').value='$content';</script>";
-									//echo "</div>";
 									//用户资料
 									echo "<div class='usersprofiles'>";
 										echo "<div class='usershead'>";
@@ -261,34 +257,15 @@
 									echo "</div>";
 								echo "</div>";
 							echo "</div>";
-							//echo "<div class='item' width='170' height='135'>";
-							//$photo_array = array_slice($topic,3);
-							//foreach($photo_array as &$photo){
-								//echo "<img class='item_photo' src=$photo>";
-							//}
-							//echo "<image src=".$user_photo."></image>";
-							//echo "<input value=".(sizeof($topic)-1)."></input>";
-							//echo '<input value="'.$content.'"></input>';
-							//echo '<input value="'.$username.'"></input>';
-							//echo "</div>";
 							//开始排版
 							echo "<script type='text/javascript'>columnindex();</script>";
 							$c++;
 						}
 						echo "<script type='text/javascript'>pictloadend();</script>";
 					?>
-
-					<!--
-					<p>This is contentRight. contentRight块是放置主要阅读内容的</p>
-					<p>This is contentRight. contentRight块是放置主要阅读内容的</p>
-					<p>This is contentRight. contentRight块是放置主要阅读内容的</p>
-					<p>This is contentRight. contentRight块是放置主要阅读内容的</p>
-					<p>This is contentRight. contentRight块是放置主要阅读内容的</p>
-					<p>This is contentRight. contentRight块是放置主要阅读内容的</p>
-					<p>This is contentRight. contentRight块是放置主要阅读内容的</p>
-					<p>This is contentRight. contentRight块是放置主要阅读内容的</p>
-					-->
 				</div>
+				<!-- 读取完毕开始整理 -->
+				<script type='text/javascript'>arrangeStyle_again(4, 224, 16, "news");</script>
 			</div>
 
 			<!--footer块是放置页脚信息的-->

@@ -2,9 +2,12 @@
 	if (session_id() == '') { 
 	session_start();
 	}
+	require_once("get_news.php");
 	require_once('upload_target.php');
 	require_once('check_login.php');
 	require_once 'topic_submit.php';
+	$get_news = new get_news();
+	$result = $get_news->retrieve_news();
 	if(isset($_SESSION['LOGIN'])){
 		$sign_in=TRUE;
 		$login = new LOGIN();
@@ -55,6 +58,7 @@
 
    	    <script type="text/javascript" src="js/jquery-2.0.3.1.min.js"></script>
 		<script type="text/javascript" src="js/myspace.js"></script>
+		<script type="text/javascript" src="js/news.js"></script>
 	</head>
 
 	<body>
@@ -555,29 +559,79 @@
 
 						<!-- 所发图片 -->
 						<div id="postscontent_pic" class="postscontents">
-							<!-- 帖子1 -->
-							<div id="postscont3" class="postsconts">
-								<div id="postdate33" class="postdates">
-									路人甲 发表于 2013.9.26 22:50PM
-								</div>
-								<div id="postpic1" class="postpics">
-									这里放置图片1
-								</div>
-								<div id="postpic2" class="postpics">
-									这里放置图片2
-								</div>
-							</div>
-							<!-- 帖子2 -->
-							<div id="postscont4" class="postsconts">
-								<div id="postdate44" class="postdates">
-									程石 发表于 2013.9.20 18:23PM
-								</div>
-								<div id="postpic3" class="postpics">
-									这里放置图片3
-								</div>
-							</div>
+							<!-- 这里放置和news一样的帖子，不同之处只是横宽和列数 -->
+							
+					<?php
+						$c = 0;
+						foreach($result as &$topic){
+							$content = $topic[0];
+							$username = $topic[1];
+							$user_photo = $topic[2];
+							echo "<div class='picsitem' id='picsitemnb$c'>";
+								echo "<div class='picsitemmiddle'>";
+									$photo_ratio_array = $topic[3];
+									$photo_array = $topic[4];
+									$photo_counter = 0;
+									foreach($photo_array as &$photo){
+										$ratio = 0;
+										if($photo_ratio_array[$photo_counter][0]!=0){
+											$ratio = $photo_ratio_array[$photo_counter][0]/$photo_ratio_array[$photo_counter][1];
+										}
+										echo "<div class='photoratiofrm'>";
+											echo "<input type='text' class='photoratios' id='photoratio$c' style='display:none'></input>";
+											echo "<script>document.getElementById('photoratio$c').value='$ratio';</script>";
+										echo "</div>";
+										echo "<img src=$photo class='upicsinner' id='picsnb$c'></img>";
+										break;
+									}
+								echo "</div>";
+								echo "<div class='picsitemlower'>";
+									//分割线
+									echo "<div class='breakline'></div>";
+									//图片文字
+									echo "<div class='usersname'>$username";
+									echo "：</div>";
+									echo "<div class='commentcontainer' id='commentcontainer$c'>";
+										echo "<div class='commenttopic' id='commenttopic$c'>".$content."</div>";
+									echo "</div>";
+									//用户资料
+									echo "<div class='usersprofiles'>";
+										echo "<div class='usershead'>";
+											echo "<image src=".$user_photo." class='usershead'></image>";
+										echo "</div>";
+									echo "</div>";
+									echo "<div class='usersprofilesupper'>";
+										echo "<div class='usershead'>";
+											echo "<image src=".$user_photo." class='usersheadring'></image>";
+										echo "</div>";
+									echo "</div>";
+									//更多，回复，转发，赞
+									echo "<div class='bottomfunc'>";
+										echo "<div class='readmore'>READ MORE</div>";
+										echo "<img src='images/ReadmoreArrow.png' class='readmorearrow'></img>";
+										//回复
+										echo "<img src='images/CommentRTPic1.png' class='feedbackpic'></img>";
+										echo "<div class='feedback'>256</div>";
+										//转发
+										echo "<img src='images/CommentRTPic2.png' class='forwardpic'></img>";
+										echo "<div class='forwardnum'>128</div>";
+										//赞
+										echo "<img src='images/CommentRTPic3.png' class='praisepic'></img>";
+										echo "<div class='praise'>128</div>";
+									echo "</div>";
+								echo "</div>";
+							echo "</div>";
+							//开始排版
+							echo "<script type='text/javascript'>columnindex();</script>";
+							$c++;
+						}
+						echo "<script type='text/javascript'>pictloadend();</script>";
+					?>
+					
 						</div>
-
+						<!-- 整理 -->
+						<script type='text/javascript'>arrangeStyle_again(2, 304, 32, "myspace");</script>
+						
 						<!-- 所发评论 -->
 						<div id="postscontent_res" class="postscontents">
 							<!-- 帖子1 -->

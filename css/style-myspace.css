@@ -36,7 +36,7 @@ body{
 	position: relative;
 	width: 960px;
 	height: 40px;
-	/*margin-top: 100px;*/
+	/*margin-bottom: 8px;*/
 	padding-top: 0px;
 }
 
@@ -103,7 +103,7 @@ body{
 #menu{
 	position: relative;
 	width: 980px;
-	height: 60px;
+	height: 68px;
 	margin-top: 10px;
 	padding: 10px;
 	padding-left: 0;
@@ -113,7 +113,7 @@ body{
 #menu #menulogo{
 	position: relative;
 	width: 128px;
-	height: 64px;
+	height: 72px;
 	margin-top: -12px;
 	margin-right: 10px;
 	padding: 0;
@@ -132,33 +132,42 @@ body{
 #menu #menuinterface .divoptions{
 	position: relative;
 	width: 96px;
-	height: 64px;
+	height: 72px;
 	margin-left: 4px;
-	margin-top: 4px;
+	margin-top: 0;
 	text-align: center;
 	float: left;
 }
 
 #menu .search-input2{
 	margin-left: 48px;
-	margin-top: 30px;
+	margin-top: 24px;
 	width: 96px;
 	height: 22px;
 	position: relative;
 	background-color: #e1e2ea;
+	color: #222141;
 	border: none;
 }
 #menu #menuinterface #searchpaw{
 	margin-left: 8px;
-	margin-top: 28px;
+	margin-top: 22px;
 	position: absolute;
 	cursor: pointer;
+}
+input::-webkit-input-placeholder {
+    color: #222141;
+    font-weight: bold;
+}
+input:-moz-placeholder {
+    color: #222141;
+    font-weight: bold;
 }
 
 #content{
 	position: relative;
 	width: 1000px;
-	margin: 10px 0 0 0;
+	margin-top: 4px;
 	padding: 0;
 }
 
@@ -178,14 +187,14 @@ body{
 	height: 120px;
 	margin: 0;
 	padding-top: 16px;
-	padding-left: 10px;
+	padding-left: 14px;
 	border: none;
 }
 #content #contentLeft #myInfo #ownername{
 	width: 92px;
 	position: relative;
 	float: left;
-	margin-left: 10px;
+	margin-left: 14px;
 }
 #content #contentLeft #myInfo #ownernameinside{
 	height: 32px;
@@ -211,34 +220,34 @@ body{
 	position: relative;
 	width: 100px;
 	height: 100px;
-	margin-top: 10px;
+	margin-top: 6px;
 	float: left;
 }
 #content #contentLeft #myInfo #ownerhead{
 	position: relative;
-	width: 120px;
-	height: 120px;
+	width: 112px;
+	height: 112px;
 	margin-top: 10px;
-	margin-left: 10px;
+	margin-left: 16px;
 	float: left;
 }
 #content #contentLeft #myInfo #userheaditem{
 	position: absolute;
-	width: 120px;
-	height: 120px;
+	width: 112px;
+	height: 112px;
 }
 #content #contentLeft #myInfo #userheadmerger{
 	position: absolute;
-	width: 120px;
-	height: 120px;
+	width: 112px;
+	height: 112px;
 }
 
 #content #contentLeft #petheadcontainer{
 	position: relative;
 	width: 264px;
 	height: 178px;
-	margin-top: 16px;
-	margin-left: 10px;
+	margin-top: 8px;
+	margin-left: 16px;
 }
 #content #contentLeft #petheadcontainer .petnames{
 	position: relative;
@@ -252,27 +261,27 @@ body{
 }
 #content #contentLeft #petheadcontainer .petheads{
 	position: relative;
-	width: 70px;
-	height: 70px;
+	width: 64px;
+	height: 64px;
 	margin-left: 12px;
 	margin-top: 9px;
 	float: left;
 }
 #content #contentLeft #petheadcontainer .petheads .petheadpics{
 	position: absolute;
-	width: 70px;
-	height: 70px;
+	width: 64px;
+	height: 64px;
 }
 #content #contentLeft #petheadcontainer .petheads .petheadmerger{
 	position: absolute;
-	width: 70px;
-	height: 70px;
+	width: 64px;
+	height: 64px;
 }
 
 #content #contentLeft #filter{
 	position: relative;
 	width: 160px;
-	margin: 0;
+	margin-top: -24px;
 	padding: 10px;
 	border: none;
 }
@@ -341,7 +350,7 @@ body{
 }
 #contentCenter #bkgtrunk{
 	left: 40px;
-	top: 220px;
+	top: 230px;
 	position: absolute;
 }
 
@@ -351,7 +360,7 @@ body{
 	height: 100px;
 	margin-top: 10px;
 	margin-left: 50px;
-	margin-bottom: 30px;
+	margin-bottom: 34px;
 	padding-left: 10px;
 	border: none;
 }
@@ -867,7 +876,7 @@ body{
 	height: 40px;
 	margin-left: 76px;
 	margin-right: 4px;
-	margin-top: -18px;
+	margin-top: -12px;
 	text-align: center;
 	float: left;
 	font-size: 17px;
@@ -884,6 +893,199 @@ body{
 	margin-left: 60px;
 	padding: 10px;
 }
+/*放置news类似的图片*/
+#posts #postscontent_pic{
+	position: relative;
+	width: 640px;
+	margin-top: 40px;
+	margin-left: 14px;
+}
+#posts #postscontent_pic .item{
+	background-color: #fff;
+	position: relative;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-top: 30px;
+	margin-bottom: 22px;
+	border: 1px solid #ececec;
+}
+#posts #postscontent_pic .picsitem{
+	width: 304px;
+	height: auto;
+	position: absolute;
+	border: 2px solid #c9cbcd;
+	border-radius: 16px;
+	background-color: #ffffff;
+}
+#posts #postscontent_pic .picsitem .picsitemupper{
+	width: 304px;
+	height: 9px;
+	position: relative;
+}
+#posts #postscontent_pic .picsitem .picsitemmiddle{
+	width: 304px;
+	height: 208px auto;
+	position: relative;
+	margin-top: 10px;
+}
+#posts #postscontent_pic .picsitem .picsitemmiddle .upicsinner{
+	/*width: 220px;
+	height: 176px;*/
+	position: relative;
+	margin-top: 0px;
+	margin-left: 10px;
+}
+#posts #postscontent_pic .picsitem .picsitemmiddle .upicsback{
+	width: 304px;
+	height: 208px;
+	position: absolute;
+	z-index: -1;
+	left: 0px;
+}
+#posts #postscontent_pic .picsitem .picsitemlower{
+	width: 304px;
+	height: 89px;
+	position: relative;
+	margin-top: -4px;
+}
+#posts #postscontent_pic .picsitem .breakline{
+	width: 284px;
+	height: 2px;
+	left: 10px;
+	top: 8px;
+	position: absolute;
+	background-color: #c9cbcd;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .usersname{
+	width: 96px auto;
+	height: 16px;
+	left: 8px;
+	top: 12px;
+	position: absolute;
+	font-size: 12px;
+	font-weight: bold;
+	color: #2c3055;
+	margin-right: 8px;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .commentcontainer{
+	width: 160px;
+	height: 32px;
+	position: absolute;
+	top: 32px;
+	left: 8px;
+	color: #2c3055;
+	font-size: 12px;
+	overflow: hidden;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .commentcontainer .commenttopic{
+	width: 160px;
+	height: auto;
+	position: absolute;
+	color: #2c3055;
+	font-size: 12px;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .usersprofiles{
+	width: 208px;
+	height: 32px;
+	position: absolute;
+	top: 16px;
+	left: 8px;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .usersprofiles .usershead{
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	position: relative;
+	float: right;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .usersprofilesupper{
+	width: 208px;
+	height: 32px;
+	position: absolute;
+	top: 16px;
+	left: 8px;
+	z-index: 10;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .usersprofilesupper .usersheadring{
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	position: relative;
+	float: right;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .bottomfunc{
+	width: 224px;
+	height: 16px;
+	position: absolute;
+	top: 72px;
+	left: 8px;
+	font-size: 8px;
+	color: #2c3055;
+	font-weight: bold;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .bottomfunc .readmore{
+	width: 64px;
+	height: 16px;
+	left: 0px;
+	position: absolute;
+	color: #4568b1;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .bottomfunc .readmorearrow{
+	left: 56px;
+	top: 2px;
+	width: 6px;
+	height: 9px;
+	position: absolute;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .bottomfunc .feedbackpic{
+	left: 104px;
+	width: 12px;
+	height: 12px;
+	position: absolute;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .bottomfunc .feedback{
+	left: 120px;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	text-align: right;
+	color: #4568b1;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .bottomfunc .forwardpic{
+	left: 140px;
+	width: 12px;
+	height: 12px;
+	position: absolute;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .bottomfunc .forwardnum{
+	left: 156px;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	text-align: right;
+	color: #4568b1;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .bottomfunc .praisepic{
+	left: 176px;
+	width: 12px;
+	height: 12px;
+	position: absolute;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .bottomfunc .praise{
+	left: 192px;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	text-align: right;
+	color: #4568b1;
+}
+#posts #postscontent_pic .picsitem .picsitemlower .lpicsback{
+	width: 240px;
+	height: 81px;
+	position: absolute;
+	z-index: -1;
+}
+/*结束*/
 
 #posts #postscontent_txt .postsconts{
 	position: relative;

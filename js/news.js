@@ -1,19 +1,35 @@
 var columnHeight = [];
 var itemscount = 0;
-var columns = 4;
+var columns = -1;
+var linewidth = 224;
 var marginHorizontal = 16;
 var marginVertical = 16;
 var picloaded = [];
 var imgs = [];
+var arranged = false;
+var workingarea = "news";
 
-$(document).ready(function () {
+$(document).ready(function(){
 	for(var r = 0; r < columns; r++){
 		columnHeight[r] = 0;
 	}
-	//arrangeStyle();
-	$("#contentRight .picsitem .picsitemmiddle .photoratiofrm").hide();
-	arrangeStyle_bef();
+	if(columns > 0){
+		arranged = true;
+		arrangeStyle_bef();
+	}
 });
+
+function arrangeStyle_again(cols, wid, intr, wrk){
+	columns = cols;
+	linewidth = wid;
+	marginVertical = intr;
+	marginHorizontal = intr;
+	workingarea = wrk;
+	if(arranged == false){
+		arranged = true;
+		arrangeStyle_bef();
+	}
+}
 
 function columnindex(){ //统计图片数量
 	itemscount += 1;
@@ -55,14 +71,15 @@ function arrangeStyle_bef(){
     }else if(ua.indexOf("Chrome")>=1){
         browserCfg.chrome = true;
     }
+    columnHeight = [];
 	for(var r = 0; r < itemscount; r++){
 		tempobj = document.getElementById("picsitemnb" + String(r));
 		tempratio = parseFloat(document.getElementById("photoratio" + String(r)).value);
 		tempratio = (tempratio == 0 ? 2 : tempratio);
 		//整理图片大小
 		tempimg = document.getElementById("picsnb" + String(r));
-		tempimg.style.width = String(204) + "px";
-		tempimg.style.height = String(204.0 / tempratio) + "px";
+		tempimg.style.width = String(linewidth - 20) + "px";
+		tempimg.style.height = String(1.0 * (linewidth - 20) / tempratio) + "px";
 		//整理文字区
 		tpitem = document.getElementById("commentcontainer" + String(r));
 		tpiteminner = document.getElementById("commenttopic" + String(r));
@@ -74,12 +91,12 @@ function arrangeStyle_bef(){
 		if(r < columns){ //位于第一行
 			tempobj.style.top = "24px";
 			columnHeight[r] = tempobj.clientHeight + 24;
-			tempobj.style.left = String(24 + (r % columns) * (tempobj.clientWidth + marginHorizontal)) + "px";
+			tempobj.style.left = String(24 + Math.floor((r % columns) * (tempobj.clientWidth + marginHorizontal))) + "px";
 		}else{ //位于第一行之下
 			//看哪一列最短
 			tempht = columnHeight.min();
 			temphtat = columnHeight.minat();
-			tempobj.style.left = String(24 + temphtat * (tempobj.clientWidth + marginHorizontal)) + "px";
+			tempobj.style.left = String(24 + Math.floor(temphtat * (tempobj.clientWidth + marginHorizontal))) + "px";
 			tempobj.style.top = String(columnHeight[temphtat] + marginVertical) + "px";
 			columnHeight[temphtat] += tempobj.clientHeight + marginVertical;
 		}
@@ -90,64 +107,17 @@ function arrangeStyle_bef(){
 		tempobj.style.backgroundColor = "#" + (tempcolor1 * 65536 + tempcolor2 * 256 + tempcolor3).toString(16);
 	}
 	tempht = columnHeight.max();
-	document.getElementById("contentRight").style.height = String(tempht - 8) + "px";
+	if(workingarea == "myspace"){
+		document.getElementById("postscontent_pic").style.height = String(tempht - 8) + "px";
+	}else{
+		document.getElementById("contentRight").style.height = String(tempht - 8) + "px";
+	}
 }
 
 /*
-window.onload = function z_align_1(){ //所有图片读取完毕
-	//alert("Pics Loaded");
-	arrangeStyle();
-}
-
-function arrangeStyle(){
-	var tempobj;
-	var tempimg;
-	var tempimgwd = 0;
-	var tempimght = 0;
-	var tempratio = 1.0;
-	var tempht = 0;
-	var temphtat = 0;
-	var tempcolor1 = 0;
-	var tempcolor2 = 0;
-	var tempcolor3 = 0;
-	for(var r = 0; r < itemscount; r++){
-		tempobj = document.getElementById("picsitemnb" + String(r));
-		//整理图片大小
-		tempht = parseFloat(document.getElementById("photoratio" + String(r)).value);
-		tempht = (tempht == 0 ? 2 : tempht);
-		alert(tempht);
-		tempimg = document.getElementById("picsnb" + String(r));
-		tempimgwd = tempimg.offsetWidth;
-		tempimgwd = (tempimgwd < 16 ? 16 : tempimgwd);
-		tempimght = tempimg.offsetHeight;
-		tempimght = (tempimght < 16 ? 16 : tempimght);
-		tempratio = 1.0 * tempimght / tempimgwd;
-		tempimgwd = 220;
-		tempimght = tempimgwd * tempratio;
-		tempimg.style.width = String(tempimgwd) + "px";
-		tempimg.style.height = String(tempimght) + "px";
-		if(r < columns){ //位于第一行
-			tempobj.style.top = "4px";
-			columnHeight[r] = tempobj.clientHeight + 4;
-			tempobj.style.left = String(6 + (r % columns) * (tempobj.clientWidth + marginHorizontal)) + "px";
-		}else{ //位于第一行之下
-			//看哪一列最短
-			tempht = columnHeight.min();
-			temphtat = columnHeight.minat();
-			tempobj.style.left = String(6 + temphtat * (tempobj.clientWidth + marginHorizontal)) + "px";
-			tempobj.style.top = String(columnHeight[temphtat] + marginVertical) + "px";
-			columnHeight[temphtat] += tempobj.clientHeight + marginVertical;
-		}
-		//更改颜色
 		tempcolor1 = Math.floor(Math.random() * 32 + 224);
 		tempcolor2 = Math.floor(Math.random() * 32 + 224);
 		tempcolor3 = Math.floor(Math.random() * 32 + 224);
-		//alert((tempcolor1 * 65536 + tempcolor2 * 256 + tempcolor3).toString(16));
-		tempobj.style.backgroundColor = "#" + (tempcolor1 * 65536 + tempcolor2 * 256 + tempcolor3).toString(16);
-	}
-	tempht = columnHeight.max();
-	document.getElementById("contentRight").style.height = String(tempht - 8) + "px";
-}
 */
 
 //最小值
