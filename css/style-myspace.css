@@ -501,6 +501,13 @@ input:-moz-placeholder {
 	margin-top: 24px;
 	margin-bottom: 24px;
 }
+#controlpanel #c_panelpic #closepanicpic{
+	position: absolute;
+	z-index: 200;
+	left: 612px;
+	top: 8px;
+	cursor: pointer;
+}
 #controlpanel #c_panelpic #splitline{
 	position: relative;
 	width: 640px;
@@ -576,6 +583,18 @@ input:-moz-placeholder {
 	width: 96px;
 	height: 96px;
 	cursor: pointer;
+}
+#controlpanel #c_panelpic #uploadpics .uploadpicturesinsides{
+	position: absolute;
+	z-index: 0;
+	width: 96px;
+	height: 96px;
+}
+#controlpanel #c_panelpic #uploadpics .uploadspinnings{
+	position: absolute;
+	z-index: 1;
+	width: 96px;
+	height: 96px;
 }
 #controlpanel #c_panelpic #uploadpics #upload_fileuploader{
 	
@@ -968,7 +987,7 @@ input:-moz-placeholder {
 	margin-right: 8px;
 }
 #posts #postscontent_pic .picsitem .picsitemlower .commentcontainer{
-	width: 160px;
+	width: 240px;
 	height: 32px;
 	position: absolute;
 	top: 32px;
@@ -978,14 +997,14 @@ input:-moz-placeholder {
 	overflow: hidden;
 }
 #posts #postscontent_pic .picsitem .picsitemlower .commentcontainer .commenttopic{
-	width: 160px;
+	width: 240px;
 	height: auto;
 	position: absolute;
 	color: #2c3055;
 	font-size: 12px;
 }
 #posts #postscontent_pic .picsitem .picsitemlower .usersprofiles{
-	width: 208px;
+	width: 288px;
 	height: 32px;
 	position: absolute;
 	top: 16px;
@@ -999,7 +1018,7 @@ input:-moz-placeholder {
 	float: right;
 }
 #posts #postscontent_pic .picsitem .picsitemlower .usersprofilesupper{
-	width: 208px;
+	width: 288px;
 	height: 32px;
 	position: absolute;
 	top: 16px;
@@ -1038,13 +1057,13 @@ input:-moz-placeholder {
 	position: absolute;
 }
 #posts #postscontent_pic .picsitem .picsitemlower .bottomfunc .feedbackpic{
-	left: 104px;
+	left: 184px;
 	width: 12px;
 	height: 12px;
 	position: absolute;
 }
 #posts #postscontent_pic .picsitem .picsitemlower .bottomfunc .feedback{
-	left: 120px;
+	left: 200px;
 	width: 16px;
 	height: 16px;
 	position: absolute;
@@ -1052,13 +1071,13 @@ input:-moz-placeholder {
 	color: #4568b1;
 }
 #posts #postscontent_pic .picsitem .picsitemlower .bottomfunc .forwardpic{
-	left: 140px;
+	left: 220px;
 	width: 12px;
 	height: 12px;
 	position: absolute;
 }
 #posts #postscontent_pic .picsitem .picsitemlower .bottomfunc .forwardnum{
-	left: 156px;
+	left: 236px;
 	width: 16px;
 	height: 16px;
 	position: absolute;
@@ -1066,13 +1085,13 @@ input:-moz-placeholder {
 	color: #4568b1;
 }
 #posts #postscontent_pic .picsitem .picsitemlower .bottomfunc .praisepic{
-	left: 176px;
+	left: 256px;
 	width: 12px;
 	height: 12px;
 	position: absolute;
 }
 #posts #postscontent_pic .picsitem .picsitemlower .bottomfunc .praise{
-	left: 192px;
+	left: 272px;
 	width: 16px;
 	height: 16px;
 	position: absolute;
@@ -1080,7 +1099,7 @@ input:-moz-placeholder {
 	color: #4568b1;
 }
 #posts #postscontent_pic .picsitem .picsitemlower .lpicsback{
-	width: 240px;
+	width: 320px;
 	height: 81px;
 	position: absolute;
 	z-index: -1;

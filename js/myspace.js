@@ -6,7 +6,7 @@ var picmaxnum = 9;
 var comment_visibility = 2; //默认为公开可见
 var overallfname;
 
-$(document).ready(function () {
+$(document).ready(function(){
 	$("#posts .postscontents").hide();
 	$("#postscontent_pic").show();
 	$("#controlpanel").hide();
@@ -20,6 +20,18 @@ $(document).ready(function () {
 	$("#hidden_upload").load(function(){redraw_images();});
 	document.getElementById("visibility_type").value = "public";
 });
+
+function uploadremind(){
+	//消掉圆圈，重画图片
+	var objFile;
+	redraw_images();
+	try{
+		objFile = document.getElementById('upload_fileuploader');
+		objFile.outerHTML = objFile.outerHTML.replace(/(value=\").+\"/i,"$1\"");
+	}catch(e){
+		alert(e);
+	}
+}
 
 function filterbtn_onclick(para){
 	$("#controlpanel").show();
@@ -92,6 +104,9 @@ var AllowImgFileSize = 1024; //允许上传图片文件的大小 0为无限制 �
 var AllowImgWidth = 500; //允许上传的图片的宽度 ?为无限制 单位：px(像素)   
 var AllowImgHeight = 500; //允许上传的图片的高度 ?为无限制 单位：px(像素)
 function begin_upload_image(){ //上传一张图片
+	if(document.getElementById('upload_fileuploader').value == ""){
+		return;
+	}
 	var browserCfg = {};
     var ua = window.navigator.userAgent;
     if (ua.indexOf("MSIE")>=1){
@@ -109,12 +124,12 @@ function begin_upload_image(){ //上传一张图片
 	var path = document.getElementById('upload_fileuploader').value;
 	var fileName = path.match(/[^\/\\]+$/);
 	overallfname = document.getElementById('hiddenusername').value + fileName;
-	//alert(overallfname);
 	document.getElementById('fileuploadtext').value = fileName;
 	if(checkfile() == false){
 		return;
 	}
 	window.setTimeout(submit_your_upload, 100);
+	redraw_images(picuploaded.length);
 }
 
 function submit_your_upload(){
@@ -142,10 +157,9 @@ function submit_your_upload(){
     }
     img_src = overallfname;
 	picuploaded.push(img_src);
-	//redraw_images();
-	window.setTimeout(redraw_images_again, 200);
-	window.setTimeout(redraw_images_again, 400);
-	window.setTimeout(redraw_images_again, 600);
+	//window.setTimeout(redraw_images_again, 200);
+	//window.setTimeout(redraw_images_again, 400);
+	//window.setTimeout(redraw_images_again, 600);
 }
 
 //检测文件大小======================================================================
@@ -171,21 +185,6 @@ function submit_your_upload(){
              }
              var filesize = 0;
              filesize = obj_file.files[0].size;
-             //alert(filesize);
-             /*
-             if(browserCfg.firefox || browserCfg.chrome ){
-                 filesize = obj_file.files[0].size;
-             }else if(browserCfg.ie){
-                 var obj_img = document.getElementById('tempimg');
-                 obj_img.dynsrc = obj_file.value;
-                 filesize = obj_img.fileSize;
-             }else{
-             	 filesize = obj_file.files[0].size;
-             	 alert(filesize);
-                 alert(tipMsg);
-                 //return false;
-             }
-             */
              if(filesize==-1){
                  alert(tipMsg);
                  return false;
@@ -219,18 +218,27 @@ function redraw_images_again(){
     	return;
     }
 }
-function redraw_images(){ //重画预览图片
+function redraw_images(picloading){ //重画预览图片
 	//console.log(document.getElementById("hide_uploadpicture" + String(0 + 1)).value);
 	//alert("PIC-REDRAW");
+	if(picloading == undefined){
+		picloading = -1;
+	}
 	for(var s = 0; s < picmaxnum; s++){
 		if(s < picuploaded.length){
-			document.getElementById("uploadpicture" + String(s + 1)).src = "images/upload/" + picuploaded[s];
+			document.getElementById("uploadpicturesinside" + String(s + 1)).src = "images/upload/" + picuploaded[s];
 			document.getElementById("hide_uploadpicture" + String(s + 1)).value = "images/upload/" + picuploaded[s];
 			$("#c_panelpic #uploadpics #uploadpicture" + String(s + 1)).show();
 		}else{
-			document.getElementById("uploadpicture" + String(s + 1)).src = "images/blank.png";
+			document.getElementById("uploadpicturesinside" + String(s + 1)).src = "images/blank.png";
 			document.getElementById("hide_uploadpicture" + String(s + 1)).value = "";
 			$("#c_panelpic #uploadpics #uploadpicture" + String(s + 1)).hide();
+		}
+		if(s == picloading){
+			$("#c_panelpic #uploadpics #uploadpicture" + String(s + 1)).show();
+			$("#c_panelpic #uploadpics .uploadpictures #uploadspinning" + String(s + 1)).show();
+		}else{
+			$("#c_panelpic #uploadpics .uploadpictures #uploadspinning" + String(s + 1)).hide();
 		}
 	}
 	$("#controlpanel #c_panelpic #uploadbtntext_right #picleftnum").html(String(picmaxnum - picuploaded.length));
@@ -287,16 +295,10 @@ function turn_off_visibility(ann){
 	$("#controlpanel #c_panelpic #announce_visiblility").hide();
 }
 function distribute_pics(){
-	//var fso, f;
-	//fso = new ActiveXObject("Scripting.FileSystemObject");
 	var string1 = document.getElementById("upload_fileuploader").value;
 	if(picuploaded.length <= 0){
 		alert("发布失败——图片栏不能为空！");
 	}else{
-		//检查图片大小
-		//for(var k = 0; k < picuploaded.length; k++){
-			//f = fso.GetFile(filestr)
-		//}
 		$("#topic_form").submit();
 		$("#controlpanel").hide();
 		alert("发布成功！");
@@ -343,30 +345,8 @@ function alignHeight(eleA, eleB){
   //var heightA = document.getElementById(eleA).clientHeight;
   var heightA = document.getElementById(eleA).style.height;
   document.getElementById(eleB).style.height = heightA + "px";
-  //document.getElementById(eleA).style.height = heightA + "px";
-  /*
-  var heightB = document.getElementById(eleB).clientHeight;
-  if(heightA > heightB){
-    document.getElementById(eleB).style.height = heightA + "px";
-    document.getElementById(eleA).style.height = heightA + "px";
-  }else{
-    document.getElementById(eleA).style.height = heightB + "px";
-    document.getElementById(eleB).style.height = heightB + "px";
-  }
-  */
 }
 function z_align(){
-	//var Lh = document.getElementById("contentLeft");
-	//var Rh = document.getElementById("contentCenter").clientHeight);
-	//alert("!!!");
-	//if(document.getElementById("contentLeft").clientHeight > document.getElementById("contentCenter").clientHeight){
-	//	alert(document.getElementById("contentLeft").clientHeight);
-	//}else{
-	//	alert(document.getElementById("contentCenter").clientHeight);
-	//}
-	//alert(document.getElementById("contentLeft").clientHeight);
-	//alert(document.getElementById("contentCenter").clientHeight);
-	//document.getElementById("contentLeft").style.height = document.getElementById("contentCenter").clientHeight;
 }
 
 window.onload =function z_align_1(){

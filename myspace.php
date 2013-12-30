@@ -1,46 +1,4 @@
-﻿<?php
-	if (session_id() == '') { 
-	session_start();
-	}
-	require_once("get_news.php");
-	require_once('upload_target.php');
-	require_once('check_login.php');
-	require_once 'topic_submit.php';
-	$get_news = new get_news();
-	$result = $get_news->retrieve_news();
-	if(isset($_SESSION['LOGIN'])){
-		$sign_in=TRUE;
-		$login = new LOGIN();
-		$upload_handler = new upload_photo();// used to upload files
-		$photo_url = $login->fetch_photo($_SESSION['username']);
-		if (!file_exists($photo_url)) {
-			$photo_url = "images/userhead.png";
-		}
-		$count_follow = $login->count_follow($_SESSION['username']);
-		$count_followed = $login->count_followed($_SESSION['username']);
-		$count_pet = $login->count_pet($_SESSION['username']);
-
-		if(!empty($_FILES["file1"])){
-			echo "file1";
-			if($upload_handler->upload_image($_FILES["file1"])){
-				//此处为上传成功标志
-				echo "upload";
-			}
-		}
-		elseif (!empty($_POST)) {
-			if(isset($_POST['topic_form_submit'])){
-				echo "topic form submit";
-				$topic_form_submit = new topic_submit();
-				$topic_form_submit->submit_topic_form($_POST);
-			}
-		}
-	}
-	else{
-		$sign_in=FALSE;
-		header("Location: login.php");
-		exit;
-	}
-?>
+﻿
 <!DOCTYPE html>
 <html>
 	<head>
@@ -59,7 +17,50 @@
    	    <script type="text/javascript" src="js/jquery-2.0.3.1.min.js"></script>
 		<script type="text/javascript" src="js/myspace.js"></script>
 		<script type="text/javascript" src="js/news.js"></script>
+		<script type="text/javascript" src="js/ffinner.js"></script>
 	</head>
+
+<?php
+	if (session_id() == '') { 
+	session_start();
+	}
+	require_once("get_news.php");
+	require_once('upload_target.php');
+	require_once('check_login.php');
+	require_once('topic_submit.php');
+	$get_news = new get_news();
+	$result = $get_news->retrieve_news();
+	if(isset($_SESSION['LOGIN'])){
+		$sign_in=TRUE;
+		$login = new LOGIN();
+		$upload_handler = new upload_photo();// used to upload files
+		$photo_url = $login->fetch_photo($_SESSION['username']);
+		if (!file_exists($photo_url)) {
+			$photo_url = "images/userhead.png";
+		}
+		$count_follow = $login->count_follow($_SESSION['username']);
+		$count_followed = $login->count_followed($_SESSION['username']);
+		$count_pet = $login->count_pet($_SESSION['username']);
+
+		if(!empty($_FILES["file1"])){
+			if($upload_handler->upload_image($_FILES["file1"])){
+				//此处为上传成功标志
+				echo "<script type='text/javascript'>uploadremind();</script>";
+			}
+		}elseif(!empty($_POST)){
+			if(isset($_POST['topic_form_submit'])){
+				echo "topic form submit";
+				$topic_form_submit = new topic_submit();
+				$topic_form_submit->submit_topic_form($_POST);
+			}
+		}
+	}
+	else{
+		$sign_in=FALSE;
+		header("Location: login.php");
+		exit;
+	}
+?>
 
 	<body>
 		<!-- div id="containertitleboard">
@@ -333,6 +334,9 @@
 							<!-- 前导功能 -->
 							<img id="up_triangle" src="images/triangle_upper_dk.png"></img>
 							<div id="pictopic">发布图片</div>
+							<div id="closepanicpic" onclick="filterbtn_onclick(0)">
+								<img id="closepanicpic_chuck" src="images/chuck.png"></img>
+							</div>
 							<div id="splitline"></div>
 							<div id="uploadbtn" onclick="trigger_filebox()">
 								<div id="uploadbtntext">添加图片</div>
@@ -344,15 +348,42 @@
 							<!-- 上传了什么图 -->
 							
 							<div id="uploadpics">
-								<img src="images/blank.png" id="uploadpicture1" class="uploadpictures" onclick="cancel_an_image(0)"></img>
-								<img src="images/blank.png" id="uploadpicture2" class="uploadpictures" onclick="cancel_an_image(1)"></img>
-								<img src="images/blank.png" id="uploadpicture3" class="uploadpictures" onclick="cancel_an_image(2)"></img>
-								<img src="images/blank.png" id="uploadpicture4" class="uploadpictures" onclick="cancel_an_image(3)"></img>
-								<img src="images/blank.png" id="uploadpicture5" class="uploadpictures" onclick="cancel_an_image(4)"></img>
-								<img src="images/blank.png" id="uploadpicture6" class="uploadpictures" onclick="cancel_an_image(5)"></img>
-								<img src="images/blank.png" id="uploadpicture7" class="uploadpictures" onclick="cancel_an_image(6)"></img>
-								<img src="images/blank.png" id="uploadpicture8" class="uploadpictures" onclick="cancel_an_image(7)"></img>
-								<img src="images/blank.png" id="uploadpicture9" class="uploadpictures" onclick="cancel_an_image(8)"></img>
+								<div id="uploadpicture1" class="uploadpictures" onclick="cancel_an_image(0)">
+									<img src="images/spin.gif" id="uploadspinning1" class="uploadspinnings"></img>
+									<img src="images/blank.png" id="uploadpicturesinside1" class="uploadpicturesinsides"></img>
+								</div>
+								<div id="uploadpicture2" class="uploadpictures" onclick="cancel_an_image(1)">
+									<img src="images/spin.gif" id="uploadspinning2" class="uploadspinnings"></img>
+									<img src="images/blank.png" id="uploadpicturesinside2" class="uploadpicturesinsides"></img>
+								</div>
+								<div id="uploadpicture3" class="uploadpictures" onclick="cancel_an_image(2)">
+									<img src="images/spin.gif" id="uploadspinning3" class="uploadspinnings"></img>
+									<img src="images/blank.png" id="uploadpicturesinside3" class="uploadpicturesinsides"></img>
+								</div>
+								<div id="uploadpicture4" class="uploadpictures" onclick="cancel_an_image(3)">
+									<img src="images/spin.gif" id="uploadspinning4" class="uploadspinnings"></img>
+									<img src="images/blank.png" id="uploadpicturesinside4" class="uploadpicturesinsides"></img>
+								</div>
+								<div id="uploadpicture5" class="uploadpictures" onclick="cancel_an_image(4)">
+									<img src="images/spin.gif" id="uploadspinning5" class="uploadspinnings"></img>
+									<img src="images/blank.png" id="uploadpicturesinside5" class="uploadpicturesinsides"></img>
+								</div>
+								<div id="uploadpicture6" class="uploadpictures" onclick="cancel_an_image(5)">
+									<img src="images/spin.gif" id="uploadspinning6" class="uploadspinnings"></img>
+									<img src="images/blank.png" id="uploadpicturesinside6" class="uploadpicturesinsides"></img>
+								</div>
+								<div id="uploadpicture7" class="uploadpictures" onclick="cancel_an_image(6)">
+									<img src="images/spin.gif" id="uploadspinning7" class="uploadspinnings"></img>
+									<img src="images/blank.png" id="uploadpicturesinside7" class="uploadpicturesinsides"></img>
+								</div>
+								<div id="uploadpicture8" class="uploadpictures" onclick="cancel_an_image(7)">
+									<img src="images/spin.gif" id="uploadspinning8" class="uploadspinnings"></img>
+									<img src="images/blank.png" id="uploadpicturesinside8" class="uploadpicturesinsides"></img>
+								</div>
+								<div id="uploadpicture9" class="uploadpictures" onclick="cancel_an_image(8)">
+									<img src="images/spin.gif" id="uploadspinning9" class="uploadspinnings"></img>
+									<img src="images/blank.png" id="uploadpicturesinside9" class="uploadpicturesinsides"></img>
+								</div>
 								<img id="tempimg" dynsrc="" src="" style="display:none" />								
 								<input type="text" id ="hiddenusername" value="<?php echo $_SESSION['username'] ?>" style="display: none"/>
 								<!-- 上传文件  -->
