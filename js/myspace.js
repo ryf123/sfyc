@@ -23,14 +23,20 @@ $(document).ready(function(){
 
 function uploadremind(){
 	//消掉圆圈，重画图片
-	var objFile;
-	redraw_images();
-	try{
-		objFile = document.getElementById('upload_fileuploader');
-		objFile.outerHTML = objFile.outerHTML.replace(/(value=\").+\"/i,"$1\"");
-	}catch(e){
-		alert(e);
-	}
+	//var objFile;
+	//var Img;
+	//var neoImg;
+	//获取这个图片的宽高
+	//Img = $("#c_panelpic #uploadpics .uploadpictures #uploadpicturesinside" + String(picuploaded.length + 1))；
+	//Img = document.getElementById('uploadpicturesinside' + String(picuploaded.length + 1));
+	//neoImg = new Image();
+	//neoImg.src = Img.src;
+	//alert(Img.offsetWidth + "\n" + Img.offsetHeight);
+	//alert(Img.scrollWidth + "\n" + Img.scrollHeight);
+	//objFile = document.getElementById('upload_fileuploader');
+	//alert(objFile);
+	//objFile.outerHTML = objFile.outerHTML.replace(/(value=\").+\"/i,"$1\"");
+	//redraw_images();
 }
 
 function filterbtn_onclick(para){
@@ -133,9 +139,9 @@ function begin_upload_image(){ //上传一张图片
 }
 
 function submit_your_upload(){
+    var img_src;
 	var browserCfg = {};
     var ua = window.navigator.userAgent;
-    var img_src;
     if (ua.indexOf("MSIE")>=1){
         browserCfg.ie = true;
 		//alert("浏览器是IE");
@@ -219,18 +225,51 @@ function redraw_images_again(){
     }
 }
 function redraw_images(picloading){ //重画预览图片
+	var srcfileframe;
+	var browserCfg = {};
+    var ua = window.navigator.userAgent;
+    var tempImg;
+    if (ua.indexOf("MSIE")>=1){
+        browserCfg.ie = true;
+		//alert("浏览器是IE");
+    }else if(ua.indexOf("Firefox")>=1){
+        browserCfg.firefox = true;
+		//alert("浏览器是火狐");
+    }else if(ua.indexOf("Chrome")>=1){
+        browserCfg.chrome = true;
+		//alert("浏览器是Chrome");
+    }else{
+    	//alert("不知道浏览器种类");
+    }
 	//console.log(document.getElementById("hide_uploadpicture" + String(0 + 1)).value);
 	//alert("PIC-REDRAW");
 	if(picloading == undefined){
 		picloading = -1;
 	}
+	//alert(picloading);
 	for(var s = 0; s < picmaxnum; s++){
 		if(s < picuploaded.length){
-			document.getElementById("uploadpicturesinside" + String(s + 1)).src = "images/upload/" + picuploaded[s];
+			srcfileframe = document.getElementById("uploadpicturesinside" + String(s + 1));
+			srcfileframe.src = "images/upload/" + picuploaded[s];
+			if(browserCfg.ie){
+				srcfileframe.onreadystatechange = function(){
+					if (this.readyState == "complete"){
+						tempImg = new Image();
+						tempImg.src = srcfileframe.src;
+						alert(tempImg.width + "\n" + tempImg.height);
+					}
+				}
+			}else{
+				srcfileframe.onload = function(){
+					tempImg = new Image();
+					tempImg.src = srcfileframe.src;
+					alert(tempImg.clientWidth + "\n" + tempImg.clientHeight);
+				}
+			}
 			document.getElementById("hide_uploadpicture" + String(s + 1)).value = "images/upload/" + picuploaded[s];
 			$("#c_panelpic #uploadpics #uploadpicture" + String(s + 1)).show();
 		}else{
-			document.getElementById("uploadpicturesinside" + String(s + 1)).src = "images/blank.png";
+			document.getElementById("uploadpicturesinside" + String(s + 1)).src = "images/spin.gif";
 			document.getElementById("hide_uploadpicture" + String(s + 1)).value = "";
 			$("#c_panelpic #uploadpics #uploadpicture" + String(s + 1)).hide();
 		}
@@ -241,8 +280,9 @@ function redraw_images(picloading){ //重画预览图片
 			$("#c_panelpic #uploadpics .uploadpictures #uploadspinning" + String(s + 1)).hide();
 		}
 	}
+	//alert(picloading);
 	$("#controlpanel #c_panelpic #uploadbtntext_right #picleftnum").html(String(picmaxnum - picuploaded.length));
-	console.log(document.getElementById("hide_uploadpicture" + String(0 + 1)).value);
+	//console.log(document.getElementById("hide_uploadpicture" + String(0 + 1)).value);
 }
 
 function textcomplete(){

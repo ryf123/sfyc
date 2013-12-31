@@ -70,12 +70,12 @@
 				</div>
 				<div id="menuinterface">
 					<div id="divoption0" class="divoptions">
-						<a href="index.php">
+						<a href="myspace.php">
 							<img src="images/TLogo1B.png"></img>
 						</a>
 					</div>
 					<div id="divoption1" class="divoptions">
-						<a href="adoption.php">
+						<a href="myspace.php">
 							<img src="images/TLogo2A.png"></img>
 						</a>
 					</div>
@@ -85,12 +85,12 @@
 						</a>
 					</div>
 					<div id="divoption3" class="divoptions">
-						<a href="article.php">
+						<a href="myspace.php">
 							<img src="images/TLogo4A.png"></img>
 						</a>
 					</div>
 					<div id="divoption4" class="divoptions">
-						<a href="apps.php">
+						<a href="myspace.php">
 							<img src="images/TLogo5A.png"></img>
 						</a>
 					</div>

@@ -41,27 +41,12 @@
 		$count_follow = $login->count_follow($_SESSION['username']);
 		$count_followed = $login->count_followed($_SESSION['username']);
 		$count_pet = $login->count_pet($_SESSION['username']);
-
-		if(!empty($_FILES["file1"])){
-			if($upload_handler->upload_image($_FILES["file1"])){
-				//此处为上传成功标志
-				echo "<script type='text/javascript'>uploadremind();</script>";
-			}
-		}elseif(!empty($_POST)){
-			if(isset($_POST['topic_form_submit'])){
-				echo "topic form submit";
-				$topic_form_submit = new topic_submit();
-				$topic_form_submit->submit_topic_form($_POST);
-			}
-		}
-	}
-	else{
+	}else{
 		$sign_in=FALSE;
 		header("Location: login.php");
 		exit;
 	}
 ?>
-
 	<body>
 		<!-- div id="containertitleboard">
 			<img src="images/TitleBoard9.png" id="containertitleboardinner"></img>
@@ -112,12 +97,12 @@
 				</div>
 				<div id="menuinterface">
 					<div id="divoption0" class="divoptions">
-						<a href="index.php">
+						<a href="news.php">
 							<img src="images/TLogo1A.png"></img>
 						</a>
 					</div>
 					<div id="divoption1" class="divoptions">
-						<a href="adoption.php">
+						<a href="news.php">
 							<img src="images/TLogo2A.png"></img>
 						</a>
 					</div>
@@ -127,12 +112,12 @@
 						</a>
 					</div>
 					<div id="divoption3" class="divoptions">
-						<a href="article.php">
+						<a href="news.php">
 							<img src="images/TLogo4A.png"></img>
 						</a>
 					</div>
 					<div id="divoption4" class="divoptions">
-						<a href="apps.php">
+						<a href="news.php">
 							<img src="images/TLogo5A.png"></img>
 						</a>
 					</div>
@@ -350,39 +335,39 @@
 							<div id="uploadpics">
 								<div id="uploadpicture1" class="uploadpictures" onclick="cancel_an_image(0)">
 									<img src="images/spin.gif" id="uploadspinning1" class="uploadspinnings"></img>
-									<img src="images/blank.png" id="uploadpicturesinside1" class="uploadpicturesinsides"></img>
+									<img src="images/spin.gif" id="uploadpicturesinside1" class="uploadpicturesinsides"></img>
 								</div>
 								<div id="uploadpicture2" class="uploadpictures" onclick="cancel_an_image(1)">
 									<img src="images/spin.gif" id="uploadspinning2" class="uploadspinnings"></img>
-									<img src="images/blank.png" id="uploadpicturesinside2" class="uploadpicturesinsides"></img>
+									<img src="images/spin.gif" id="uploadpicturesinside2" class="uploadpicturesinsides"></img>
 								</div>
 								<div id="uploadpicture3" class="uploadpictures" onclick="cancel_an_image(2)">
 									<img src="images/spin.gif" id="uploadspinning3" class="uploadspinnings"></img>
-									<img src="images/blank.png" id="uploadpicturesinside3" class="uploadpicturesinsides"></img>
+									<img src="images/spin.gif" id="uploadpicturesinside3" class="uploadpicturesinsides"></img>
 								</div>
 								<div id="uploadpicture4" class="uploadpictures" onclick="cancel_an_image(3)">
 									<img src="images/spin.gif" id="uploadspinning4" class="uploadspinnings"></img>
-									<img src="images/blank.png" id="uploadpicturesinside4" class="uploadpicturesinsides"></img>
+									<img src="images/spin.gif" id="uploadpicturesinside4" class="uploadpicturesinsides"></img>
 								</div>
 								<div id="uploadpicture5" class="uploadpictures" onclick="cancel_an_image(4)">
 									<img src="images/spin.gif" id="uploadspinning5" class="uploadspinnings"></img>
-									<img src="images/blank.png" id="uploadpicturesinside5" class="uploadpicturesinsides"></img>
+									<img src="images/spin.gif" id="uploadpicturesinside5" class="uploadpicturesinsides"></img>
 								</div>
 								<div id="uploadpicture6" class="uploadpictures" onclick="cancel_an_image(5)">
 									<img src="images/spin.gif" id="uploadspinning6" class="uploadspinnings"></img>
-									<img src="images/blank.png" id="uploadpicturesinside6" class="uploadpicturesinsides"></img>
+									<img src="images/spin.gif" id="uploadpicturesinside6" class="uploadpicturesinsides"></img>
 								</div>
 								<div id="uploadpicture7" class="uploadpictures" onclick="cancel_an_image(6)">
 									<img src="images/spin.gif" id="uploadspinning7" class="uploadspinnings"></img>
-									<img src="images/blank.png" id="uploadpicturesinside7" class="uploadpicturesinsides"></img>
+									<img src="images/spin.gif" id="uploadpicturesinside7" class="uploadpicturesinsides"></img>
 								</div>
 								<div id="uploadpicture8" class="uploadpictures" onclick="cancel_an_image(7)">
 									<img src="images/spin.gif" id="uploadspinning8" class="uploadspinnings"></img>
-									<img src="images/blank.png" id="uploadpicturesinside8" class="uploadpicturesinsides"></img>
+									<img src="images/spin.gif" id="uploadpicturesinside8" class="uploadpicturesinsides"></img>
 								</div>
 								<div id="uploadpicture9" class="uploadpictures" onclick="cancel_an_image(8)">
 									<img src="images/spin.gif" id="uploadspinning9" class="uploadspinnings"></img>
-									<img src="images/blank.png" id="uploadpicturesinside9" class="uploadpicturesinsides"></img>
+									<img src="images/spin.gif" id="uploadpicturesinside9" class="uploadpicturesinsides"></img>
 								</div>
 								<img id="tempimg" dynsrc="" src="" style="display:none" />								
 								<input type="text" id ="hiddenusername" value="<?php echo $_SESSION['username'] ?>" style="display: none"/>
@@ -604,7 +589,7 @@
 									$photo_array = $topic[4];
 									$photo_counter = 0;
 									foreach($photo_array as &$photo){
-										$ratio = 0;
+										$ratio = 1;
 										if($photo_ratio_array[$photo_counter][0]!=0){
 											$ratio = $photo_ratio_array[$photo_counter][0]/$photo_ratio_array[$photo_counter][1];
 										}
@@ -764,4 +749,22 @@
 			</div>
 		</div>
 	</body>
+
+<?php
+	if(isset($_SESSION['LOGIN'])){
+		$sign_in=TRUE;
+		if(!empty($_FILES["file1"])){
+			if($upload_handler->upload_image($_FILES["file1"])){
+				//此处为上传成功标志
+				echo "<script type='text/javascript'>uploadremind();</script>";
+			}
+		}elseif(!empty($_POST)){
+			if(isset($_POST['topic_form_submit'])){
+				echo "topic form submit";
+				$topic_form_submit = new topic_submit();
+				$topic_form_submit->submit_topic_form($_POST);
+			}
+		}
+	}
+?>
 </html>
