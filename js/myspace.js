@@ -246,31 +246,27 @@ function redraw_images(picloading){ //重画预览图片
 					srcfileframe = document.getElementById("uploadpicturesinside" + String(s + 1));
 					srcfileframe.src = "images/upload/" + picuploaded[s];
 					//alert(picuploaded.length);
-					if(browserCfg.ie){
-						srcfileframe.onreadystatechange = function(){
-							if(this.readyState == "complete"){
-								tempImg = new Image();
-								tempImg.src = srcfileframe.src;
-								tp_width = tempImg.width;
-								tp_height = tempImg.height;
-								tp_height = (tp_height == 0 ? 1.0 : tp_height);
-								picratios[operatingpic] = 1.0 * tp_width / tp_height;
-								//alert(operatingpic);
-								//alert(picratios[operatingpic]);
-								set_new_pic_size(operatingpic, picratios[operatingpic]);
-							}
-						}
-					}else{
+					//if(browserCfg.ie){
+						//srcfileframe.onreadystatechange = function(){
+							//if(this.readyState == "complete"){
+								//tempImg = new Image();
+								//tempImg.src = srcfileframe.src;
+								//tp_width = tempImg.width;
+								//tp_height = tempImg.height;
+								//tp_height = (tp_height == 0 ? 1.0 : tp_height);
+								//picratios[operatingpic] = 1.0 * tp_width / tp_height;
+								//set_new_pic_size(operatingpic, picratios[operatingpic]);
+							//}
+						//}
+					//}else{
 						srcfileframe.onload = function(){
 							tp_width = srcfileframe.naturalWidth;
 							tp_height = srcfileframe.naturalHeight;
 							tp_height = (tp_height == 0 ? 1.0 : tp_height);
 							picratios[operatingpic] = 1.0 * tp_width / tp_height;
-							//alert(operatingpic);
-							//alert(picratios[operatingpic]);
 							set_new_pic_size(operatingpic, picratios[operatingpic]);
 						}
-					}
+					//}
 				}
 			}
 			document.getElementById("hide_uploadpicture" + String(s + 1)).value = "images/upload/" + picuploaded[s];
