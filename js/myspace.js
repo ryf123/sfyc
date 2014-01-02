@@ -1,10 +1,12 @@
 var stepcompleted1 = false;
 var stepcompleted2 = false;
 var picuploaded = [];
+var picratios = [];
 var distributers = [];
 var picmaxnum = 9;
 var comment_visibility = 2; //默认为公开可见
 var overallfname;
+var operatingpic = -1;
 
 $(document).ready(function(){
 	$("#posts .postscontents").hide();
@@ -19,24 +21,15 @@ $(document).ready(function(){
 	$("#c_panelpic #uploadpics .uploadpictures").hide();
 	$("#hidden_upload").load(function(){redraw_images();});
 	document.getElementById("visibility_type").value = "public";
+	for(var i = 0; i < picmaxnum; i++){
+		picratios[i] = 1.0;
+	}
 });
 
 function uploadremind(){
-	//消掉圆圈，重画图片
-	//var objFile;
-	//var Img;
-	//var neoImg;
-	//获取这个图片的宽高
-	//Img = $("#c_panelpic #uploadpics .uploadpictures #uploadpicturesinside" + String(picuploaded.length + 1))；
-	//Img = document.getElementById('uploadpicturesinside' + String(picuploaded.length + 1));
-	//neoImg = new Image();
-	//neoImg.src = Img.src;
-	//alert(Img.offsetWidth + "\n" + Img.offsetHeight);
-	//alert(Img.scrollWidth + "\n" + Img.scrollHeight);
-	//objFile = document.getElementById('upload_fileuploader');
-	//alert(objFile);
-	//objFile.outerHTML = objFile.outerHTML.replace(/(value=\").+\"/i,"$1\"");
-	//redraw_images();
+	var objFile;
+	objFile = document.getElementById('upload_fileuploader');
+	objFile.outerHTML = objFile.outerHTML.replace(/(value=\").+\"/i,"$1\"");
 }
 
 function filterbtn_onclick(para){
@@ -135,6 +128,7 @@ function begin_upload_image(){ //上传一张图片
 		return;
 	}
 	window.setTimeout(submit_your_upload, 100);
+	operatingpic = picuploaded.length;
 	redraw_images(picuploaded.length);
 }
 
@@ -163,9 +157,6 @@ function submit_your_upload(){
     }
     img_src = overallfname;
 	picuploaded.push(img_src);
-	//window.setTimeout(redraw_images_again, 200);
-	//window.setTimeout(redraw_images_again, 400);
-	//window.setTimeout(redraw_images_again, 600);
 }
 
 //检测文件大小======================================================================
@@ -213,7 +204,7 @@ function cancel_an_image(pos){ //取消一张图片
 		return;
 	}
 	picuploaded = arraydeleteelement(picuploaded, pos);
-	redraw_images();
+	redraw_images(-3);
 }
 function redraw_images_again(){
 	//alert("PIC-REDRAW");
@@ -225,6 +216,8 @@ function redraw_images_again(){
     }
 }
 function redraw_images(picloading){ //重画预览图片
+	var tp_width = 1.0;
+	var tp_height = 1.0;
 	var srcfileframe;
 	var browserCfg = {};
     var ua = window.navigator.userAgent;
@@ -246,24 +239,38 @@ function redraw_images(picloading){ //重画预览图片
 	if(picloading == undefined){
 		picloading = -1;
 	}
-	//alert(picloading);
 	for(var s = 0; s < picmaxnum; s++){
 		if(s < picuploaded.length){
-			srcfileframe = document.getElementById("uploadpicturesinside" + String(s + 1));
-			srcfileframe.src = "images/upload/" + picuploaded[s];
-			if(browserCfg.ie){
-				srcfileframe.onreadystatechange = function(){
-					if (this.readyState == "complete"){
-						tempImg = new Image();
-						tempImg.src = srcfileframe.src;
-						alert(tempImg.width + "\n" + tempImg.height);
+			if(s == picuploaded.length - 1){
+				if(picloading == -1){
+					srcfileframe = document.getElementById("uploadpicturesinside" + String(s + 1));
+					srcfileframe.src = "images/upload/" + picuploaded[s];
+					//alert(picuploaded.length);
+					if(browserCfg.ie){
+						srcfileframe.onreadystatechange = function(){
+							if(this.readyState == "complete"){
+								tempImg = new Image();
+								tempImg.src = srcfileframe.src;
+								tp_width = tempImg.width;
+								tp_height = tempImg.height;
+								tp_height = (tp_height == 0 ? 1.0 : tp_height);
+								picratios[operatingpic] = 1.0 * tp_width / tp_height;
+								//alert(operatingpic);
+								//alert(picratios[operatingpic]);
+								set_new_pic_size(operatingpic, picratios[operatingpic]);
+							}
+						}
+					}else{
+						srcfileframe.onload = function(){
+							tp_width = srcfileframe.naturalWidth;
+							tp_height = srcfileframe.naturalHeight;
+							tp_height = (tp_height == 0 ? 1.0 : tp_height);
+							picratios[operatingpic] = 1.0 * tp_width / tp_height;
+							//alert(operatingpic);
+							//alert(picratios[operatingpic]);
+							set_new_pic_size(operatingpic, picratios[operatingpic]);
+						}
 					}
-				}
-			}else{
-				srcfileframe.onload = function(){
-					tempImg = new Image();
-					tempImg.src = srcfileframe.src;
-					alert(tempImg.clientWidth + "\n" + tempImg.clientHeight);
 				}
 			}
 			document.getElementById("hide_uploadpicture" + String(s + 1)).value = "images/upload/" + picuploaded[s];
@@ -283,6 +290,58 @@ function redraw_images(picloading){ //重画预览图片
 	//alert(picloading);
 	$("#controlpanel #c_panelpic #uploadbtntext_right #picleftnum").html(String(picmaxnum - picuploaded.length));
 	//console.log(document.getElementById("hide_uploadpicture" + String(0 + 1)).value);
+}
+
+function set_new_pic_size(picnumb, whratio){
+	//alert(picnumb);
+	//alert(whratio);
+	//alert("!!!");
+	var srcfileframe;
+	var temp_width = 96;
+	var temp_left = 0;
+	var temp_height = 96;
+	var temp_top = 0;
+	if(picnumb == undefined){ //未输入参数视同全部图片重置
+		for(var s = 0; s < picmaxnum; s++){
+			srcfileframe = document.getElementById("uploadpicturesinside" + String(s + 1));
+			srcfileframe.style.width = "96px";
+			srcfileframe.style.height = "96px";
+			srcfileframe.style.left = "0px";
+			srcfileframe.style.top = "0px";
+		}
+		return;
+	}
+	if(whratio == undefined){
+		return;
+	}
+	if(picnumb < 0){
+		return;
+	}
+	if(picnumb >= picmaxnum){
+		return;
+	}
+	srcfileframe = document.getElementById("uploadpicturesinside" + String(picnumb + 1));
+	//alert(srcfileframe);
+	if(whratio > 1){ //橫长型
+		temp_height = 96.0 / whratio;
+		temp_top = (96 - temp_height) / 2;
+		srcfileframe.style.width = "96px";
+		srcfileframe.style.left = "0px";
+		srcfileframe.style.height = String(temp_height) + "px";
+		srcfileframe.style.top = String(temp_top) + "px";
+	}else if(whratio < 1){ //直长型
+		temp_width = 96.0 * whratio;
+		temp_left = (96 - temp_width) / 2;
+		srcfileframe.style.width = String(temp_width) + "96px";
+		srcfileframe.style.left = String(temp_left) + "0px";
+		srcfileframe.style.height = "96px";
+		srcfileframe.style.top = "0px";
+	}else{ //正方型
+		srcfileframe.style.width = "96px";
+		srcfileframe.style.height = "96px";
+		srcfileframe.style.left = "0px";
+		srcfileframe.style.top = "0px";
+	}
 }
 
 function textcomplete(){
