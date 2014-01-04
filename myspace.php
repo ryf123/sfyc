@@ -254,6 +254,8 @@
 							</div>
 						</a>
 					</div>
+					<!-- 最底下的猫 -->
+					<img src="images/btmcat.png" id="left-btmcat"></img>
 					<!-- 三个底色区域 -->
 					<div id="left-btmcolor1" class="left-btmcolors"></div>
 					<div id="left-btmcolor2" class="left-btmcolors"></div>
@@ -579,6 +581,10 @@
 							
 					<?php
 						$c = 0;
+						$seqindex = 0;
+						$d = count($result);
+						$e = 0;
+						echo "<script type='text/javascript'>init_picloadcomplete($d);</script>";
 						foreach($result as &$topic){
 							$content = $topic[0];
 							$username = $topic[1];
@@ -588,18 +594,32 @@
 									$photo_ratio_array = $topic[3];
 									$photo_array = $topic[4];
 									$photo_counter = 0;
+									$f = 0;
 									foreach($photo_array as &$photo){
 										$ratio = 1;
 										if($photo_ratio_array[$photo_counter][0]!=0){
 											$ratio = $photo_ratio_array[$photo_counter][0]/$photo_ratio_array[$photo_counter][1];
 										}
 										echo "<div class='photoratiofrm'>";
-											echo "<input type='text' class='photoratios' id='photoratio$c' style='display:none'></input>";
-											echo "<script>document.getElementById('photoratio$c').value='$ratio';</script>";
+											echo "<input type='text' class='photoratios' id='photoratio$c-$f' style='display:none'></input>";
+											echo "<script>document.getElementById('photoratio$c-$f').value='$ratio';</script>";
 										echo "</div>";
-										echo "<img src=$photo class='upicsinner' id='picsnb$c'></img>";
+										//设定该张图片的归属
+										echo "<img src=$photo class='upicsinner' id='picsnb$c-$f' onload='onloadtest(this, $seqindex, $f)'>";
+											echo "<script type='text/javascript'>";
+												//echo "alert(typeof(this) + ' $seqindex ' + ' detected');";
+												echo "var neoImg;";
+												echo "neoImg = document.getElementById('photoratio$c-$f');";
+												//echo "alert(neoImg.src);";
+												//echo "setpiconload(this);";
+											echo "</script>";
+										echo "</img>";
+										$f++;
 										break;
 									}
+									$e = count($photo_array);
+									echo "<script type='text/javascript'>init_everyphotoarray($seqindex, $e, true);</script>";
+									$seqindex++;
 								echo "</div>";
 								echo "<div class='picsitemlower'>";
 									//分割线
@@ -739,6 +759,7 @@
 
 			<!--footer块是放置页脚信息的-->
 			<div id="footer">
+				<img src="images/aboutus.png" id="footerimage"></img>
 				<!-- 修改内容：这里改变了页脚 -->
 				<br/>
 				<hr/>

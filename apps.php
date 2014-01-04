@@ -217,6 +217,7 @@
 
 			<!--footer块是放置页脚信息的-->
 			<div id="footer">
+				<img src="images/aboutus.png" id="footerimage"></img>
 				<!-- 修改内容：这里改变了页脚 -->
 				<br/>
 				<hr/>

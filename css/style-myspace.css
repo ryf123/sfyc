@@ -287,7 +287,7 @@ input:-moz-placeholder {
 }
 #content #contentLeft #filter .newsbtns{
 	position: relative;
-	width: 195px;
+	width: 220px;
 	height: 46px;
 	margin-left: 20px;
 	margin-bottom: 10px;
@@ -309,6 +309,10 @@ input:-moz-placeholder {
 	padding-top: 10px;
 	color: #4568b1;
 	font-weight: bold;
+}
+#content #contentLeft #left-btmcat{
+	position: absolute;
+	left: 32px;
 }
 #content #contentLeft .left-btmcolors{
 	position: absolute;
