@@ -203,11 +203,14 @@
 						$d = count($result);
 						$e = 0;
 						echo "<script type='text/javascript'>init_picloadcomplete($d);</script>";
+						echo "<script type='text/javascript'>reset_all_pics();</script>";
+						echo "<script type='text/javascript'>reset_loaded_pics();</script>";
+						echo "<script type='text/javascript'>reset_everyphotoarray();</script>";
 						foreach($result as &$topic){
 							$content = $topic[0];
 							$username = $topic[1];
 							$user_photo = $topic[2];
-							echo "<div class='picsitem' id='picsitemnb$c'>";
+							echo "<div class='picsitem' id='picsitemnb$c' style='display:none'>";
 								echo "<div class='picsitemmiddle'>";
 									$photo_ratio_array = $topic[3];
 									$photo_array = $topic[4];
@@ -223,20 +226,26 @@
 											echo "<script>document.getElementById('photoratio$c-$f').value='$ratio';</script>";
 										echo "</div>";
 										//设定该张图片的归属
-										echo "<img src=$photo class='upicsinner' id='picsnb$c-$f' onload='onloadtest(this, $seqindex, $f)'>";
-											echo "<script type='text/javascript'>";
-												//echo "alert(typeof(this) + ' $seqindex ' + ' detected');";
-												echo "var neoImg;";
-												echo "neoImg = document.getElementById('photoratio$c-$f');";
-												//echo "alert(neoImg.src);";
-												//echo "setpiconload(this);";
-											echo "</script>";
-										echo "</img>";
+										echo "<div id='upicsframe$c-$f' class='upicsframes'>";
+											echo "<img src=$photo class='upicsinner' id='picsnb$c-$f' onload='onloadtest(this, $seqindex, $f);' onerror='picloaderror(this, $seqindex, $f);' style='display:none'>";
+												//echo "<script type='text/javascript'>";
+													//echo "alert(typeof(this) + ' $seqindex ' + ' detected');";
+													//echo "var neoImg;";
+													//echo "neoImg = document.getElementById('picsnb$c-$f');";
+													//echo "neoImg = this;";
+													//echo "alert(document.getElementById('picsnb$c-$f').src);";
+													//echo "setpiconload(this);";
+												//echo "</script>";
+											echo "</img>";
+											echo "<img src='images/pref.png' id='picsnb$c-$f-bk' class='upicsinner_bk'>";
+											echo "</img>";
+										echo "</div>";
 										$f++;
+										echo "<script type='text/javascript'>add_all_pics();</script>";
 										break;
 									}
 									$e = count($photo_array);
-									echo "<script type='text/javascript'>init_everyphotoarray($seqindex, $e, true);</script>";
+									echo "<script type='text/javascript'>init_everyphotoarray($seqindex);</script>";
 									$seqindex++;
 								echo "</div>";
 								echo "<div class='picsitemlower'>";
@@ -280,6 +289,7 @@
 							$c++;
 						}
 						echo "<script type='text/javascript'>pictloadend();</script>";
+						//echo "<script type='text/javascript'>alert('应该读取 ' + String(overallpics) + ' 张图片');</script>";
 					?>
 				</div>
 				<!-- 读取完毕开始整理 -->

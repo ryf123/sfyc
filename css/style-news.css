@@ -137,7 +137,6 @@ html, body{
 	position: relative;
 	background-color: #e1e2ea;
 	color: #222141;
-	fontcolor: #222141;
 	border: none;
 }
 #menu #menuinterface #searchpaw{
@@ -235,12 +234,24 @@ input:-moz-placeholder {
 	position: relative;
 	margin-top: 10px;
 }
-#contentRight .picsitem .picsitemmiddle .upicsinner{
+#contentRight .picsitem .picsitemmiddle .upicsframes{
 	/*width: 220px;
 	height: 176px;*/
 	position: relative;
 	margin-top: 0px;
 	margin-left: 10px;
+}
+#contentRight .picsitem .picsitemmiddle .upicsframes .upicsinner{
+	/*width: 220px;
+	height: 176px;*/
+	position: absolute;
+	z-index: 12;
+}
+#contentRight .picsitem .picsitemmiddle .upicsframes .upicsinner_bk{
+	/*width: 220px;
+	height: 176px;*/
+	position: absolute;
+	z-index: 11;
 }
 #contentRight .picsitem .picsitemmiddle .upicsback{
 	width: 224px;

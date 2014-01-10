@@ -792,7 +792,7 @@ input:-moz-placeholder {
 #controlpanel #c_panelpic #c_panelpic_bkg{
 	position: absolute;
 	z-index: -1;
-	filter: Alpha(90);
+	/*filter: Alpha(90);*/
 	opacity: 0.9;
 	width: 100%;
 	height: 776px;
@@ -804,7 +804,7 @@ input:-moz-placeholder {
 #controlpanel #c_panelpic #up_triangle{
 	position: absolute;
 	z-index: -1;
-	filter: Alpha(90);
+	/*filter: Alpha(90);*/
 	opacity: 0.9;
 	left: 300px;
 	top: -16px;
@@ -951,12 +951,24 @@ input:-moz-placeholder {
 	position: relative;
 	margin-top: 10px;
 }
-#posts #postscontent_pic .picsitem .picsitemmiddle .upicsinner{
+#posts #postscontent_pic .picsitem .picsitemmiddle .upicsframes{
 	/*width: 220px;
 	height: 176px;*/
 	position: relative;
 	margin-top: 0px;
 	margin-left: 10px;
+}
+#posts #postscontent_pic .picsitem .picsitemmiddle .upicsframes .upicsinner{
+	/*width: 220px;
+	height: 176px;*/
+	position: absolute;
+	z-index: 12;
+}
+#posts #postscontent_pic .picsitem .picsitemmiddle .upicsframes .upicsinner_bk{
+	/*width: 220px;
+	height: 176px;*/
+	position: absolute;
+	z-index: 11;
 }
 #posts #postscontent_pic .picsitem .picsitemmiddle .upicsback{
 	width: 304px;

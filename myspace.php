@@ -300,7 +300,7 @@
 						<!-- 发布新事物的控制面板 -->
 
 						<!-- 1.文字发布界面 -->
-						<div id="c_panel1" class="c_panels">
+						<div id="c_panel1" class="c_panels" style="display:none">
 							<div id="cpanel1_btn1">
 								<a>字体</a>
 							</div>
@@ -317,7 +317,7 @@
 						</div>
 						<!-- 2.图片发布界面 （新） -->
 						
-						<div id="c_panelpic">
+						<div id="c_panelpic" style="display:none">
 							<!-- 前导功能 -->
 							<img id="up_triangle" src="images/triangle_upper_dk.png"></img>
 							<div id="pictopic">发布图片</div>
@@ -475,7 +475,7 @@
 						</div>
 						
 						<!-- 3.声音发布界面 -->
-						<div id="c_panel3" class="c_panels">
+						<div id="c_panel3" class="c_panels" style="display:none">
 							请输入声音链接：(或点击<a href="#">这里</a>上传)<br/>
 							<input type="file" id="cpanel3_input1" value="selectFile">
 
@@ -493,7 +493,7 @@
 							</div>
 						</div>
 						<!-- 4.影像发布界面 -->
-						<div id="c_panel4" class="c_panels">
+						<div id="c_panel4" class="c_panels" style="display:none">
 							请输入影像链接：(或点击<a href="#">这里</a>上传)<br/>
 							<input type="text" id="cpanel4_input1">
 
@@ -508,7 +508,7 @@
 							</div>
 						</div>
 						<!-- 5.领养信息发布界面 -->
-						<div id="c_panel5" class="c_panels">
+						<div id="c_panel5" class="c_panels" style="display:none">
 							名字：<input type="text" id="cpanel5_input1" class="cpanel5_inputs"></input><br/>
 							类别：<input type="text" id="cpanel5_input2" class="cpanel5_inputs"></input><br/>
 							品种：<input type="text" id="cpanel5_input3" class="cpanel5_inputs"></input><br/>
@@ -585,11 +585,14 @@
 						$d = count($result);
 						$e = 0;
 						echo "<script type='text/javascript'>init_picloadcomplete($d);</script>";
+						echo "<script type='text/javascript'>reset_all_pics();</script>";
+						echo "<script type='text/javascript'>reset_loaded_pics();</script>";
+						echo "<script type='text/javascript'>reset_everyphotoarray();</script>";
 						foreach($result as &$topic){
 							$content = $topic[0];
 							$username = $topic[1];
 							$user_photo = $topic[2];
-							echo "<div class='picsitem' id='picsitemnb$c'>";
+							echo "<div class='picsitem' id='picsitemnb$c' style='display:none'>";
 								echo "<div class='picsitemmiddle'>";
 									$photo_ratio_array = $topic[3];
 									$photo_array = $topic[4];
@@ -605,20 +608,26 @@
 											echo "<script>document.getElementById('photoratio$c-$f').value='$ratio';</script>";
 										echo "</div>";
 										//设定该张图片的归属
-										echo "<img src=$photo class='upicsinner' id='picsnb$c-$f' onload='onloadtest(this, $seqindex, $f)'>";
-											echo "<script type='text/javascript'>";
-												//echo "alert(typeof(this) + ' $seqindex ' + ' detected');";
-												echo "var neoImg;";
-												echo "neoImg = document.getElementById('photoratio$c-$f');";
-												//echo "alert(neoImg.src);";
-												//echo "setpiconload(this);";
-											echo "</script>";
-										echo "</img>";
+										echo "<div id='upicsframe$c-$f' class='upicsframes'>";
+											echo "<img src=$photo class='upicsinner' id='picsnb$c-$f' onload='onloadtest(this, $seqindex, $f);' onerror='picloaderror(this, $seqindex, $f);' style='display:none'>";
+												//echo "<script type='text/javascript'>";
+													//echo "alert(typeof(this) + ' $seqindex ' + ' detected');";
+													//echo "var neoImg;";
+													//echo "neoImg = document.getElementById('picsnb$c-$f');";
+													//echo "neoImg = this;";
+													//echo "alert(document.getElementById('picsnb$c-$f').src);";
+													//echo "setpiconload(this);";
+												//echo "</script>";
+											echo "</img>";
+											echo "<img src='images/pref.png' id='picsnb$c-$f-bk' class='upicsinner_bk'>";
+											echo "</img>";
+										echo "</div>";
 										$f++;
+										echo "<script type='text/javascript'>add_all_pics();</script>";
 										break;
 									}
 									$e = count($photo_array);
-									echo "<script type='text/javascript'>init_everyphotoarray($seqindex, $e, true);</script>";
+									echo "<script type='text/javascript'>init_everyphotoarray($seqindex);</script>";
 									$seqindex++;
 								echo "</div>";
 								echo "<div class='picsitemlower'>";
@@ -662,6 +671,7 @@
 							$c++;
 						}
 						echo "<script type='text/javascript'>pictloadend();</script>";
+						//echo "<script type='text/javascript'>alert('应该读取 ' + String(overallpics) + ' 张图片');</script>";
 					?>
 					
 						</div>

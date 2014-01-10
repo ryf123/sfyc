@@ -9,6 +9,8 @@ var imgs = [];
 var arranged = false;
 var workingarea = "news";
 var photoloadarray = [];
+var overallpics = 0;
+var loadedpics = 0;
 Image.prototype.atgroup = [];
 
 $(document).ready(function(){
@@ -22,12 +24,81 @@ $(document).ready(function(){
 });
 
 //和排版有关的函数==================================
+function set_all_pics(picnum){
+	overallpics = picnum;
+}
+function add_all_pics(){
+	overallpics += 1;	
+}
+function reset_all_pics(){
+	overallpics = 0;
+}
+function set_loaded_pics(picnum){
+	loadedpics = picnum;	
+}
+function add_loaded_pics(){
+	loadedpics += 1;	
+}
+function reset_loaded_pics(){
+	loadedpics = 0;
+}
+
+function reset_everyphotoarray(){
+	photoloadarray = [];
+}
+function init_everyphotoarray(aindex){
+	photoloadarray[aindex] = [];
+}
+
+//图片读取前的预设
+function readytoload(){
+	
+}
+//读取一张图片
 function onloadtest(_myobj, aindex, bindex){
 	_myobj.atgroup = [aindex, bindex];
+	_myobj.style.display = "inline";
 	//设定排版数组
 	photoloadarray[aindex][bindex] = true;
+	if(checkpicloadcomplete()){
+		arrangeStyle_bef();
+	}
+	//alert("已经读取 " + String(loadedpics) + " 张图片");
 	//alert(typeof(_myobj) + " " + String(aindex) + " loaded");
 }
+//图片读取遇到错误
+function picloaderror(_myobj, aindex, bindex){
+	_myobj.atgroup = [aindex, bindex];
+	_myobj.style.display = "none";
+	//设定排版数组
+	photoloadarray[aindex][bindex] = false;
+	if(checkpicloadcomplete()){
+		arrangeStyle_bef();
+	}
+	//alert("已经读取 " + String(loadedpics) + " 张图片");
+	//alert(typeof(_myobj) + " " + String(aindex) + " loaded");
+}
+//统计：图片读取是否完成
+function checkpicloadcomplete(){
+	if(overallpics <= 0){
+		return false;
+	}
+	if(photoloadarray.length <= 0){
+		return false;
+	}
+	reset_loaded_pics();
+	for(var i = 0; i < photoloadarray.length; i++){
+		//alert(photoloadarray[i].length);
+		if(photoloadarray[i].length > 0){
+			for(var j = 0; j < photoloadarray[i].length; j++){
+				add_loaded_pics();
+			}
+		}
+	}
+	//alert(String(overallpics) + "   " + String(loadedpics));
+	return (overallpics <= loadedpics);
+}
+
 function init_picloadcomplete(p_size){
 	//alert("Array size of photos:" + String(p_size));
 	if(p_size < 1){
@@ -35,14 +106,6 @@ function init_picloadcomplete(p_size){
 	}
 	for(var r = 0; r < p_size; r++){
 		photoloadarray.push([]);
-	}
-}
-function init_everyphotoarray(aindex, picnumb, testmode){
-	if(picnumb <= 0){
-		return;
-	}
-	for(var i = 0; i < picnumb; i++){
-		photoloadarray[aindex][i] = (testmode ? (i > 0) : false);
 	}
 }
 function setpiconload(_myobject){
@@ -54,33 +117,6 @@ function setpiconload(_myobject){
 function set_image_init(aindex, bindex){
 	alert("Group " + aindex + " Photo " + bindex);
 }
-/*
-function check_picloadcomplete(){
-	var check_flag = true;
-	for(var r = 0; r < photoloadarray.length; r++){
-		if(photoloadarray[r] == false){
-			check_flag = false;
-			break;
-		}
-	}
-	return check_flag;
-}
-function load_complete_at(aindex){
-	if(aindex < 0){
-		return;
-	}
-	if(aindex >= photoloadarray.length){
-		return;
-	}
-	photoloadarray[aindex] = true;
-	var completeflag = check_picloadcomplete();
-	alert(completeflag);
-	if(completeflag){
-		//开始排版
-	}
-}
-*/
-//============================================
 
 function arrangeStyle_again(cols, wid, intr, wrk){
 	columns = cols;
@@ -105,14 +141,11 @@ function pictloadend(){ //图片数量统计结束
 		picloaded[r] = 0;
 	}
 }
-/*
-function singlepicloadcomp(pindex){ //一张图片读取完毕
-	alert("Number #" + String(pindex) + " picture load completed");
-}
-*/
 function arrangeStyle_bef(){
 	var tempobj;
 	var tempimg;
+	var tempbkg;
+	var tempfrm;
 	var tempimght = 0;
 	var tempratio = 1.0;
 	var tempht = 0;
@@ -143,9 +176,21 @@ function arrangeStyle_bef(){
 		tempratio = parseFloat(document.getElementById("photoratio" + String(r) + "-0").value);
 		tempratio = (tempratio == 0 ? 2 : tempratio);
 		//整理图片大小
+		tempbkg = document.getElementById("picsnb" + String(r) + "-0" + "-bk");
+		tempbkg.style.width = String(linewidth - 20) + "px";
+		tempbkg.style.height = String(1.0 * (linewidth - 20) / 2) + "px";
 		tempimg = document.getElementById("picsnb" + String(r) + "-0");
 		tempimg.style.width = String(linewidth - 20) + "px";
 		tempimg.style.height = String(1.0 * (linewidth - 20) / tempratio) + "px";
+		tempfrm = document.getElementById("upicsframe" + String(r) + "-0");
+		tempfrm.style.width = String(linewidth - 20) + "px";
+		if(tempimg.clientHeight > 0){
+			tempfrm.style.height = String(1.0 * (linewidth - 20) / tempratio) + "px";
+			tempbkg.style.display = "none";
+		}else{
+			tempfrm.style.height = String(1.0 * (linewidth - 20) / 2) + "px";
+			tempbkg.style.display = "inline";
+		}
 		//整理文字区
 		tpitem = document.getElementById("commentcontainer" + String(r));
 		tpiteminner = document.getElementById("commenttopic" + String(r));
@@ -171,6 +216,7 @@ function arrangeStyle_bef(){
 		tempcolor2 = 255;
 		tempcolor3 = 255;
 		tempobj.style.backgroundColor = "#" + (tempcolor1 * 65536 + tempcolor2 * 256 + tempcolor3).toString(16);
+		tempobj.style.display = "inline";
 	}
 	tempht = columnHeight.max();
 	if(workingarea == "myspace"){
@@ -188,6 +234,7 @@ function arrangeStyle_bef(){
 			movablecat.style.top = String(cleft.clientHeight - 192) + "px";
 		}
 	}else{
+		//document.getElementById("contentRight").style.display = "inline";
 		document.getElementById("contentRight").style.height = String(tempht - 8) + "px";
 	}
 }
