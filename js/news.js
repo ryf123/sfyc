@@ -11,6 +11,8 @@ var workingarea = "news";
 var photoloadarray = [];
 var overallpics = 0;
 var loadedpics = 0;
+var photoratios = [];
+
 Image.prototype.atgroup = [];
 
 $(document).ready(function(){
@@ -49,6 +51,15 @@ function reset_everyphotoarray(){
 function init_everyphotoarray(aindex){
 	photoloadarray[aindex] = [];
 }
+function reset_photoratios(){
+	photoratios = [];
+}
+function init_photoratios(aindex){
+	photoratios[aindex] = [];
+}
+function set_photoratios(aindex, bindex, targetnum){
+	photoratios[aindex][bindex] = targetnum;
+}
 
 //图片读取前的预设
 function readytoload(){
@@ -60,9 +71,9 @@ function onloadtest(_myobj, aindex, bindex){
 	_myobj.style.display = "inline";
 	//设定排版数组
 	photoloadarray[aindex][bindex] = true;
-	if(checkpicloadcomplete()){
-		arrangeStyle_bef();
-	}
+	//if(checkpicloadcomplete()){
+		//arrangeStyle_bef();
+	//}
 	//alert("已经读取 " + String(loadedpics) + " 张图片");
 	//alert(typeof(_myobj) + " " + String(aindex) + " loaded");
 }
@@ -72,9 +83,9 @@ function picloaderror(_myobj, aindex, bindex){
 	_myobj.style.display = "none";
 	//设定排版数组
 	photoloadarray[aindex][bindex] = false;
-	if(checkpicloadcomplete()){
-		arrangeStyle_bef();
-	}
+	//if(checkpicloadcomplete()){
+		//arrangeStyle_bef();
+	//}
 	//alert("已经读取 " + String(loadedpics) + " 张图片");
 	//alert(typeof(_myobj) + " " + String(aindex) + " loaded");
 }
@@ -140,6 +151,7 @@ function pictloadend(){ //图片数量统计结束
 	for(var r = 0; r < itemscount; r++){
 		picloaded[r] = 0;
 	}
+	//alert(photoratios);
 }
 function arrangeStyle_bef(){
 	var tempobj;
@@ -173,10 +185,17 @@ function arrangeStyle_bef(){
 	for(var r = 0; r < itemscount; r++){
 		tempobj = document.getElementById("picsitemnb" + String(r));
 		//alert(document.getElementById("photoratio" + String(r)));
-		tempratio = parseFloat(document.getElementById("photoratio" + String(r) + "-0").value);
-		tempratio = (tempratio == 0 ? 2 : tempratio);
-		//整理图片大小
+		tempratio = photoratios[r][0];
+		//tempratio = parseFloat(document.getElementById("photoratio" + String(r) + "-0").value);
+		//tempratio = (tempratio == 0 ? 2 : tempratio);
 		tempbkg = document.getElementById("picsnb" + String(r) + "-0" + "-bk");
+		if(tempratio < 0){ //图片获取错误
+			tempratio = 2;
+			tempbkg.style.display = "inline";
+		}else{ //图片获取正确
+			tempbkg.style.display = "none";
+		}
+		//整理图片大小
 		tempbkg.style.width = String(linewidth - 20) + "px";
 		tempbkg.style.height = String(1.0 * (linewidth - 20) / 2) + "px";
 		tempimg = document.getElementById("picsnb" + String(r) + "-0");
@@ -184,13 +203,7 @@ function arrangeStyle_bef(){
 		tempimg.style.height = String(1.0 * (linewidth - 20) / tempratio) + "px";
 		tempfrm = document.getElementById("upicsframe" + String(r) + "-0");
 		tempfrm.style.width = String(linewidth - 20) + "px";
-		if(tempimg.clientHeight > 0){
-			tempfrm.style.height = String(1.0 * (linewidth - 20) / tempratio) + "px";
-			tempbkg.style.display = "none";
-		}else{
-			tempfrm.style.height = String(1.0 * (linewidth - 20) / 2) + "px";
-			tempbkg.style.display = "inline";
-		}
+		tempfrm.style.height = String(1.0 * (linewidth - 20) / tempratio) + "px";
 		//整理文字区
 		tpitem = document.getElementById("commentcontainer" + String(r));
 		tpiteminner = document.getElementById("commenttopic" + String(r));

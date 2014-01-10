@@ -598,8 +598,9 @@
 									$photo_array = $topic[4];
 									$photo_counter = 0;
 									$f = 0;
+									echo "<script type='text/javascript'>init_photoratios($seqindex);</script>";
 									foreach($photo_array as &$photo){
-										$ratio = 1;
+										$ratio = -1;
 										if($photo_ratio_array[$photo_counter][0]!=0){
 											$ratio = $photo_ratio_array[$photo_counter][0]/$photo_ratio_array[$photo_counter][1];
 										}
@@ -619,9 +620,10 @@
 													//echo "setpiconload(this);";
 												//echo "</script>";
 											echo "</img>";
-											echo "<img src='images/pref.png' id='picsnb$c-$f-bk' class='upicsinner_bk'>";
+											echo "<img src='images/pref.png' id='picsnb$c-$f-bk' class='upicsinner_bk' style='display:none'>";
 											echo "</img>";
 										echo "</div>";
+										echo "<script type='text/javascript'>set_photoratios($seqindex, $f, $ratio);</script>";
 										$f++;
 										echo "<script type='text/javascript'>add_all_pics();</script>";
 										break;
