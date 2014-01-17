@@ -4,7 +4,7 @@ img{
 
 body{
 	font-family: "微软雅黑", "宋体", "黑体", Arial;
-	font-size: 16px;
+	font-size: 14px;
 }
 /*
 html, body{
@@ -16,16 +16,18 @@ html, body{
 #container{
 	position: relative;
 	width: 1000px;
+	height: auto;
 	padding: 0;
 	margin: 0 auto;
 	margin-top: -8px;
+	background-color: #e1e2ea;
 }
 
 #header{
 	position: relative;
 	width: 960px;
 	height: 40px;
-	/*margin-top: 100px;*/
+	/*margin-bottom: -4px;*/
 	padding-top: 0px;
 }
 
@@ -53,6 +55,7 @@ html, body{
 #header #logo2{
 	position: relative;
 	margin-left: 30px;
+	margin-top: -10px;
 	float: left;
 }
 
@@ -60,12 +63,14 @@ html, body{
 	font-weight: bold;
 	position: relative;
 	margin-right: 30px;
+	margin-top: -10px;
 	float: right;
 }
 
 #header #logo4{
 	position: relative;
 	margin-right: 30px;
+	margin-top: -10px;
 	float: right;
 }
 
@@ -75,7 +80,6 @@ html, body{
 	height: 80px;
 	margin: 0;
 	padding: 0;
-	border: 1px black solid;
 }
 
 #titleboard{
@@ -103,8 +107,8 @@ html, body{
 #menu #menulogo{
 	position: relative;
 	width: 128px;
-	height: 72px;
-	margin-top: -12px;
+	height: 56px;
+	margin-top: -32px;
 	margin-right: 10px;
 	padding: 0;
 	float: left;
@@ -113,7 +117,7 @@ html, body{
 #menu #menuinterface{
 	position: relative;
 	width: 800px;
-	height: 32px;
+	height: 24px;
 	margin-left: 40px;
 	padding: 0;
 	float: left;
@@ -124,24 +128,37 @@ html, body{
 	width: 96px;
 	height: 72px;
 	margin-left: 4px;
-	margin-top: 0;
+	margin-top: -24px;
 	text-align: center;
 	float: left;
 }
+#menu #menuinterface .divoptions-text{
+	position: absolute;
+	width: 96px;
+	height: 20px;
+	top: 26px;
+	text-align: center;
+	font-size: 18px;
+	color: #e0e1e9;
+	font-weight: bold;
+}
+#menu #menuinterface #divoptions-text3{
+	color: #20274e;
+}
 
 #menu .search-input2{
-	margin-left: 48px;
-	margin-top: 24px;
+	left: 648px;
+	top: -8px;
 	width: 96px;
 	height: 22px;
-	position: relative;
+	position: absolute;
 	background-color: #e1e2ea;
 	color: #222141;
 	border: none;
 }
 #menu #menuinterface #searchpaw{
-	margin-left: 8px;
-	margin-top: 22px;
+	left: 760px;
+	top: -10px;
 	position: absolute;
 	cursor: pointer;
 }
@@ -157,8 +174,8 @@ input:-moz-placeholder {
 #content{
 	position: relative;
 	width: 1000px;
-	margin-top: -8px;
-	background-color: #e1e2ea;
+	margin-top: -32px;
+	padding: 0;
 }
 /*
 #contentLeft{
@@ -337,19 +354,20 @@ input:-moz-placeholder {
 	position: absolute;
 	top: 72px;
 	left: 8px;
-	font-size: 8px;
+	font-size: 12px;
 	color: #2c3055;
 	font-weight: bold;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .readmore{
-	width: 64px;
+	width: 80px;
 	height: 16px;
 	left: 0px;
+	top: -2px;
 	position: absolute;
 	color: #4568b1;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .readmorearrow{
-	left: 56px;
+	left: 80px;
 	top: 2px;
 	width: 6px;
 	height: 9px;
@@ -362,9 +380,10 @@ input:-moz-placeholder {
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .feedback{
-	left: 120px;
+	left: 118px;
 	width: 16px;
 	height: 16px;
+	top: -2px;
 	position: absolute;
 	text-align: right;
 	color: #4568b1;
@@ -376,9 +395,10 @@ input:-moz-placeholder {
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .forwardnum{
-	left: 156px;
+	left: 154px;
 	width: 16px;
 	height: 16px;
+	top: -2px;
 	position: absolute;
 	text-align: right;
 	color: #4568b1;
@@ -390,9 +410,10 @@ input:-moz-placeholder {
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .praise{
-	left: 192px;
+	left: 190px;
 	width: 16px;
 	height: 16px;
+	top: -2px;
 	position: absolute;
 	text-align: right;
 	color: #4568b1;

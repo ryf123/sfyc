@@ -48,7 +48,7 @@
 				</div>
 				<!-- 修改内容：这里添加了登陆按钮的预置位-->
 				<div id="logo1" class="leaderelements">
-					<img src="images/BlackStar.png"></img>
+					<!-- img src="images/BlackStar.png"></img -->
 				</div>
 				<!-- div id="logo2" class="leaderelements">Tencent</div -->
 				<div id="logo3" class="leaderelements">
@@ -78,31 +78,37 @@
 					<div id="divoption0" class="divoptions">
 						<a href="news.php">
 							<img src="images/TLogo1A.png"></img>
+							<div class="divoptions-text" id="divoptions-text1">主页</div>
 						</a>
 					</div>
 					<div id="divoption1" class="divoptions">
 						<a href="news.php">
 							<img src="images/TLogo2A.png"></img>
+							<div class="divoptions-text" id="divoptions-text2">领养</div>
 						</a>
 					</div>
 					<div id="divoption2" class="divoptions">
 						<a href="news.php">
 							<img src="images/TLogo3B.png"></img>
+							<div class="divoptions-text" id="divoptions-text3">图片</div>
 						</a>
 					</div>
 					<div id="divoption3" class="divoptions">
 						<a href="news.php">
 							<img src="images/TLogo4A.png"></img>
+							<div class="divoptions-text" id="divoptions-text4">文章</div>
 						</a>
 					</div>
 					<div id="divoption4" class="divoptions">
 						<a href="news.php">
 							<img src="images/TLogo5A.png"></img>
+							<div class="divoptions-text" id="divoptions-text5">应用</div>
 						</a>
 					</div>
 					<div id="divoption5" class="divoptions">
 						<a href="myspace.php">
 							<img src="images/TLogo6A.png"></img>
+							<div class="divoptions-text" id="divoptions-text6">个人主页</div>
 						</a>
 					</div>
 					<input class="search-input2" placeholder="Search...">
