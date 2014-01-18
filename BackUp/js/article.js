@@ -21,6 +21,6 @@ function publishcomplete(){
 		alert("发布失败——标题和正文均不能为空！");
 	}else{
 		alert("发布成功！");
-		window.location.href="myspace.html";
+		window.location.href="myspace.php";
 	}
 }
