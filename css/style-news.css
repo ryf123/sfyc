@@ -66,6 +66,9 @@ html, body{
 	margin-top: -10px;
 	float: right;
 }
+#header #logo3 a{
+	color: #e0e1e9;
+}
 
 #header #logo4{
 	position: relative;
@@ -128,7 +131,7 @@ html, body{
 	width: 96px;
 	height: 72px;
 	margin-left: 4px;
-	margin-top: -24px;
+	margin-top: -26px;
 	text-align: center;
 	float: left;
 }
@@ -136,10 +139,10 @@ html, body{
 	position: absolute;
 	width: 96px;
 	height: 20px;
-	top: 26px;
+	top: 32px;
 	text-align: center;
-	font-size: 18px;
-	color: #e0e1e9;
+	font-size: 14px;
+	color: #ffffff;
 	font-weight: bold;
 }
 #menu #menuinterface #divoptions-text3{
@@ -148,7 +151,7 @@ html, body{
 
 #menu .search-input2{
 	left: 648px;
-	top: -8px;
+	top: -5px;
 	width: 96px;
 	height: 22px;
 	position: absolute;
@@ -158,7 +161,7 @@ html, body{
 }
 #menu #menuinterface #searchpaw{
 	left: 760px;
-	top: -10px;
+	top: -7px;
 	position: absolute;
 	cursor: pointer;
 }
@@ -236,7 +239,7 @@ input:-moz-placeholder {
 	width: 224px;
 	height: auto;
 	position: absolute;
-	border: 2px solid #c9cbcd;
+	border: 1.7px solid #c9cbcd;
 	border-radius: 10px;
 	background-color: #ffffff;
 }

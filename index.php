@@ -48,7 +48,7 @@
 				<div id="logo3" class="leaderelements">
 				<?php
 					if($sign_in)
-						echo "<a href='logout.php'>退出登录</a>";
+						echo "<a href='logout.php'>退出</a>";
 					else
 						echo "<a href='login.php'>登录</a> | <a href='Register.php'>注册</a>";
 				?>

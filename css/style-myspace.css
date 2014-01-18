@@ -75,6 +75,9 @@ body{
 	margin-top: -10px;
 	float: right;
 }
+#header #logo3 a{
+	color: #e0e1e9;
+}
 
 #header #logo4{
 	position: relative;
@@ -137,7 +140,7 @@ body{
 	width: 96px;
 	height: 72px;
 	margin-left: 4px;
-	margin-top: -24px;
+	margin-top: -26px;
 	text-align: center;
 	float: left;
 }
@@ -145,10 +148,10 @@ body{
 	position: absolute;
 	width: 96px;
 	height: 20px;
-	top: 26px;
+	top: 32px;
 	text-align: center;
-	font-size: 18px;
-	color: #e0e1e9;
+	font-size: 14px;
+	color: #ffffff;
 	font-weight: bold;
 }
 #menu #menuinterface #divoptions-text6{
@@ -157,7 +160,7 @@ body{
 
 #menu .search-input2{
 	left: 648px;
-	top: -8px;
+	top: -5px;
 	width: 96px;
 	height: 22px;
 	position: absolute;
@@ -167,7 +170,7 @@ body{
 }
 #menu #menuinterface #searchpaw{
 	left: 760px;
-	top: -10px;
+	top: -7px;
 	position: absolute;
 	cursor: pointer;
 }
@@ -183,7 +186,7 @@ input:-moz-placeholder {
 #content{
 	position: relative;
 	width: 1000px;
-	margin-top: -32px;
+	margin-top: -30px;
 	padding: 0;
 }
 
@@ -952,7 +955,7 @@ input:-moz-placeholder {
 	width: 304px;
 	height: auto;
 	position: absolute;
-	border: 2px solid #c9cbcd;
+	border: 1.7px solid #c9cbcd;
 	border-radius: 16px;
 	background-color: #ffffff;
 }
