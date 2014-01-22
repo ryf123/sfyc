@@ -3,7 +3,7 @@ img{
 }
 
 body{
-	font-family: "微软雅黑", "宋体", "黑体", Arial;
+	font-family: "幼圆", "微软雅黑", "宋体", "黑体", Arial;
 	font-size: 14px;
 }
 /*
@@ -62,8 +62,8 @@ html, body{
 #header #logo3{
 	font-weight: bold;
 	position: relative;
-	margin-right: 30px;
-	margin-top: -10px;
+	margin-right: 0px;
+	margin-top: -7px;
 	float: right;
 }
 #header #logo3 a{
@@ -109,9 +109,9 @@ html, body{
 
 #menu #menulogo{
 	position: relative;
-	width: 128px;
-	height: 56px;
-	margin-top: -32px;
+	/*width: 128px;
+	height: 56px;*/
+	margin-top: -29px;
 	margin-right: 10px;
 	padding: 0;
 	float: left;
@@ -119,9 +119,9 @@ html, body{
 
 #menu #menuinterface{
 	position: relative;
-	width: 800px;
+	width: 730px;
 	height: 24px;
-	margin-left: 40px;
+	margin-left: -16px;
 	padding: 0;
 	float: left;
 }
@@ -130,10 +130,18 @@ html, body{
 	position: relative;
 	width: 96px;
 	height: 72px;
-	margin-left: 4px;
+	margin-left: -4px;
 	margin-top: -26px;
 	text-align: center;
 	float: left;
+}
+#menu #menuinterface #divoption0{
+	margin-left: 20px;
+}
+#menu #menuinterface .divoptionsimg{
+	position: absolute;
+	left: 0px;
+	top: 4px;
 }
 #menu #menuinterface .divoptions-text{
 	position: absolute;
@@ -141,7 +149,7 @@ html, body{
 	height: 20px;
 	top: 32px;
 	text-align: center;
-	font-size: 14px;
+	font-size: 16px;
 	color: #ffffff;
 	font-weight: bold;
 }
