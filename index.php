@@ -221,7 +221,7 @@
 					<p>This is contentRight. contentRight块是放置主要阅读内容的</p>
 					-->
 				</div>
-				<script type='text/javascript'>arrange_styles();</script>
+				<!-- script type='text/javascript'>arrange_styles();</script -->
 			</div>
 
 			<!--footer块是放置页脚信息的-->

@@ -251,6 +251,7 @@ function arrangeStyle_bef(){
 		document.getElementById("contentRight").style.height = String(tempht - 8) + "px";
 	}
 	//除图片外，其他的元素也要缩小处理
+	/*
 	tempobj = document.getElementById("menulogoimg");
 	tempobj.style.width = "180px";
 	tempobj.style.height = "65px";
@@ -263,6 +264,7 @@ function arrangeStyle_bef(){
 		tempobj.style.width = "96px";
 		tempobj.style.height = "64px";
 	}
+	*/
 }
 
 /*
