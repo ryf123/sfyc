@@ -48,9 +48,6 @@
 	}
 ?>
 	<body>
-		<!-- div id="containertitleboard">
-			<img src="images/TitleBoard9.png" id="containertitleboardinner"></img>
-		</div -->
 		<div id="container">
 			<!-- 标题图 -->
 			<div id="titleboard">
@@ -69,13 +66,13 @@
 				</div>
 				<!-- 修改内容：这里添加了登陆按钮的预置位-->
 				<div id="logo1" class="leaderelements">
-					<img src="images/BlackStar.png"></img>
+					<!-- img src="images/BlackStar.png"></img -->
 				</div>
 				<!-- div id="logo2" class="leaderelements">Tencent</div -->
 				<div id="logo3" class="leaderelements">
 				<?php
 					if($sign_in)
-						echo "<a href='logout.php'>退出登录</a>";
+						echo "<a href='logout.php'>退出</a>";
 					else
 						echo "<a href='login.php'>登录</a> | <a href='Register.php'>注册</a>";
 				?>
@@ -93,37 +90,43 @@
 			<div id="menu">
 				<!-- 修改：这里放置选项按钮及搜索栏 -->
 				<div id="menulogo">
-					<img src="images/iPet.png"></img>
+					<img id="menulogoimg" src="images/iPet.png"></img>
 				</div>
 				<div id="menuinterface">
 					<div id="divoption0" class="divoptions">
 						<a href="news.php">
-							<img src="images/TLogo1A.png"></img>
+							<img id="divoption0img" class="divoptionsimg" src="images/TLogo1A.png"></img>
+							<div class="divoptions-text" id="divoptions-text1">主页</div>
 						</a>
 					</div>
 					<div id="divoption1" class="divoptions">
 						<a href="news.php">
-							<img src="images/TLogo2A.png"></img>
+							<img id="divoption1img" class="divoptionsimg" src="images/TLogo2A.png"></img>
+							<div class="divoptions-text" id="divoptions-text2">领养</div>
 						</a>
 					</div>
 					<div id="divoption2" class="divoptions">
 						<a href="news.php">
-							<img src="images/TLogo3A.png"></img>
+							<img id="divoption2img" class="divoptionsimg" src="images/TLogo3A.png"></img>
+							<div class="divoptions-text" id="divoptions-text3">图片</div>
 						</a>
 					</div>
 					<div id="divoption3" class="divoptions">
 						<a href="news.php">
-							<img src="images/TLogo4A.png"></img>
+							<img id="divoption3img" class="divoptionsimg" src="images/TLogo4A.png"></img>
+							<div class="divoptions-text" id="divoptions-text4">文章</div>
 						</a>
 					</div>
 					<div id="divoption4" class="divoptions">
 						<a href="news.php">
-							<img src="images/TLogo5A.png"></img>
+							<img id="divoption4img" class="divoptionsimg" src="images/TLogo5A.png"></img>
+							<div class="divoptions-text" id="divoptions-text5">应用</div>
 						</a>
 					</div>
 					<div id="divoption5" class="divoptions">
 						<a href="myspace.php">
-							<img src="images/TLogo6B.png"></img>
+							<img id="divoption5img" class="divoptionsimg" src="images/TLogo6B.png"></img>
+							<div class="divoptions-text" id="divoptions-text6">个人主页</div>
 						</a>
 					</div>
 					<input class="search-input2" placeholder="Search...">
@@ -279,19 +282,19 @@
 						<a onclick="filterbtn_onclick(5)">
 							<div id="newsaction5" class="newsactions">
 								<img src="images/funcbtn3.png" class="funcbtninside"></img>
-								<p>领养信息</p>
+								<p>&nbsp;领养信息</p>
 							</div>
 						</a>
 						<a onclick="filterbtn_onclick(2)">
 							<div id="newsaction2" class="newsactions">
 								<img src="images/funcbtn2.png" class="funcbtninside"></img>
-								<p>图片</p>
+								<p>&nbsp;图片</p>
 							</div>
 						</a>
 						<a href="article.php">
 							<div id="newsaction1" class="newsactions">
 								<img src="images/funcbtn1.png" class="funcbtninside"></img>
-								<p>文章</p>
+								<p>&nbsp;文章</p>
 							</div>
 						</a>
 					</div>
