@@ -246,30 +246,31 @@ input:-moz-placeholder {
 	border: 1px solid #ececec;
 }
 #contentRight .picsitem{
-	width: 224px;
+	width: 176px;
 	height: auto;
 	position: absolute;
-	border: 1.7px solid #c9cbcd;
-	border-radius: 10px;
+	border: 1px solid #c9cbcd;
+	border-radius: 4px;
 	background-color: #ffffff;
 }
 #contentRight .picsitem .picsitemupper{
-	width: 224px;
+	width: 176px;
 	height: 9px;
 	position: relative;
+	display: none;
 }
 #contentRight .picsitem .picsitemmiddle{
-	width: 224px;
+	width: 176px;
 	height: 208px auto;
 	position: relative;
-	margin-top: 10px;
+	margin-top: 0px;
 }
 #contentRight .picsitem .picsitemmiddle .upicsframes{
 	/*width: 220px;
 	height: 176px;*/
 	position: relative;
 	margin-top: 0px;
-	margin-left: 10px;
+	margin-left: 0px;
 }
 #contentRight .picsitem .picsitemmiddle .upicsframes .upicsinner{
 	/*width: 220px;
@@ -284,23 +285,23 @@ input:-moz-placeholder {
 	z-index: 11;
 }
 #contentRight .picsitem .picsitemmiddle .upicsback{
-	width: 224px;
+	width: 176px;
 	height: 208px;
 	position: absolute;
 	z-index: -1;
 	left: 0px;
 }
 #contentRight .picsitem .picsitemlower{
-	width: 224px;
-	height: 89px;
+	width: 176px;
+	/*height: 89px;*/
 	position: relative;
 	margin-top: -4px;
 }
 #contentRight .picsitem .breakline{
-	width: 204px;
+	width: 156px;
 	height: 2px;
 	left: 10px;
-	top: 8px;
+	/*top: 8px;*/
 	position: absolute;
 	background-color: #c9cbcd;
 }
@@ -317,13 +318,13 @@ input:-moz-placeholder {
 }
 #contentRight .picsitem .picsitemlower .commentcontainer{
 	width: 160px;
-	height: 32px;
+	height: auto;
 	position: absolute;
 	top: 32px;
 	left: 8px;
 	color: #2c3055;
 	font-size: 12px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 #contentRight .picsitem .picsitemlower .commentcontainer .commenttopic{
 	width: 160px;
@@ -333,7 +334,7 @@ input:-moz-placeholder {
 	font-size: 12px;
 }
 #contentRight .picsitem .picsitemlower .usersprofiles{
-	width: 208px;
+	width: 160px;
 	height: 32px;
 	position: absolute;
 	top: 16px;
@@ -343,11 +344,12 @@ input:-moz-placeholder {
 	width: 40px;
 	height: 40px;
 	border-radius: 20px;
-	position: relative;
-	float: right;
+	position: absolute;
+	/*position: relative;
+	float: right;*/
 }
 #contentRight .picsitem .picsitemlower .usersprofilesupper{
-	width: 208px;
+	width: 160px;
 	height: 32px;
 	position: absolute;
 	top: 16px;
@@ -358,19 +360,21 @@ input:-moz-placeholder {
 	width: 40px;
 	height: 40px;
 	border-radius: 20px;
-	position: relative;
-	float: right;
+	/*position: relative;
+	float: right;*/
+	display: none;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc{
-	width: 224px;
+	width: 176px;
 	height: 16px;
 	position: absolute;
-	top: 72px;
+	/*top: 72px;*/
 	left: 8px;
 	font-size: 12px;
 	color: #2c3055;
 	font-weight: bold;
 }
+/*
 #contentRight .picsitem .picsitemlower .bottomfunc .readmore{
 	width: 80px;
 	height: 16px;
@@ -386,14 +390,15 @@ input:-moz-placeholder {
 	height: 9px;
 	position: absolute;
 }
+*/
 #contentRight .picsitem .picsitemlower .bottomfunc .feedbackpic{
-	left: 104px;
+	left: 4px;
 	width: 12px;
 	height: 12px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .feedback{
-	left: 118px;
+	left: 16px;
 	width: 16px;
 	height: 16px;
 	top: -2px;
@@ -402,13 +407,13 @@ input:-moz-placeholder {
 	color: #4568b1;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .forwardpic{
-	left: 140px;
+	left: 64px;
 	width: 12px;
 	height: 12px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .forwardnum{
-	left: 154px;
+	left: 76px;
 	width: 16px;
 	height: 16px;
 	top: -2px;
@@ -417,13 +422,13 @@ input:-moz-placeholder {
 	color: #4568b1;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .praisepic{
-	left: 176px;
+	left: 124px;
 	width: 12px;
 	height: 12px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .bottomfunc .praise{
-	left: 190px;
+	left: 136px;
 	width: 16px;
 	height: 16px;
 	top: -2px;

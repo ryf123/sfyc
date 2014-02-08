@@ -196,22 +196,33 @@ function arrangeStyle_bef(){
 			tempbkg.style.display = "none";
 		}
 		//整理图片大小
-		tempbkg.style.width = String(linewidth - 20) + "px";
-		tempbkg.style.height = String(1.0 * (linewidth - 20) / 2) + "px";
+		tempbkg.style.width = String(linewidth) + "px";
+		tempbkg.style.height = String(1.0 * linewidth / 2) + "px";
 		tempimg = document.getElementById("picsnb" + String(r) + "-0");
-		tempimg.style.width = String(linewidth - 20) + "px";
-		tempimg.style.height = String(1.0 * (linewidth - 20) / tempratio) + "px";
+		tempimg.style.width = String(linewidth) + "px";
+		tempimg.style.height = String(1.0 * linewidth / tempratio) + "px";
 		tempfrm = document.getElementById("upicsframe" + String(r) + "-0");
-		tempfrm.style.width = String(linewidth - 20) + "px";
-		tempfrm.style.height = String(1.0 * (linewidth - 20) / tempratio) + "px";
+		tempfrm.style.width = String(linewidth) + "px";
+		tempfrm.style.height = String(1.0 * linewidth / tempratio) + "px";
 		//整理文字区
-		tpitem = document.getElementById("commentcontainer" + String(r));
-		tpiteminner = document.getElementById("commenttopic" + String(r));
-		while (tpiteminner.clientHeight > tpitem.clientHeight + 4){
-			tptext = tpiteminner.innerText.replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "...");
+		tpitem = document.getElementById("commenttopic" + String(r));
+		//tpiteminner = document.getElementById("commenttopic" + String(r));
+		//while (tpiteminner.clientHeight > tpitem.clientHeight + 4){
+			//tptext = tpiteminner.innerText.replace(/(\s)*([a-zA-Z0-9]+|\W)(\.\.\.)?$/, "...");
 			//alert(tptext);
-			tpiteminner.innerText = tptext;
-		};
+			//tpiteminner.innerText = tptext;
+		//};
+		tpiteminner = document.getElementById("bottomfunc" + String(r));
+		//if(r == 0){
+			//alert(tpitem.clientHeight);
+		//}
+		tpiteminner.style.top = String(tpitem.clientHeight + 42) + "px";
+		tpiteminner = document.getElementById("picsitemlower" + String(r));
+		tpiteminner.style.height = String(tpitem.clientHeight + 120) + "px";
+		tpiteminner = document.getElementById("usershead" + String(r));
+		tpiteminner.style.top = String(tpitem.clientHeight + 54) + "px";
+		tpiteminner = document.getElementById("breakline" + String(r));
+		tpiteminner.style.top = String(tpitem.clientHeight + 58) + "px";
 		if(r < columns){ //位于第一行
 			tempobj.style.top = "24px";
 			columnHeight[r] = tempobj.clientHeight + 24;

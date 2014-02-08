@@ -256,9 +256,9 @@
 									echo "<script type='text/javascript'>init_everyphotoarray($seqindex);</script>";
 									$seqindex++;
 								echo "</div>";
-								echo "<div class='picsitemlower'>";
+								echo "<div id='picsitemlower$c' class='picsitemlower'>";
 									//分割线
-									echo "<div class='breakline'></div>";
+									echo "<div id='breakline$c' class='breakline'></div>";
 									//图片文字
 									echo "<div class='usersname'>$username";
 									echo "：</div>";
@@ -267,7 +267,7 @@
 									echo "</div>";
 									//用户资料
 									echo "<div class='usersprofiles'>";
-										echo "<div class='usershead'>";
+										echo "<div id='usershead$c' class='usershead'>";
 											echo "<image src=".$user_photo." class='usershead'></image>";
 										echo "</div>";
 									echo "</div>";
@@ -277,18 +277,18 @@
 										echo "</div>";
 									echo "</div>";
 									//更多，回复，转发，赞
-									echo "<div class='bottomfunc'>";
-										echo "<div class='readmore'>READ MORE</div>";
-										echo "<img src='images/ReadmoreArrow.png' class='readmorearrow'></img>";
+									echo "<div id='bottomfunc$c' class='bottomfunc'>";
+										//echo "<div class='readmore'>READ MORE</div>";
+										//echo "<img src='images/ReadmoreArrow.png' class='readmorearrow'></img>";
 										//回复
 										echo "<img src='images/CommentRTPic1.png' class='feedbackpic'></img>";
-										echo "<div class='feedback'>256</div>";
+										echo "<div class='feedback'>99</div>";
 										//转发
 										echo "<img src='images/CommentRTPic2.png' class='forwardpic'></img>";
-										echo "<div class='forwardnum'>128</div>";
+										echo "<div class='forwardnum'>99</div>";
 										//赞
 										echo "<img src='images/CommentRTPic3.png' class='praisepic'></img>";
-										echo "<div class='praise'>128</div>";
+										echo "<div class='praise'>99</div>";
 									echo "</div>";
 								echo "</div>";
 							echo "</div>";
@@ -301,7 +301,7 @@
 					?>
 				</div>
 				<!-- 读取完毕开始整理 -->
-				<script type='text/javascript'>arrangeStyle_again(4, 224, 16, "news");</script>
+				<script type='text/javascript'>arrangeStyle_again(5, 176, 16, "news");</script>
 			</div>
 
 			<!--footer块是放置页脚信息的-->
