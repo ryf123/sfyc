@@ -121,85 +121,6 @@
 
 			<!-- content块分contentLeft和contentRight,放置主要内容-->
 			<div id="content">
-				<!--
-				<div id="contentLeft">
-					<div id="cat" class="browserlv1">
-						<div id="cats" class="browsertop">
-							Cats
-							<hr/>
-						</div>
-						<div id="cat1" class="browserlv2">
-							Cat1
-							<hr/>
-						</div>
-						<div id="cat2" class="browserlv2">
-							Cat2
-							<hr/>
-						</div>
-						<div id="cat3" class="browserlv2">
-							Cat3
-							<hr/>
-						</div>
-					</div>
-					<div id="dog" class="browserlv1">
-						<div id="dogs" class="browsertop">
-							Dogs
-							<hr/>
-						</div>
-						<div id="dog1" class="browserlv2">
-							Dog1
-							<hr/>
-						</div>
-						<div id="dog2" class="browserlv2">
-							Dog2
-							<hr/>
-						</div>
-						<div id="dog3" class="browserlv2">
-							Dog3
-							<hr/>
-						</div>
-					</div>
-					<div id="fish" class="browserlv1">
-						<div id="fishes" class="browsertop">
-							Fishes
-							<hr/>
-						</div>
-						<div id="fish1" class="browserlv2">
-							Fish1
-							<hr/>
-						</div>
-						<div id="fish2" class="browserlv2">
-							Fish2
-							<hr/>
-						</div>
-						<div id="fish3" class="browserlv2">
-							Fish3
-							<hr/>
-						</div>
-					</div>
-					<br/>
-					<hr/>
-					<br/>
-					<div id="custom" class="browserlv1">
-						<div id="customs" class="browsertop">
-							Custom
-							<hr/>
-						</div>
-						<div id="custom1" class="browserlv2">
-							Custom1
-							<hr/>
-						</div>
-						<div id="custom2" class="browserlv2">
-							Custom2
-							<hr/>
-						</div>
-						<div id="custom3" class="browserlv2">
-							Custom3
-							<hr/>
-						</div>
-					</div>
-				</div>
-				-->
 				
 				<!-- contentRight块现在放一些图片-->
 				<div id="contentRight">
@@ -228,6 +149,7 @@
 										if($photo_ratio_array[$photo_counter][0]!=0){
 											$ratio = $photo_ratio_array[$photo_counter][0]/$photo_ratio_array[$photo_counter][1];
 										}
+										//echo "<script>alert('Got the ratio$ratio');</script>";
 										echo "<div class='photoratiofrm'>";
 											echo "<input type='text' class='photoratios' id='photoratio$c-$f' style='display:none'></input>";
 											echo "<script>document.getElementById('photoratio$c-$f').value='$ratio';</script>";
@@ -235,22 +157,15 @@
 										//设定该张图片的归属
 										echo "<div id='upicsframe$c-$f' class='upicsframes'>";
 											echo "<img src=$photo class='upicsinner' id='picsnb$c-$f' onload='onloadtest(this, $seqindex, $f);' onerror='picloaderror(this, $seqindex, $f);' style='display:none'>";
-												//echo "<script type='text/javascript'>";
-													//echo "alert(typeof(this) + ' $seqindex ' + ' detected');";
-													//echo "var neoImg;";
-													//echo "neoImg = document.getElementById('picsnb$c-$f');";
-													//echo "neoImg = this;";
-													//echo "alert(document.getElementById('picsnb$c-$f').src);";
-													//echo "setpiconload(this);";
-												//echo "</script>";
 											echo "</img>";
 											echo "<img src='images/pref.png' id='picsnb$c-$f-bk' class='upicsinner_bk' style='display:none'>";
 											echo "</img>";
 										echo "</div>";
 										echo "<script type='text/javascript'>set_photoratios($seqindex, $f, $ratio);</script>";
 										$f++;
+										$photo_counter++;
 										echo "<script type='text/javascript'>add_all_pics();</script>";
-										break;
+										//break;
 									}
 									$e = count($photo_array);
 									echo "<script type='text/javascript'>init_everyphotoarray($seqindex);</script>";

@@ -607,6 +607,7 @@
 										if($photo_ratio_array[$photo_counter][0]!=0){
 											$ratio = $photo_ratio_array[$photo_counter][0]/$photo_ratio_array[$photo_counter][1];
 										}
+										//echo "<script>alert('Got the ratio$ratio');</script>";
 										echo "<div class='photoratiofrm'>";
 											echo "<input type='text' class='photoratios' id='photoratio$c-$f' style='display:none'></input>";
 											echo "<script>document.getElementById('photoratio$c-$f').value='$ratio';</script>";
@@ -614,30 +615,23 @@
 										//设定该张图片的归属
 										echo "<div id='upicsframe$c-$f' class='upicsframes'>";
 											echo "<img src=$photo class='upicsinner' id='picsnb$c-$f' onload='onloadtest(this, $seqindex, $f);' onerror='picloaderror(this, $seqindex, $f);' style='display:none'>";
-												//echo "<script type='text/javascript'>";
-													//echo "alert(typeof(this) + ' $seqindex ' + ' detected');";
-													//echo "var neoImg;";
-													//echo "neoImg = document.getElementById('picsnb$c-$f');";
-													//echo "neoImg = this;";
-													//echo "alert(document.getElementById('picsnb$c-$f').src);";
-													//echo "setpiconload(this);";
-												//echo "</script>";
 											echo "</img>";
 											echo "<img src='images/pref.png' id='picsnb$c-$f-bk' class='upicsinner_bk' style='display:none'>";
 											echo "</img>";
 										echo "</div>";
 										echo "<script type='text/javascript'>set_photoratios($seqindex, $f, $ratio);</script>";
 										$f++;
+										$photo_counter++;
 										echo "<script type='text/javascript'>add_all_pics();</script>";
-										break;
+										//break;
 									}
 									$e = count($photo_array);
 									echo "<script type='text/javascript'>init_everyphotoarray($seqindex);</script>";
 									$seqindex++;
 								echo "</div>";
-								echo "<div class='picsitemlower'>";
+								echo "<div id='picsitemlower$c' class='picsitemlower'>";
 									//分割线
-									echo "<div class='breakline'></div>";
+									echo "<div id='breakline$c' class='breakline'></div>";
 									//图片文字
 									echo "<div class='usersname'>$username";
 									echo "：</div>";
@@ -646,7 +640,7 @@
 									echo "</div>";
 									//用户资料
 									echo "<div class='usersprofiles'>";
-										echo "<div class='usershead'>";
+										echo "<div id='usershead$c' class='usershead'>";
 											echo "<image src=".$user_photo." class='usershead'></image>";
 										echo "</div>";
 									echo "</div>";
@@ -656,18 +650,18 @@
 										echo "</div>";
 									echo "</div>";
 									//更多，回复，转发，赞
-									echo "<div class='bottomfunc'>";
-										echo "<div class='readmore'>READ MORE</div>";
-										echo "<img src='images/ReadmoreArrow.png' class='readmorearrow'></img>";
+									echo "<div id='bottomfunc$c' class='bottomfunc'>";
+										//echo "<div class='readmore'>READ MORE</div>";
+										//echo "<img src='images/ReadmoreArrow.png' class='readmorearrow'></img>";
 										//回复
 										echo "<img src='images/CommentRTPic1.png' class='feedbackpic'></img>";
-										echo "<div class='feedback'>256</div>";
+										echo "<div class='feedback'>99</div>";
 										//转发
 										echo "<img src='images/CommentRTPic2.png' class='forwardpic'></img>";
-										echo "<div class='forwardnum'>128</div>";
+										echo "<div class='forwardnum'>99</div>";
 										//赞
 										echo "<img src='images/CommentRTPic3.png' class='praisepic'></img>";
-										echo "<div class='praise'>128</div>";
+										echo "<div class='praise'>99</div>";
 									echo "</div>";
 								echo "</div>";
 							echo "</div>";

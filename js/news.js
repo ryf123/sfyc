@@ -185,25 +185,28 @@ function arrangeStyle_bef(){
 	for(var r = 0; r < itemscount; r++){
 		tempobj = document.getElementById("picsitemnb" + String(r));
 		//alert(document.getElementById("photoratio" + String(r)));
-		tempratio = photoratios[r][0];
-		//tempratio = parseFloat(document.getElementById("photoratio" + String(r) + "-0").value);
-		//tempratio = (tempratio == 0 ? 2 : tempratio);
-		tempbkg = document.getElementById("picsnb" + String(r) + "-0" + "-bk");
-		if(tempratio < 0){ //图片获取错误
-			tempratio = 2;
-			tempbkg.style.display = "inline";
-		}else{ //图片获取正确
-			tempbkg.style.display = "none";
+		for(var q = 0; q < photoratios[r].length; q++){
+			tempratio = photoratios[r][q];
+			//tempratio = parseFloat(document.getElementById("photoratio" + String(r) + "-0").value);
+			//tempratio = (tempratio == 0 ? 2 : tempratio);
+			tempbkg = document.getElementById("picsnb" + String(r) + "-" + String(q) + "-bk");
+			if(tempratio < 0){ //图片获取错误
+				tempratio = 2;
+				tempbkg.style.display = "inline";
+			}else{ //图片获取正确
+				tempbkg.style.display = "none";
+			}
+			//整理图片大小
+			tempbkg.style.width = String(linewidth) + "px";
+			tempbkg.style.height = String(1.0 * linewidth / 2) + "px";
+			tempimg = document.getElementById("picsnb" + String(r) + "-" + String(q));
+			tempimg.style.width = String(linewidth) + "px";
+			tempimg.style.height = String(1.0 * linewidth / tempratio) + "px";
+			tempfrm = document.getElementById("upicsframe" + String(r) + "-" + String(q));
+			tempfrm.style.width = String(linewidth) + "px";
+			tempfrm.style.height = String(1.0 * linewidth / tempratio) + "px";
 		}
-		//整理图片大小
-		tempbkg.style.width = String(linewidth) + "px";
-		tempbkg.style.height = String(1.0 * linewidth / 2) + "px";
-		tempimg = document.getElementById("picsnb" + String(r) + "-0");
-		tempimg.style.width = String(linewidth) + "px";
-		tempimg.style.height = String(1.0 * linewidth / tempratio) + "px";
-		tempfrm = document.getElementById("upicsframe" + String(r) + "-0");
-		tempfrm.style.width = String(linewidth) + "px";
-		tempfrm.style.height = String(1.0 * linewidth / tempratio) + "px";
+		
 		//整理文字区
 		tpitem = document.getElementById("commenttopic" + String(r));
 		//tpiteminner = document.getElementById("commenttopic" + String(r));
