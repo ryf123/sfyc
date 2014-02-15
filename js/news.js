@@ -132,7 +132,7 @@ function set_image_init(aindex, bindex){
 function arrangeStyle_again(cols, wid, intr, wrk){
 	columns = cols;
 	linewidth = wid;
-	marginVertical = intr;
+	marginVertical = intr - 12;
 	marginHorizontal = intr;
 	workingarea = wrk;
 	if(arranged == false){
@@ -198,13 +198,13 @@ function arrangeStyle_bef(){
 			}
 			//整理图片大小
 			tempbkg.style.width = String(linewidth) + "px";
-			tempbkg.style.height = String(1.0 * linewidth / 2) + "px";
+			tempbkg.style.height = String(Math.floor(1.0 * linewidth / 2)) + "px";
 			tempimg = document.getElementById("picsnb" + String(r) + "-" + String(q));
 			tempimg.style.width = String(linewidth) + "px";
-			tempimg.style.height = String(1.0 * linewidth / tempratio) + "px";
+			tempimg.style.height = String(Math.floor(1.0 * linewidth / tempratio)) + "px";
 			tempfrm = document.getElementById("upicsframe" + String(r) + "-" + String(q));
 			tempfrm.style.width = String(linewidth) + "px";
-			tempfrm.style.height = String(1.0 * linewidth / tempratio) + "px";
+			tempfrm.style.height = String(Math.floor(1.0 * linewidth / tempratio)) + "px";
 		}
 		
 		//整理文字区
@@ -219,15 +219,21 @@ function arrangeStyle_bef(){
 		//if(r == 0){
 			//alert(tpitem.clientHeight);
 		//}
-		tpiteminner.style.top = String(tpitem.clientHeight + 42) + "px";
+		tpiteminner.style.top = String(tpitem.clientHeight + 36) + "px";
 		tpiteminner = document.getElementById("picsitemlower" + String(r));
-		tpiteminner.style.height = String(tpitem.clientHeight + 120) + "px";
+		tpiteminner.style.height = String(tpitem.clientHeight + 104) + "px";
 		tpiteminner = document.getElementById("usershead" + String(r));
 		tpiteminner.style.top = String(tpitem.clientHeight + 54) + "px";
 		tpiteminner = document.getElementById("breakline" + String(r));
-		tpiteminner.style.top = String(tpitem.clientHeight + 58) + "px";
+		tpiteminner.style.left = "0px";
+		tpiteminner.style.width = String(linewidth) + "px";
+		tpiteminner.style.top = String(tpitem.clientHeight - 57) + "px";
+		tpiteminner = document.getElementById("expandbtn" + String(r));
+		tpitem = document.getElementById("picsitemmiddle" + String(r));
+		tpiteminner.style.top = String(tpitem.clientHeight - 17) + "px";
+		tpiteminner.style.zIndex = 20;
 		if(r < columns){ //位于第一行
-			tempobj.style.top = "24px";
+			tempobj.style.top = "12px";
 			columnHeight[r] = tempobj.clientHeight + 24;
 			tempobj.style.left = String(24 + Math.floor((r % columns) * (tempobj.clientWidth + marginHorizontal))) + "px";
 		}else{ //位于第一行之下
@@ -248,8 +254,6 @@ function arrangeStyle_bef(){
 	tempht = columnHeight.max();
 	if(workingarea == "myspace"){
 		document.getElementById("postscontent_pic").style.height = String(tempht - 8) + "px";
-		//alert(document.getElementById("postscontent_pic").clientHeight);
-		//alert(document.getElementById("contentLeft").clientHeight);
 		cleft = document.getElementById("contentLeft");
 		cleft.style.height = String(document.getElementById("postscontent_pic").clientHeight + 288) + "px";
 		movablecat = document.getElementById("left-btmcat");
@@ -264,31 +268,16 @@ function arrangeStyle_bef(){
 		//document.getElementById("contentRight").style.display = "inline";
 		document.getElementById("contentRight").style.height = String(tempht - 8) + "px";
 	}
-	//除图片外，其他的元素也要缩小处理
-	/*
-	tempobj = document.getElementById("menulogoimg");
-	tempobj.style.width = "180px";
-	tempobj.style.height = "65px";
-	tempobj = document.getElementById("board_outer");
-	//alert(String(tempobj.clientWidth) + "   " + String(tempobj.clientHeight));
-	tempobj.style.width = "1000px";
-	tempobj.style.height = "96px";
-	for(var k = 0; k < 6; k++){
-		tempobj = document.getElementById("divoption" + String(k) + "img");
-		tempobj.style.width = "96px";
-		tempobj.style.height = "64px";
-	}
-	*/
+}
+//鼠标移进、移出展开按钮的动作
+function expand_mousein(obj){
+	obj.style.opacity = 0.8;
+}
+function expand_mouseout(obj){
+	obj.style.opacity = 0.2;
 }
 
-/*
-		tempcolor1 = Math.floor(Math.random() * 32 + 224);
-		tempcolor2 = Math.floor(Math.random() * 32 + 224);
-		tempcolor3 = Math.floor(Math.random() * 32 + 224);
-*/
-
 //最小值
-
 Array.prototype.min = function(){
 	var min = this[0];
 	var len = this.length;

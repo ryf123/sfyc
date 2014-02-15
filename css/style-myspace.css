@@ -997,6 +997,17 @@ input:-moz-placeholder {
 	z-index: -1;
 	left: 0px;
 }
+#posts #postscontent_pic .picsitem .picsitemmiddle .expandbtn{
+	width: 176px;
+	height: 16px;
+	background-color: #ffffff;
+	top: -16px;
+	overflow: hidden;
+	text-align: center;
+	position: absolute;
+	opacity: 0.2;
+	cursor: pointer;
+}
 #posts #postscontent_pic .picsitem .picsitemlower{
 	width: 304px;
 	height: 89px;

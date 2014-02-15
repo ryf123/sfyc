@@ -138,7 +138,7 @@
 							$username = $topic[1];
 							$user_photo = $topic[2];
 							echo "<div class='picsitem' id='picsitemnb$c' style='display:none'>";
-								echo "<div class='picsitemmiddle'>";
+								echo "<div id='picsitemmiddle$c' class='picsitemmiddle'>";
 									$photo_ratio_array = $topic[3];
 									$photo_array = $topic[4];
 									$photo_counter = 0;
@@ -167,6 +167,10 @@
 										echo "<script type='text/javascript'>add_all_pics();</script>";
 										//break;
 									}
+									//扩展按钮
+									echo "<div id='expandbtn$c' class='expandbtn' onmouseover='expand_mousein(this);' onmouseout='expand_mouseout(this);'>";
+									echo "展开...";
+									echo "</div>";
 									$e = count($photo_array);
 									echo "<script type='text/javascript'>init_everyphotoarray($seqindex);</script>";
 									$seqindex++;
@@ -216,7 +220,7 @@
 					?>
 				</div>
 				<!-- 读取完毕开始整理 -->
-				<script type='text/javascript'>arrangeStyle_again(5, 176, 16, "news");</script>
+				<script type='text/javascript'>arrangeStyle_again(5, 176, 18, "news");</script>
 			</div>
 
 			<!--footer块是放置页脚信息的-->
