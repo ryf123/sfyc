@@ -12,6 +12,8 @@ var photoloadarray = [];
 var overallpics = 0;
 var loadedpics = 0;
 var photoratios = [];
+var expanded = [];
+var compressed = [];
 
 Image.prototype.atgroup = [];
 
@@ -171,6 +173,7 @@ function arrangeStyle_bef(){
 	var tptext;
 	var movablecat;
 	var cleft;
+	var tempbtn;
 	//检查浏览器
 	var browserCfg = {};
     var ua = window.navigator.userAgent;
@@ -224,12 +227,48 @@ function arrangeStyle_bef(){
 		tpiteminner.style.height = String(tpitem.clientHeight + 104) + "px";
 		tpiteminner = document.getElementById("usershead" + String(r));
 		tpiteminner.style.top = String(tpitem.clientHeight + 54) + "px";
+		tpiteminner = document.getElementById("usersnamelower" + String(r));
+		tpiteminner.style.top = String(tpitem.clientHeight + 46) + "px";
 		tpiteminner = document.getElementById("breakline" + String(r));
 		tpiteminner.style.left = "0px";
 		tpiteminner.style.width = String(linewidth) + "px";
 		tpiteminner.style.top = String(tpitem.clientHeight - 57) + "px";
 		tpiteminner = document.getElementById("expandbtn" + String(r));
 		tpitem = document.getElementById("picsitemmiddle" + String(r));
+		//alert(String(tpitem.clientHeight) + "    " + String(expanded[r]));
+		tempbtn = document.getElementById("expandbtn" + String(r));
+		if(expanded[r] == false){
+			if(compressed[r] != undefined){
+				if(compressed[r]){
+					//没扩展，被压缩
+					tpitem.style.height = "400px";
+					tempbtn.style.display = "block";
+				}else{
+					//没扩展，没压缩
+					tpitem.style.height = "auto";
+					tempbtn.style.display = "none";
+				}
+			}else{
+				//判断一下是否被压缩
+				if(tpitem.clientHeight > 0){ //必须正确读取
+					if(tpitem.clientHeight > 400){
+						compressed[r] = true;
+						tpitem.style.height = "400px";
+						tempbtn.style.display = "block";
+					}else{
+						compressed[r] = false;
+						tpitem.style.height = "auto";
+						tempbtn.style.display = "none";
+					}
+				}else{
+					compressed[r] = undefined;
+				}
+			}
+		}else{
+			compressed[r] = false;
+			tpitem.style.height = "auto";
+			tempbtn.style.display = "none";
+		}
 		tpiteminner.style.top = String(tpitem.clientHeight - 17) + "px";
 		tpiteminner.style.zIndex = 20;
 		if(r < columns){ //位于第一行
@@ -275,6 +314,10 @@ function expand_mousein(obj){
 }
 function expand_mouseout(obj){
 	obj.style.opacity = 0.2;
+}
+function expand_click(iindex){
+	expanded[iindex] = true;
+	arrangeStyle_bef();
 }
 
 //最小值

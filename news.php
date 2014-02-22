@@ -167,10 +167,16 @@
 										echo "<script type='text/javascript'>add_all_pics();</script>";
 										//break;
 									}
-									//扩展按钮
-									echo "<div id='expandbtn$c' class='expandbtn' onmouseover='expand_mousein(this);' onmouseout='expand_mouseout(this);'>";
-									echo "展开...";
+									echo "<div id='upicsmask$c' class='upicsmasks'>";
+										echo "<img src='images/topcircle.png'></img>";
 									echo "</div>";
+									echo "<script type='text/javascript'>expanded[$c] = false;</script>";
+									//扩展按钮
+									//echo "<div id='expandbtn$c' class='expandbtn' onmouseover='expand_mousein(this);' onmouseout='expand_mouseout(this);'>";
+									echo "<div id='expandbtn$c' class='expandbtn' onclick='expand_click($c);'>";
+									echo "展开";
+									echo "</div>";
+									//echo "<script type='text/javascript'>alert($c);</script>";
 									$e = count($photo_array);
 									echo "<script type='text/javascript'>init_everyphotoarray($seqindex);</script>";
 									$seqindex++;
@@ -193,6 +199,9 @@
 									echo "<div class='usersprofilesupper'>";
 										echo "<div class='usershead'>";
 											echo "<image src=".$user_photo." class='usersheadring'></image>";
+										echo "</div>";
+										echo "<div id='usersnamelower$c' class='usersnamelower'>";
+											echo "$username";
 										echo "</div>";
 									echo "</div>";
 									//更多，回复，转发，赞
