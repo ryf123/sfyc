@@ -170,6 +170,7 @@ function arrangeStyle_bef(){
 	var divH = 0;
 	var tpitem;
 	var tpiteminner;
+	var tpline;
 	var tptext;
 	var movablecat;
 	var cleft;
@@ -229,10 +230,6 @@ function arrangeStyle_bef(){
 		tpiteminner.style.top = String(tpitem.clientHeight + 54) + "px";
 		tpiteminner = document.getElementById("usersnamelower" + String(r));
 		tpiteminner.style.top = String(tpitem.clientHeight + 46) + "px";
-		tpiteminner = document.getElementById("breakline" + String(r));
-		tpiteminner.style.left = "0px";
-		tpiteminner.style.width = String(linewidth) + "px";
-		tpiteminner.style.top = String(tpitem.clientHeight - 57) + "px";
 		tpiteminner = document.getElementById("expandbtn" + String(r));
 		tpitem = document.getElementById("picsitemmiddle" + String(r));
 		//alert(String(tpitem.clientHeight) + "    " + String(expanded[r]));
@@ -269,8 +266,28 @@ function arrangeStyle_bef(){
 			tpitem.style.height = "auto";
 			tempbtn.style.display = "none";
 		}
-		tpiteminner.style.top = String(tpitem.clientHeight - 17) + "px";
+		tpiteminner.style.top = String(tpitem.clientHeight - 15) + "px";
 		tpiteminner.style.zIndex = 20;
+		tpline = document.getElementById("breakline" + String(r));
+		tpline.style.left = "0px";
+		tpline.style.width = String(linewidth) + "px";
+		tpline.style.zIndex = 900;
+		tpline.style.top = "3px";
+		tpline = document.getElementById("breaklinelower" + String(r));
+		tpline.style.left = "0px";
+		tpline.style.width = String(linewidth) + "px";
+		tpline.style.zIndex = 900;
+		//alert(document.getElementById("commenttopic" + String(r)).clientHeight);
+		tpline.style.top = String(document.getElementById("commenttopic" + String(r)).clientHeight + 54) + "px";
+		/*
+		if(tempbtn.style.display == "none"){
+			//alert("不可见");
+			tpline.style.display == "none";
+		}else{
+			tpline.style.top = String(tempbtn.style.top + 110) + "px";
+			tpline.style.display == "block";
+		}
+		*/
 		if(r < columns){ //位于第一行
 			tempobj.style.top = "12px";
 			columnHeight[r] = tempobj.clientHeight + 24;

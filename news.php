@@ -190,8 +190,10 @@
 									echo "<div class='commentcontainer' id='commentcontainer$c'>";
 										echo "<div class='commenttopic' id='commenttopic$c'>".$content."</div>";
 									echo "</div>";
+									//分割线2
+									echo "<div id='breaklinelower$c' class='breaklinelower'></div>";
 									//用户资料
-									echo "<div class='usersprofiles'>";
+									echo "<div id='usersprofile$c' class='usersprofiles'>";
 										echo "<div id='usershead$c' class='usershead'>";
 											echo "<image src=".$user_photo." class='usershead'></image>";
 										echo "</div>";

@@ -309,17 +309,28 @@ input:-moz-placeholder {
 	text-align: center;
 	position: absolute;
 	/*opacity: 0.2;*/
+	color: #2c3055;
 	cursor: pointer;
+	font-size: 12px;
 }
 #contentRight .picsitem .picsitemlower{
 	width: 176px;
 	/*height: 89px;*/
 	position: relative;
 	margin-top: -4px;
+	margin-bottom: -8px;
 }
 #contentRight .picsitem .breakline{
 	width: 156px;
-	height: 2px;
+	height: 1px;
+	left: 10px;
+	/*top: 8px;*/
+	position: absolute;
+	background-color: #c9cbcd;
+}
+#contentRight .picsitem .breaklinelower{
+	width: 156px;
+	height: 1px;
 	left: 10px;
 	/*top: 8px;*/
 	position: absolute;
@@ -357,13 +368,13 @@ input:-moz-placeholder {
 	width: 160px;
 	height: 32px;
 	position: absolute;
-	top: 0px;
+	top: 8px;
 	left: 8px;
 }
 #contentRight .picsitem .picsitemlower .usersprofiles .usershead{
-	width: 40px;
-	height: 40px;
-	border-radius: 20px;
+	width: 28px;
+	height: 28px;
+	border-radius: 14px;
 	position: absolute;
 }
 #contentRight .picsitem .picsitemlower .usersprofilesupper{
@@ -377,14 +388,16 @@ input:-moz-placeholder {
 #contentRight .picsitem .picsitemlower .usersprofilesupper .usersnamelower{
 	width: auto;
 	height: 24px;
-	font-size: 20px;
-	left: 48px;
-	position: absolute;
+	font-size: 12px;
+	position: relative;
+	margin-top: 6px;
+	margin-right: 8px;
+	float: right;
 }
 #contentRight .picsitem .picsitemlower .usersprofilesupper .usersheadring{
-	width: 40px;
-	height: 40px;
-	border-radius: 20px;
+	width: 28px;
+	height: 28px;
+	border-radius: 14px;
 	/*position: relative;
 	float: right;*/
 	display: none;
