@@ -314,6 +314,13 @@ function arrangeStyle_bef(){
 		tempcolor3 = 255;
 		tempobj.style.backgroundColor = "#" + (tempcolor1 * 65536 + tempcolor2 * 256 + tempcolor3).toString(16);
 		tempobj.style.display = "inline";
+		//更改数字
+		tempobj = document.getElementById("feedback" + String(r));
+		tempobj.innerHTML = String(Math.floor(990 * Math.random() + 10));
+		tempobj = document.getElementById("forwardnum" + String(r));
+		tempobj.innerHTML = String(Math.floor(990 * Math.random() + 10));
+		tempobj = document.getElementById("praise" + String(r));
+		tempobj.innerHTML = String(Math.floor(990 * Math.random() + 10));
 	}
 	tempht = columnHeight.max();
 	if(workingarea == "myspace"){

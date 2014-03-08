@@ -174,7 +174,8 @@
 									//扩展按钮
 									//echo "<div id='expandbtn$c' class='expandbtn' onmouseover='expand_mousein(this);' onmouseout='expand_mouseout(this);'>";
 									echo "<div id='expandbtn$c' class='expandbtn' onclick='expand_click($c);'>";
-									echo "展开";
+										echo "<div id='expandbtnback$c' class='expandbtnbacks'></div>";
+										echo "<div id='expandbtninner$c' class='expandbtninners'>展开</div>";
 									echo "</div>";
 									//echo "<script type='text/javascript'>alert($c);</script>";
 									$e = count($photo_array);
@@ -212,13 +213,13 @@
 										//echo "<img src='images/ReadmoreArrow.png' class='readmorearrow'></img>";
 										//回复
 										echo "<img src='images/CommentRTPic1.png' class='feedbackpic'></img>";
-										echo "<div class='feedback'>99</div>";
+										echo "<div id='feedback$c' class='feedback'>99</div>";
 										//转发
 										echo "<img src='images/CommentRTPic2.png' class='forwardpic'></img>";
-										echo "<div class='forwardnum'>99</div>";
+										echo "<div id='forwardnum$c' class='forwardnum'>99</div>";
 										//赞
 										echo "<img src='images/CommentRTPic3.png' class='praisepic'></img>";
-										echo "<div class='praise'>99</div>";
+										echo "<div id='praise$c' class='praise'>99</div>";
 									echo "</div>";
 								echo "</div>";
 							echo "</div>";
