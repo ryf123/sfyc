@@ -167,9 +167,9 @@
 										echo "<script type='text/javascript'>add_all_pics();</script>";
 										//break;
 									}
-									echo "<div id='upicsmask$c' class='upicsmasks'>";
-										echo "<img src='images/topcircle.png'></img>";
-									echo "</div>";
+									//echo "<div id='upicsmask$c' class='upicsmasks'>";
+										//echo "<img src='images/topcircle.png'></img>";
+									//echo "</div>";
 									echo "<script type='text/javascript'>expanded[$c] = false;</script>";
 									//扩展按钮
 									//echo "<div id='expandbtn$c' class='expandbtn' onmouseover='expand_mousein(this);' onmouseout='expand_mouseout(this);'>";

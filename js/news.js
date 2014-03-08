@@ -209,6 +209,14 @@ function arrangeStyle_bef(){
 			tempfrm = document.getElementById("upicsframe" + String(r) + "-" + String(q));
 			tempfrm.style.width = String(linewidth) + "px";
 			tempfrm.style.height = String(Math.floor(1.0 * linewidth / tempratio)) + "px";
+			//是否应该使用圆角处理（顶头图片）
+			if(q <= 0){
+				tempimg.style.borderTopLeftRadius = "4px";
+				tempimg.style.borderTopRightRadius = "4px";
+				tempimg = document.getElementById("picsnb" + String(r) + "-" + String(q) + "-bk");
+				tempimg.style.borderTopLeftRadius = "4px";
+				tempimg.style.borderTopRightRadius = "4px";
+			}
 		}
 		
 		//整理文字区
@@ -266,19 +274,19 @@ function arrangeStyle_bef(){
 			tpitem.style.height = "auto";
 			tempbtn.style.display = "none";
 		}
-		tpiteminner.style.top = String(tpitem.clientHeight - 15) + "px";
+		tpiteminner.style.top = String(tpitem.clientHeight - 23) + "px";
 		tpiteminner.style.zIndex = 20;
 		tpline = document.getElementById("breakline" + String(r));
 		tpline.style.left = "0px";
 		tpline.style.width = String(linewidth) + "px";
 		tpline.style.zIndex = 900;
-		tpline.style.top = "3px";
+		tpline.style.top = "4px";
 		tpline = document.getElementById("breaklinelower" + String(r));
 		tpline.style.left = "0px";
 		tpline.style.width = String(linewidth) + "px";
 		tpline.style.zIndex = 900;
 		//alert(document.getElementById("commenttopic" + String(r)).clientHeight);
-		tpline.style.top = String(document.getElementById("commenttopic" + String(r)).clientHeight + 54) + "px";
+		tpline.style.top = String(Math.floor(document.getElementById("commenttopic" + String(r)).clientHeight + 54)) + "px";
 		/*
 		if(tempbtn.style.display == "none"){
 			//alert("不可见");
